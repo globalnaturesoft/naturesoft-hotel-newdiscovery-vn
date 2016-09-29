@@ -23,15 +23,22 @@
 
     <!-- BASE CSS -->
     <%= stylesheet_link_tag "/frontend/css/base.css" %>
+    
+    <% if["naturesoft/hotel_newdiscovery_vn/home"].include?(params[:controller]) %>
+    <!-- REVOLUTION SLIDER CSS -->
+    <%= stylesheet_link_tag "/frontend/layerslider/css/layerslider.css" %>
+    <% end %>
+
+    <% if params[:controller] == 'naturesoft/articles/articles' && (params[:action] == 'listing' || params[:action] == 'detail') %>
+    <!-- CSS -->
+    <%= stylesheet_link_tag "/frontend/css/blog.css" %>
+    <% end %>
 
     <!-- Google web fonts -->
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat:400,700" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Gochi+Hand" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:300,400" %>
-
-    <!-- REVOLUTION SLIDER CSS -->
-    <%= stylesheet_link_tag "/frontend/layerslider/css/layerslider.css" %>
-
+    
     <!--[if lt IE 9]>
       <%= javascript_include_tag "/frontend/js/html5shiv.min.js" %>
       <%= javascript_include_tag "/frontend/js/respond.min.js" %>
@@ -76,14 +83,14 @@
 
     <div id="toTop"></div>
     <!-- Back to top button -->
-
-    <!-- Common scripts -->
+    
     <%= render "/modules/common_scripts" %>
 
-    <!-- Specific scripts -->
     <%= render "/modules/specific_scripts" %>
     
+    <% if["naturesoft/hotel_newdiscovery_vn/home"].include?(params[:controller]) %>
     <%= render "/modules/layerslider_script" %>
+    <% end %>
 
     <%= render "/modules/custom_script" %>
 </body>

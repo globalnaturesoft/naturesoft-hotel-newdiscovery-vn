@@ -1,3 +1,13 @@
+<% if["naturesoft/hotel_newdiscovery_vn/home"].include?(params[:controller]) %>
+<!-- Specific scripts -->
 <%= javascript_include_tag "/frontend/layerslider/js/greensock.js" %>
 <%= javascript_include_tag "/frontend/layerslider/js/layerslider.transitions.js" %>
 <%= javascript_include_tag "/frontend/layerslider/js/layerslider.kreaturamedia.jquery.js" %>
+<% end %>
+<% if["naturesoft/contacts/contacts"].include?(params[:controller]) %>
+<!-- Specific scripts -->
+<%= javascript_include_tag "/frontend/assets/validate.js" %>
+<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js" %>
+<%= javascript_include_tag "/frontend/js/map_contact.js" %>
+<%= javascript_include_tag "/frontend/js/infobox.js" %>
+<% end %>

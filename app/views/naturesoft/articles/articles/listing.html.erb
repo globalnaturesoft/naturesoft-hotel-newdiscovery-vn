@@ -1,0 +1,81 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/bg_blog.jpg" data-natural-width="1400" data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1>BLOG DU LỊCH</h1>
+            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+        </div>
+    </div>
+</section>
+<!-- End section -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li>Blog Du Lịch</li>
+        </ul>
+    </div>
+</div>
+<!-- End position -->
+
+<div class="container margin_60">
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="box_style_1">
+                <% (0..2).each do |item| %>
+                <div class="post">
+                    <%= link_to image_tag("/frontend/img/blog-3.jpg", alt: "", class: "img-responsive"), naturesoft_articles.detail_path %>
+                    <div class="post_info clearfix">
+                        <div class="post-left">
+                            <ul>
+                                <li><i class="icon-calendar-empty"></i> Đăng ngày <span>30/09/2016</span></li>
+                                <li><i class="icon-inbox-alt"></i> Chuyên mục: Blog du lịch</li>
+                                <li><i class="icon-tags"></i> Nhãn: <%= link_to "Đặt phòng khách sạn", "" %>, <%= link_to "Blog du lịch", "" %></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h2>Tiêu đề của blog du lịch</h2>
+                    <div class="text-justify">
+                        <p>
+                            Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
+                        </p>
+                        <p>
+                            Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
+                        </p>
+                    </div>
+                    <%= link_to "Đọc tiếp", naturesoft_articles.detail_path, class: "btn_1" %>
+                </div>
+                <!-- end post -->
+
+                <hr>
+                <% end %>
+            </div>
+            <hr>
+
+            <div class="text-center">
+                <ul class="pagination">
+                    <li><a href="">Trang trước</a></li>
+                    <li class="active"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">Trang sau</a></li>
+                </ul>
+                <!-- end pagination-->
+            </div>
+        </div>
+        <!-- End col-md-8-->
+
+        <aside class="col-md-3">
+
+            <%= render "/modules/blog_sidebar" %>
+
+        </aside>
+        <!-- End aside -->
+
+    </div>
+    <!-- End row-->
+</div>
+<!-- End container -->

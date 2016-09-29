@@ -8,38 +8,9 @@
 
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <ul id="top_links">
-                    <li>
-                        <div class="dropdown dropdown-access">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="access_link">Đăng nhập</a>
-                            <div class="dropdown-menu">
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <a href="" class="bt_facebook">
-                                            <i class="icon-facebook"></i>Facebook </a>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <a href="" class="bt_paypal">
-                                            <i class="icon-paypal"></i>Paypal </a>
-                                    </div>
-                                </div>
-                                <div class="login-or">
-                                    <hr class="hr-or">
-                                    <span class="span-or">hoặc</span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="inputUsernameEmail" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="inputPassword" placeholder="Mật khẩu">
-                                </div>
-                                <%= link_to "Quên mật khẩu?", "", id: "forgot_pw" %>
-                                <input type="submit" name="Sign_in" value="Đăng nhập" id="Sign_in" class="button_drop">
-                                <input type="submit" name="Sign_up" value="Đăng ký" id="Sign_up" class="button_drop outline">
-                            </div>
-                        </div>
-                        <!-- End Dropdown access -->
-                    </li>
-                    <li><a href="wishlist.html" id="wishlist_link">Khách sạn yêu thích</a></li>
+                    <li><%= link_to "Đăng nhập", naturesoft.login_path, id: "login_link" %></li>
+                    <li><%= link_to "Đăng ký", naturesoft.register_path, id: "access_link" %></li>
+                    <li><%= link_to "Khách sạn yêu thích", "", id: "wishlist_link" %></li>
                 </ul>
             </div>
         </div>

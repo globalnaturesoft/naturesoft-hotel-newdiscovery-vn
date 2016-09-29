@@ -16,11 +16,11 @@
 			'Contact': [
 			{
 				name: 'Address',
-				location_latitude: 48.870587, 
-				location_longitude: 2.318943,
-				map_image_url: 'img/thumb_map_1.jpg',
-				name_point: 'Address',
-				description_point: 'Place Charles de Gaulle, 75008 Paris<br>FRANCE<br><br>+45 423 445 99 / +45 423 445 99 ',
+				location_latitude: 10.761742, 
+				location_longitude: 106.665154,
+				map_image_url: '/frontend/img/thumb_map_1.jpg',
+				name_point: 'ĐỊA CHỈ CHI NHÁNH',
+				description_point: '114 Ngô Quyền, Phường 5, Quận 10<br>TP. Hồ Chí Minh, VIỆT NAM<br><br>(+84) 83 85 333 18 - (+84) 83 85 333 21',
 				url_point: ''
 			}
 			]
@@ -28,8 +28,8 @@
 		};
 
 			var mapOptions = {
-				zoom: 14,
-				center: new google.maps.LatLng(48.870587, 2.318943),
+				zoom: 16,
+				center: new google.maps.LatLng(10.761742, 106.665154),
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 
 				mapTypeControl: false,
@@ -65,7 +65,7 @@
 					marker = new google.maps.Marker({
 						position: new google.maps.LatLng(item.location_latitude, item.location_longitude),
 						map: mapObject,
-						icon: 'img/pins/' + key + '.png',
+						icon: '/frontend/img/pins/' + key + '.png',
 					});
 
 					if ('undefined' === typeof markers[key])
@@ -104,13 +104,11 @@
 				maxWidth: 0,
 				pixelOffset: new google.maps.Size(40, -190),
 				closeBoxMargin: '5px -20px 2px 2px',
-				closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+				closeBoxURL: "/frontend/img/close.gif",
 				isHidden: false,
 				pane: 'floatPane',
 				enableEventPropagation: true
 			});
-
-
 		};
 
 

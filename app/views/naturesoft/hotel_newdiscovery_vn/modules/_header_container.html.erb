@@ -13,8 +13,8 @@
                 </div>
                 <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                 <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="">Về chúng tôi</a></li>
+                    <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+                    <li><%= link_to "Về Chúng Tôi", naturesoft_articles.about_us_path %></li>
                     <li class="submenu">
                         <a href="javascript:void(0);" class="show-submenu">Khách sạn <i class="icon-down-open-mini"></i></a>
                         <ul>
@@ -28,9 +28,9 @@
                         </ul>
                     </li>
                     <li><a href="">Khuyến Mãi</a></li>
-                    <li><a href="">Blog Du Lịch</a></li>
+                    <li><%= link_to "Blog Du Lịch", naturesoft_articles.listing_path %></li>
                     <li><a href="">Voucher</a></li>
-                    <li><a href="">Liên Hệ</a></li>
+                    <li><%= link_to "Liên Hệ", naturesoft_contacts.contacts_path %></li>
                 </ul>
             </div>
             <!-- End main-menu -->
