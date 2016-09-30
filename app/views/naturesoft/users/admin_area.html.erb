@@ -1,0 +1,328 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
+<div class="parallax-content-1">
+    <div class="animated fadeInDown">
+        <h1>Hello Nguyễn Ngọc Sơn!</h1>
+        <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+    </div>
+</div>
+</section>
+<!-- End section -->
+
+<div id="position">
+<div class="container">
+    <ul>
+        <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+        <li>Trang thành viên</li>
+    </ul>
+</div>
+</div>
+<!-- End Position -->
+
+<div class="margin_60 container">
+<div id="tabs" class="tabs">
+    <nav>
+        <ul>
+            <li><a href="#section-1" class="icon-profile"><span>Thông tin thành viên</span></a></li>
+            <li><a href="#section-2" class="icon-booking"><span>Lịch sử đặt phòng</span></a></li>
+            <li><a href="#section-3" class="icon-wishlist"><span>Khách sạn yêu thích</span></a></li>
+            <li><a href="#section-4" class="icon-settings"><span>Cài đặt</span></a></li>
+        </ul>
+    </nav>
+    <div class="content">
+      
+        <section id="section-1">
+            <div class="row">
+                <div class="col-md-8 col-sm-6">
+                    <h4>Thông tin của bạn</h4>
+                    <ul id="profile_summary">
+                        <li>Email <span><a href="mailto:sonnn@hoangkhang.com.vn"></a>sonnn@hoangkhang.com.vn</span></li>
+                        <li>Họ <span>Nguyễn Ngọc</span></li>
+                        <li>Tên <span>Sơn</span></li>
+                        <li>Số điện thoại <span>(+84) 01644 406 123</span></li>
+                        <li>Ngày sinh <span>08/11/1994</span></li>
+                        <li>Địa chỉ <span>118 đường số 1, phường 16, quận Gò Vấp, TP. Hồ Chí Minh</span></li>
+                        <li>Tỉnh/Thành phố <span>TP. Hồ Chí Minh</span></li>
+                        <li>Mã Zip <span>002843</span></li>
+                        <li>Quốc tịch <span>Việt Nam</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <img src="/frontend/img/tourist_guide_pic.jpg" alt="Image" class="img-responsive styled profile_pic">
+                    </p>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Cập nhật thông tin</h4>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Họ</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Tên</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Ngày sinh <small>(dd/mm/yyyy)</small></label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <hr>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Cập nhật địa chỉ</h4>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Tỉnh/Thành phố</label>
+                        <input class="form-control" type="text">
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Mã Zip</label>
+                        <input class="form-control" name="email" id="email" type="text">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Quốc tịch</label>
+                        <select id="country" class="form-control">
+                          <option value="">Chọn quốc tịch...</option>
+                          <option value="">Việt Nam</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <hr>
+            <h4>Cập nhật hình đại diện</h4>
+            <div class="form-inline upload_1">
+                <div class="form-group">
+                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                </div>
+                <button type="submit" class="btn_1 green" id="js-upload-submit">Tải hình ảnh</button>
+            </div>
+
+            <!-- Hidden on mobiles -->
+            <div class="hidden-xs">
+                <!-- Drop Zone -->
+                <h5>Hoặc kéo thả hình ảnh vào đây</h5>
+                <div class="upload-drop-zone" id="drop-zone">
+                    Kéo thả hình ảnh tại đây
+                </div>
+                <!-- Progress Bar -->
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                </div>
+                <!-- Upload Finished -->
+                <div class="js-upload-finished">
+                    <h5>Đang tải hình ảnh</h5>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Hoàn thành</span>hinh-anh-01.jpg</a>
+                    </div>
+                </div>
+                <!-- End Hidden on mobiles -->
+
+                <hr>
+                <button type="submit" class="btn_1 green">Cập nhật thông tin</button>
+        </section>
+        <!-- End section 1 -->
+
+        <section id="section-2">
+            <div id="tools">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_date" id="sort_date">
+                              <option value="" selected>Sắp xếp theo thời gian</option>
+                              <option value="oldest">Thời gian gần đây</option>
+                              <option value="recent">Thời gian trước</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/tools -->
+            
+            <% (0..4).each do |item| %>
+            <div class="strip_booking">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="date">
+                            <span class="month">09</span>
+                            <span class="day"><strong>30</strong>2016</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-5">
+                        <h3 class="hotel_booking"><%= link_to "Tên khách sạn", "" %><span>2 người lớn / 2 đêm</span></h3>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <ul class="info_booking">
+                            <li><strong>Mã phòng</strong> #23442</li>
+                            <li><strong>Ngày đặt phòng</strong> 10:00 30/09/2016</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+						<div class="booking_buttons">
+                            <%= link_to "Xuất bản in", "#invoice", class: "btn_2" %>
+						</div>
+					</div>
+                </div>
+                <!-- End row -->
+            </div>
+            <!-- End strip booking -->
+            <% end %>
+
+        </section>
+        <!-- End section 2 -->
+
+        <section id="section-3">
+            <div class="row">
+                <% (0..5).each do |item| %>
+                <div class="col-md-4 col-sm-6">
+                    <div class="hotel_container">
+                        <div class="img_container">
+                            <a href="<%= "" %>">
+                                <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
+                                <div class="ribbon top_rated">
+                                </div>
+                                <div class="score">
+                                    <span>7.5</span>Good
+                                </div>
+                                <div class="short_info hotel">
+                                    Giá TB/đêm<span class="price">1,000,000<sup>VNĐ</sup></span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hotel_title">
+                            <h3>Tên khach sạn</h3>
+                            <div class="rating">
+                                <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+                            </div>
+                            <!-- end rating -->
+                            <div class="wishlist_close_admin">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End box tour -->
+                </div>
+                <!-- End col-md-6 -->
+                <% end %>
+
+            </div>
+            <!-- End row -->
+        </section>
+        <!-- End section 3 -->
+
+        <section id="section-4">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 add_bottom_30">
+                    <h4>Thay đổi mật khẩu</h4>
+                    <div class="form-group">
+                        <label>Mật khẩu cũ</label>
+                        <input class="form-control" name="old_password" id="old_password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu mới</label>
+                        <input class="form-control" name="new_password" id="new_password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label>Nhập lại mật khẩu mới</label>
+                        <input class="form-control" name="confirm_new_password" id="confirm_new_password" type="password">
+                    </div>
+                    <button type="submit" class="btn_1 green">Cập nhật mật khẩu</button>
+                </div>
+                <div class="col-md-6 col-sm-6 add_bottom_30">
+                    <h4>Thay đổi email</h4>
+                    <div class="form-group">
+                        <label>Email cũ</label>
+                        <input class="form-control" name="old_password" id="old_password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label>Email mới</label>
+                        <input class="form-control" name="new_password" id="new_password" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label>Nhập lại email mới</label>
+                        <input class="form-control" name="confirm_new_password" id="confirm_new_password" type="password">
+                    </div>
+                    <button type="submit" class="btn_1 green">Cập nhật email</button>
+                </div>
+            </div>
+            <!-- End row -->
+
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <h4>Cài đặt nhận tin mới</h4>
+                    <table class="table table-striped options_cart">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class="icon_set_1_icon-6"></i>
+                                </td>
+                                <td>Nhận tin mới của khách sạn yêu thích</td>
+                                <td>
+                                    <label class="switch-light switch-ios pull-right">
+                                        <input type="checkbox" name="option_2" id="option_2" value="">
+                                        <span>
+                                            <span>Không</span>
+                                            <span>Có</span>
+                                        </span>
+                                        <a></a>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- End row -->
+        </section>
+        <!-- End section 4 -->
+
+        </div>
+        <!-- End content -->
+    </div>
+    <!-- End tabs -->
+</div>
+<!-- end container -->

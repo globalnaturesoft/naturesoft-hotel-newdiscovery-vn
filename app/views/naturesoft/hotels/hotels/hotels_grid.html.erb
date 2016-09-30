@@ -1,0 +1,110 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1>DANH SÁCH KHÁCH SẠN</h1>
+            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+        </div>
+    </div>
+</section>
+<!-- End section -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li>Danh Sách Khách Sạn</li>
+        </ul>
+    </div>
+</div>
+<!-- Position -->
+
+<div class="container margin_60">
+    <div class="row">
+        <aside class="col-lg-3 col-md-3">
+            <%= render "/modules/hotel_sidebar" %>
+        </aside>
+        <!--End aside -->
+
+        <div class="col-lg-9 col-md-8">
+            <div id="tools">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_price" id="sort_price">
+                                <option value="" selected>Sort by price</option>
+                                <option value="lower">Lowest price</option>
+                                <option value="higher">Highest price</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_rating" id="sort_rating">
+                                <option value="" selected>Sort by ranking</option>
+                                <option value="lower">Lowest ranking</option>
+                                <option value="higher">Highest ranking</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 hidden-xs text-right">
+                        <a class="bt_filters"><i class="icon-th"></i></a>
+                        <a href="<%= naturesoft_hotels.hotels_list_path %>" class="bt_filters"><i class=" icon-list"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!--End tools -->
+            
+            <div class="row">
+                <% (0..5).each_with_index do |item,index| %>
+                <div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                    <div class="hotel_container">
+                        <div class="img_container">
+                            <a href="<%= naturesoft_hotels.hotel_detail_path %>">
+                                <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
+                                <div class="ribbon top_rated"></div>
+                                <div class="short_info hotel">
+                                    Giá/Đêm<span class="price">10,000,000 VNĐ</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="hotel_title">
+                            <h3>Tên khách sạn</h3>
+                            <div class="rating">
+                                <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+                            </div>
+                            <!-- end rating -->
+                            <div class="wishlist">
+                                <a class="tooltip_flip tooltip-effect-1" href="#">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
+                            </div>
+                            <!-- End wish list-->
+                        </div>
+                    </div>
+                    <!-- End box tour -->
+                </div>
+                <!-- End col-md-6 -->
+                <%= '</div><!-- End row --><div class="row">'.html_safe if index%2 == 1 %>
+                <% end %>
+            </div>
+            <!-- End row -->
+
+            <hr>
+
+            <div class="text-center">
+                <ul class="pagination">
+                    <li><a href="">Trang trước</a></li>
+                    <li class="active"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">5</a></li>
+                    <li><a href="">Trang sau</a></li>
+                </ul>
+            </div>
+            <!-- end pagination-->
+
+        </div>
+        <!-- End col lg 9 -->
+    </div>
+    <!-- End row -->
+</div>
+<!-- End container -->

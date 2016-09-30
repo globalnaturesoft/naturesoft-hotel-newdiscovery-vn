@@ -9,30 +9,30 @@
                 <a href="mailto:default2@newdiscovery.vn" id="email_footer">default2@newdiscovery.vn</a>
                 <ul>
                     <li><strong>CÔNG TY TNHH MTV DU LỊCH KHÁM PHÁ MỚI</strong></li>
-                    <li><strong>Người đại diện:  </strong>Ông Nguyễn Trường Lân</li>
-                    <li><strong>Số giấy chứng nhận kinh doanh:  </strong>0 3 1 0 1 8 1 8 9 2</li>
-                    <li><strong>Cấp ngày:  </strong>19/07/2010</li>
-                    <li><strong>Nơi cấp:  </strong>SKHĐT TP HCM</li>
-                    <li><strong>Tel:  </strong>(+84) 8 3 85 333 18 - (+84) 8 3 85 333 21</li>
-                    <li><strong>Fax:  </strong>(+84) 8 3 85 333 19</li>
-                    <li><strong>Trụ sở chính:  </strong>259/2 Nguyễn Tri Phương, Phường 5, Quận 10, Tp Hồ Chí Minh, Việt Nam</li>
-                    <li><strong>Chi nhánh:  </strong>114 Ngô Quyền, Phường 5, Quận 10, Tp Hồ Chí Minh, Việt Nam</li>
+                    <li><strong>Người đại diện: </strong>Ông Nguyễn Trường Lân</li>
+                    <li><strong>Số giấy chứng nhận kinh doanh: </strong>0 3 1 0 1 8 1 8 9 2</li>
+                    <li><strong>Cấp ngày: </strong>19/07/2010</li>
+                    <li><strong>Nơi cấp: </strong>SKHĐT TP HCM</li>
+                    <li><strong>Tel: </strong>(+84) 83 85 333 18 - (+84) 83 85 333 21</li>
+                    <li><strong>Fax: </strong>(+84) 83 85 333 19</li>
+                    <li><strong>Trụ sở chính: </strong>259/2 Nguyễn Tri Phương, Phường 5, Quận 10, Tp Hồ Chí Minh, Việt Nam</li>
+                    <li><strong>Chi nhánh: </strong>114 Ngô Quyền, Phường 5, Quận 10, Tp Hồ Chí Minh, Việt Nam</li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-4">
                 <h3>Du Lịch Khám Phá Mới</h3>
                 <ul>
-                    <li><a href="">Về chúng tôi</a></li>
+                    <li><%= link_to "Về chúng tôi", naturesoft_articles.about_us_path %></li>
                     <li><a href="">Hướng dẫn đặt phòng</a></li>
-                    <li><a href="">Blog du lịch</a></li>
+                    <li><%= link_to "Blog du lịch", naturesoft_articles.listing_path %></li>
                     <li><a href="">Hình ảnh du lịch</a></li>
                     <li><a href="">Đăng ký nhận voucher</a></li>
                     <li><a href="">Câu hỏi thường gặp</a></li>
-                    <li><a href="">Chính sách quyền riêng tư</a></li>
+                    <li><a href="">Chăm sóc khách hàng</a></li>
                 </ul>
                 <h3>Liên Kết Nhanh</h3>
                 <ul>
-                    <li><a href="">Tất cả khách sạn</a></li>
+                    <li><%= link_to "Tất cả khách sạn", naturesoft_hotels.hotels_grid_path %></li>
                     <li><a href="">Khách sạn theo địa điểm</a></li>
                     <li><a href="">Khách sạn theo dịch vụ</a></li>
                     <li><a href="">Resort</a></li>
@@ -49,9 +49,9 @@
                 <div id="message-newsletter_2"></div>
                     <form>
                         <div class="form-group">
-                            <input name="email" type="email" value="" placeholder="Your mail" class="form-control">
+                            <input name="email" type="email" value="" placeholder="Nhập email đăng ký tại đây..." class="form-control">
                         </div>
-                        <input type="submit" value="Subscribe" class="btn_1" id="submit-newsletter_2">
+                        <input type="submit" value="Đăng ký" class="btn_1" id="submit-newsletter_2">
                     </form>
             </div>
         </div><!-- End row -->
