@@ -11,3 +11,74 @@
 <%= javascript_include_tag "/frontend/js/map_contact.js" %>
 <%= javascript_include_tag "/frontend/js/infobox.js" %>
 <% end %>
+<% if params[:controller] == 'naturesoft/users' && params[:action] == 'admin_area' %>
+<!-- Specific scripts -->
+<%= javascript_include_tag "/frontend/js/tabs.js" %>
+<script>new CBPFWTabs( document.getElementById( 'tabs' ) );</script>
+<script>
+	$('.wishlist_close_admin').on('click', function(c){
+		$(this).parent().parent().parent().fadeOut('slow', function(c){
+		});
+	});	
+</script>
+<% end %>
+<% if params[:controller] == 'naturesoft/hotels/hotels' && (params[:action] == 'hotels_grid' || params[:action] == 'hotels_list' || params[:action] == 'detail') %>
+<!-- Specific scripts -->
+<!-- Check and radio inputs -->
+<%= javascript_include_tag "/frontend/js/icheck.js" %>
+<script>  
+$('input').iCheck({
+  checkboxClass: 'icheckbox_square-grey',
+  radioClass: 'iradio_square-grey'
+});
+</script>
+<% end %>
+<% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
+<!-- Date and time pickers -->
+<%= javascript_include_tag "/frontend/js/jquery.sliderPro.min.js" %>
+<script type="text/javascript">
+	$( document ).ready(function( $ ) {
+		$( '#Img_carousel' ).sliderPro({
+			width: 960,
+			height: 500,
+			fade: true,
+			arrows: true,
+			buttons: false,
+			fullScreen: false,
+			smallSize: 500,
+			startSlide: 0,
+			mediumSize: 1000,
+			largeSize: 3000,
+			thumbnailArrows: true,
+			autoplay: false
+		});
+	});
+</script>
+
+<!-- Date and time pickers -->
+<%= javascript_include_tag "/frontend/js/bootstrap-datepicker.js" %>
+<script src=""></script>
+<script>
+$('input.date-pick').datepicker('setDate', 'today');
+</script>
+<!-- Map -->
+<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js" %>
+<%= javascript_include_tag "/frontend/js/map.js" %>
+<%= javascript_include_tag "/frontend/js/infobox.js" %>
+<!-- Carousel -->
+<%= javascript_include_tag "/frontend/js/owl.carousel.min.js" %>
+<script>
+$(document).ready(function(){   
+		$(".carousel").owlCarousel({
+		items : 4,
+		itemsDesktop : [1199,3],
+		itemsDesktopSmall : [979,3]
+		});
+    });
+</script>
+
+<!--Review modal validation -->
+<%= javascript_include_tag "/frontend/assets/validate.js" %>
+
+<%= javascript_include_tag "/frontend/js/datepicker_advanced.js" %>
+<% end %>

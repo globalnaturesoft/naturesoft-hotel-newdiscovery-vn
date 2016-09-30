@@ -28,12 +28,31 @@
     <!-- REVOLUTION SLIDER CSS -->
     <%= stylesheet_link_tag "/frontend/layerslider/css/layerslider.css" %>
     <% end %>
-
     <% if params[:controller] == 'naturesoft/articles/articles' && (params[:action] == 'listing' || params[:action] == 'detail') %>
     <!-- CSS -->
     <%= stylesheet_link_tag "/frontend/css/blog.css" %>
     <% end %>
-
+    <% if params[:controller] == 'naturesoft/users' && params[:action] == 'admin_area' %>
+    <!-- SPECIFIC CSS -->
+    <%= stylesheet_link_tag "/frontend/css/admin.css" %>
+    <%= stylesheet_link_tag "/frontend/css/jquery.switch.css" %>
+    <% end %>
+    <% if params[:controller] == 'naturesoft/hotels/hotels' && (params[:action] == 'hotels_grid' || params[:action] == 'hotels_list') %>
+    <!-- Radio and check inputs -->
+    <%= stylesheet_link_tag "/frontend/css/skins/square/grey.css" %>
+    
+    <!-- Range slider -->
+    <%= stylesheet_link_tag "/frontend/css/ion.rangeSlider.css" %>
+    <%= stylesheet_link_tag "/frontend/css/ion.rangeSlider.skinFlat.css" %>
+    <% end %>
+    <% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
+    <!-- CSS -->
+    <%= stylesheet_link_tag "/frontend/css/slider-pro.min.css" %>
+    <%= stylesheet_link_tag "/frontend/css/date_time_picker.css" %>
+    <%= stylesheet_link_tag "/frontend/css/owl.carousel.css" %>
+    <%= stylesheet_link_tag "/frontend/css/owl.theme.css" %>
+    <% end %>
+  
     <!-- Google web fonts -->
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat:400,700" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Gochi+Hand" %>
@@ -80,6 +99,11 @@
 
     <%= render "/modules/footer" %>
     <!-- End footer -->
+    
+    <% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
+      <%= render "/modules/hotel_overlay" %>
+      <%= render "/modules/hotel_leave_review" %>
+    <% end %>
 
     <div id="toTop"></div>
     <!-- Back to top button -->

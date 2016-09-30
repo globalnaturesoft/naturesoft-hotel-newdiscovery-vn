@@ -16,21 +16,22 @@
                         </div>
                         <!-- end row -->
                         <div class="login-or">
-                            <hr class="hr-or"><span class="span-or">hoặc</span></div>
+                        <hr class="hr-or"><span class="span-or">hoặc</span></div>
 
                         <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <label>Email</label>
+                            <input type="text" class="form-control" placeholder="Nhập email tại đây...">
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <label>Mật khẩu</label>
+                            <input type="password" class="form-control" placeholder="Nhập mật khẩu tại đây...">
                         </div>
                         <p class="small">
-                            <a href="#">Forgot Password?</a>
+                            <%= link_to "Quên mật khẩu", naturesoft.forgot_password_path %>
                         </p>
-                        <a href="#" class="btn_full">Sign in</a>
-                        <a href="register.html " class="btn_full_outline">Register</a>
+                        <!--<button class="btn_full">Đăng nhập</button>-->
+                        <%= link_to "Đăng nhập", naturesoft.admin_area_path, class: "btn_full" %>
+                        <%= link_to "Đăng ký", naturesoft.register_path, class: "btn_full_outline" %>
                     </form>
                 </div>
             </div>

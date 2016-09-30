@@ -1,6 +1,6 @@
 <div class="widget">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search...">
+        <input type="text" class="form-control" placeholder="Tìm kiếm...">
         <span class="input-group-btn">
         <button class="btn btn-default" type="button" style="margin-left:0;"><i class="icon-search"></i></button>
         </span>
@@ -28,7 +28,7 @@
         <% (0..4).each do |item| %>
         <li>
             <i class="icon-calendar-empty"></i> 30/09/2016
-            <div><%= link_to "Tiêu đề của blog du lịch", naturesoft_articles.detail_path %></div>
+            <div><%= link_to "Tiêu đề của blog du lịch", naturesoft_articles.blog_detail_path %></div>
         </li>
         <% end %>
     </ul>

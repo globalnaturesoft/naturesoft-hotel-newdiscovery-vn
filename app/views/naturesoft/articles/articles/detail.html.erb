@@ -1,7 +1,7 @@
 <section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/bg_blog.jpg" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>Tour Blog</h1>
+            <h1>BLOG DU LỊCH</h1>
             <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
         </div>
     </div>
@@ -11,9 +11,9 @@
 <div id="position">
     <div class="container">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Category</a></li>
-            <li>Page active</li>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li><%= link_to "Blog du lịch", naturesoft_articles.listing_path %></li>
+            <li><%= "Chi tiết" %></li>
         </ul>
     </div>
 </div>
@@ -25,7 +25,7 @@
         <div class="col-md-9">
             <div class="box_style_1">
                 <div class="post nopadding">
-                    <img src="/frontend/img/blog-1.jpg" alt="Image" class="img-responsive">
+                    <%= image_tag("/frontend/img/blog-1.jpg", alt: "", class: "img-responsive") %>
                     <div class="post_info clearfix">
                         <div class="post-left">
                             <ul>
