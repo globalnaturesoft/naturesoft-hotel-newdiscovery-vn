@@ -1,0 +1,34 @@
+<h3>Thông Tin Liên Hệ</h3>
+<% if contact_info.hotline_1.present? %><a href="tel:<%= contact_info.hotline_1 %>" id="phone"><%= contact_info.hotline_1 %></a><% end %>
+<% if contact_info.hotline_2.present? %><a href="tel:<%= contact_info.hotline_2 %>" id="phone"><%= contact_info.hotline_2 %></a><% end %>
+<% if contact_info.email.present? %><a href="mailto:<%= contact_info.email %>" id="email_footer"><%= contact_info.email %></a><% end %>
+<% if contact_info.email_2.present? %><a href="mailto:<%= contact_info.email_2 %>" id="email_footer"><%= contact_info.email_2 %></a><% end %>
+<ul>
+    <% if contact_info.company.present? %>
+        <li><strong><%= contact_info.company %></strong></li>
+    <% end %>
+    <% if contact_info.hotline_1.present? %>
+        <li><strong>Người đại diện:  </strong>Ông Nguyễn Trường Lân</li>
+    <% end %>
+    <% if contact_info.certificate_of_business_registration_no.present? %>
+        <li><strong>Số giấy chứng nhận kinh doanh:  </strong><%= contact_info.certificate_of_business_registration_no %></li>
+    <% end %>
+    <% if contact_info.date_of_issue.present? %>
+        <li><strong>Cấp ngày:  </strong><%= contact_info.date_of_issue %></li>
+    <% end %>
+    <% if contact_info.place_of_issue.present? %>
+        <li><strong>Nơi cấp:  </strong><%= contact_info.place_of_issue %></li>
+    <% end %>
+    <% if contact_info.phone.present? or contact_info.phone_2.present? %>
+        <li><strong>Điện thoại:  </strong><%= contact_info.phone %> - <%= contact_info.phone_2 %></li>
+    <% end %>
+    <% if contact_info.fax.present? %>
+        <li><strong>Fax:  </strong><%= contact_info.fax %></li>
+    <% end %>
+    <% if contact_info.head_office.present? %>
+        <li><strong>Trụ sở chính:  </strong><%= contact_info.head_office %></li>
+    <% end %>
+    <% if contact_info.branch_office.present? %>
+        <li><strong>Chi nhánh:  </strong><%= contact_info.branch_office %></li>
+    <% end %>
+</ul>
