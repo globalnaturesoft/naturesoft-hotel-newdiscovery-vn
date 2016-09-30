@@ -32,6 +32,10 @@
     <!-- CSS -->
     <%= stylesheet_link_tag "/frontend/css/blog.css" %>
     <% end %>
+    <% if params[:controller] == 'naturesoft/articles/articles' && params[:action] == 'faq' %>
+    <!-- CSS -->
+    <%= stylesheet_link_tag "/frontend/css/skins/square/grey.css" %>
+    <% end %>
     <% if params[:controller] == 'naturesoft/users' && params[:action] == 'admin_area' %>
     <!-- SPECIFIC CSS -->
     <%= stylesheet_link_tag "/frontend/css/admin.css" %>

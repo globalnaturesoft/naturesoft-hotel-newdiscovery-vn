@@ -4,3 +4,9 @@
 .short_info .price {
   font-size: 18px;
 }
+#price_single_main span {
+  font-size: 30px;
+}
+.parallax-content-2 div h1 {
+  font-size: 30px;
+}
