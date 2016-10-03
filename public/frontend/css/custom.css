@@ -10,3 +10,9 @@
 .parallax-content-2 div h1 {
   font-size: 30px;
 }
+label.error {
+  display: none !important;
+}
+.form-control.required.error {
+  border: solid 1px #e34f4f;
+}
