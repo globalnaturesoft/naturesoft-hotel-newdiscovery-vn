@@ -112,3 +112,10 @@ $(document).ready(function(){
 	});
 </script>
 <% end %>
+<% if params[:controller] == 'naturesoft/contacts/contacts' && params[:action] == 'contact' %>
+	<!-- Validate contactform -->
+<%= javascript_include_tag "/frontend/js/jquery.validate.js" %>
+<script>
+	$(".contactform").validate();
+</script>
+<% end %>
