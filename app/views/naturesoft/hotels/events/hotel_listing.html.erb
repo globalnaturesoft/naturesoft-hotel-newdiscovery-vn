@@ -31,7 +31,7 @@
             <div class="hotel_container">
                 <div class="img_container">
                     <a href="<%= naturesoft_hotels.hotel_detail_path %>">
-												<%= image_tag "/frontend/img/hotel_1.jpg", size: "800x533", class: "img-responsive", alt: "Image" %>
+						<%= image_tag "/frontend/img/hotel_1.jpg", size: "800x533", class: "img-responsive", alt: "Image" %>
                         <div class="ribbon top_rated"></div>
                         <div class="short_info hotel">
                             Giá/đêm<span class="price">10,000,000 VNĐ</span>
@@ -39,7 +39,7 @@
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3><strong>Tên khách sạn</strong></h3>
+                    <h3><strong><%= link_to "Tên khách sạn", naturesoft_hotels.hotel_detail_path %></strong></h3>
                     <div class="rating">
                         <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
                     </div>
@@ -58,6 +58,6 @@
     </div>
     <!-- End row -->
     <p class="text-center nopadding">
-        <a href="all_hotels_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>View all hotels (70) </a>
+        <a href="all_hotels_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>Xem thêm (70) </a>
     </p>
 </div>

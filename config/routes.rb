@@ -21,5 +21,5 @@ Naturesoft::Hotels::Engine.routes.draw do
   get "danh-sach-khach-san/dang-luoi.html" => "hotels#hotels_grid", as: :hotels_grid
   get "danh-sach-khach-san/dang-danh-sach.html" => "hotels#hotels_list", as: :hotels_list
   get "danh-sach-khach-san/chi-tiet.html" => "hotels#detail", as: :hotel_detail
-  get "khuyen-mai.html" => "hotels#deal", as: :hotels_deal
+  get "khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
 end
