@@ -15,7 +15,7 @@
     <title>CITY TOURS - City tours and travel site template by Ansonika</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="/frontend/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/frontend/img/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" type="image/x-icon" href="/frontend/img/apple-touch-icon-57x57-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/frontend/img/apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/frontend/img/apple-touch-icon-114x114-precomposed.png">
@@ -61,6 +61,7 @@
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat:400,700" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Gochi+Hand" %>
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:300,400" %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700" %>
     
     <!--[if lt IE 9]>
       <%= javascript_include_tag "/frontend/js/html5shiv.min.js" %>
@@ -108,6 +109,8 @@
       <%= render "/modules/hotel_overlay" %>
       <%= render "/modules/hotel_leave_review" %>
     <% end %>
+    
+    <%= render "/modules/quick_register" %>
 
     <div id="toTop"></div>
     <!-- Back to top button -->

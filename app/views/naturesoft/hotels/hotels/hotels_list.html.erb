@@ -29,34 +29,11 @@
         <div class="col-lg-9 col-md-9">
 
             <div id="tools">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="styled-select-filters">
-                            <select name="sort_price" id="sort_price">
-                              <option value="" selected>Sort by price</option>
-                              <option value="lower">Lowest price</option>
-                              <option value="higher">Highest price</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="styled-select-filters">
-                            <select name="sort_rating" id="sort_rating">
-                              <option value="" selected>Sort by ranking</option>
-                              <option value="lower">Lowest ranking</option>
-                              <option value="higher">Highest ranking</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 hidden-xs text-right">
-                        <a href="<%= naturesoft_hotels.hotels_grid_path %>" class="bt_filters"><i class="icon-th"></i></a>
-                        <a class="bt_filters"><i class=" icon-list"></i></a>
-                    </div>
-                </div>
+                <%= render "/modules/hotels_sort_tools" %>
             </div>
             <!--/tools -->
             
-            <% (0..4).each do |item| %>
+            <% (0..6).each do |item| %>
             <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
@@ -73,8 +50,9 @@
                     <div class="clearfix visible-xs-block"></div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="tour_list_desc">
+                            <div class="score">Tuyệt vời<span>9.0</span></div>
                             <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i></div>
-                            <h3>Tên khách sạn</h3>
+                            <h3><strong><%= link_to "Tên khách sạn", naturesoft_hotels.hotel_detail_path %></strong></h3>
                             <p class="text-justify">Mô tả ngắn cho khách sạn...</p>
                             <ul class="add_info">
                                 <li>

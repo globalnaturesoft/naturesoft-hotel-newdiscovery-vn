@@ -30,13 +30,14 @@
             <div class="col-md-3 col-sm-3" id="newsletter">
                 <h3>ĐỪNG BỎ LỠ CƠ HỘI GIÁ TỐT!</h3>
                 <p>Du Lịch Khám Phá Mới sẽ cập nhật thường xuyên về những ưu đãi, khuyến mãi mới và hot trong tháng đến quý khách.</p>
-                <div id="message-newsletter_2"></div>
-                    <form>
-                        <div class="form-group">
-                            <input name="email" type="email" value="" placeholder="Nhập email đăng ký tại đây..." class="form-control">
-                        </div>
-                        <input type="submit" value="Đăng ký" class="btn_1" id="submit-newsletter_2">
-                    </form>
+                <form class="newsletter_validate">
+                    <div class="form-group">
+                        <input type="email" value="" placeholder="Nhập email đăng ký tại đây..." class="form-control required email">
+                    </div>
+                    <input type="submit" value="Đăng ký theo dõi" class="btn_1">
+                </form>
+                <br>
+                <%= link_to image_tag("/frontend/img/registered.png", width: "220px", alt: ""), "#registered" %>
             </div>
         </div><!-- End row -->
         <div class="row">
@@ -52,7 +53,7 @@
                         <li><a href=""><i class="icon-youtube-play"></i></a></li>
                         <li><a href=""><i class="icon-linkedin"></i></a></li>
                     </ul>
-                    <p>© Copyright 2016 <a href="http://newdiscovery.vn/">NewDiscovery.vn</a>.Developed by <a href="http://globalnaturesoft.com/">Global Naturesoft</a></p>
+                    <p>&copy; Copyright 2016 <%= link_to "NewDiscovery.vn", naturesoft_hotel_newdiscovery_vn.root_path %>. Developed by <%= link_to "Global Naturesoft", "http://globalnaturesoft.com/", target: "_blank" %></p>
                 </div>
             </div>
         </div><!-- End row -->

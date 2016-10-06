@@ -26,7 +26,7 @@
                 <p>(*) Những thông tin bắt buộc cần được nhập.</p>
             </div>
             <div class="step">
-                <%= form_for Naturesoft::Contacts::Contact.new, url: contacts_path, html: {class: "contactform validate"} do |f| %>
+                <%= form_for Naturesoft::Contacts::Contact.new, url: contacts_path, html: {class: "contact_validate"} do |f| %>
                 <%= hidden_field_tag(:id, params[:id]) %>
                     <div id="message-contact">
                         <% if notice.present? %>
@@ -56,7 +56,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label>Email (*)</label>
-                                        <input type="email" class="form-control required" name="contact[email]" placeholder="Nhập địa chỉ email...">
+                                        <input type="email" class="form-control required email" name="contact[email]" placeholder="Nhập địa chỉ email...">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
