@@ -1,0 +1,8 @@
+Xin chào, <br />
+Bạn vừa nhận được một tin nhắn liên hệ có nội dung:
+<p>
+    - Họ & tên: <%= @msg.contact.first_name %> <%= @msg.contact.last_name %><br>
+    - Điện thoại: <%= @msg.contact.phone %><br>
+    - Email: <%= @msg.contact.email %><br>
+    - <b>Nội dung tin nhắn:</b> <br><%= @msg.display_message %>
+</p>
