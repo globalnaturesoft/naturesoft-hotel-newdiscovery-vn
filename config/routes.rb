@@ -1,8 +1,8 @@
 Naturesoft::HotelNewdiscoveryVn::Engine.routes.draw do
   root to: "home#index"
+  get "ve-chung-toi.html" => "home#about_us", as: :about_us
 end
 Naturesoft::Articles::Engine.routes.draw do
-  get "ve-chung-toi.html" => "articles#about_us", as: :about_us
   get "blog-du-lich.html" => "articles#listing", as: :listing
   get "blog-du-lich/chi-tiet.html" => "articles#detail", as: :blog_detail
   get "faq.html/:faq_id" => "articles#faq", as: :faq
