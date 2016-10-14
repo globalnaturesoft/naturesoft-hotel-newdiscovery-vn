@@ -91,30 +91,34 @@
         <div class="col-md-4 col-sm-4">
             <div class="box_style_1">
                 <span class="tape"></span>
-                <h4>Địa chỉ <span><i class="icon-pin pull-right"></i></span></h4>
-                <p><strong>Trụ sở chính: </strong><%= @contact_info.head_office %></p>
-                <p><strong>Chi nhánh: </strong><%= @contact_info.branch_office %></p>
-                <hr>
-                <h4>Liên hệ <span><i class="icon-help pull-right"></i></span></h4>
-                <strong><%= @contact_info.company %></strong>
-                <ul id="contact-info">
-                    <li><strong>Người đại diện:  </strong>Ông Nguyễn Trường Lân</li>
-                    <li><strong>Số giấy chứng nhận kinh doanh:  </strong><%= @contact_info.certificate_of_business_registration_no %></li>
-                    <li><strong>Cấp ngày:  </strong><%= @contact_info.date_of_issue %></li>
-                    <li><strong>Nơi cấp:  </strong><%= @contact_info.place_of_issue %></li>
-                    <li><strong>Tel:  </strong><%= @contact_info.phone %> - <%= @contact_info.phone_2 %></li>
-                    <li><strong>Fax:  </strong><%= @contact_info.fax %></li>
-                    <li><a href="mailto:<%= @contact_info.email %>"><%= @contact_info.email %></a></li>
-                    <li><a href="mailto:<%= @contact_info.email_2 %>"><%= @contact_info.email_2 %></a></li>
-                </ul>
+                <% if @contact_info.present? %>
+                    <h4>Địa chỉ <span><i class="icon-pin pull-right"></i></span></h4>
+                    <p><strong>Trụ sở chính: </strong><%= @contact_info.head_office %></p>
+                    <p><strong>Chi nhánh: </strong><%= @contact_info.branch_office %></p>
+                    <hr>
+                    <h4>Liên hệ <span><i class="icon-help pull-right"></i></span></h4>
+                    <strong><%= @contact_info.company %></strong>
+                    <ul id="contact-info">
+                        <li><strong>Người đại diện:  </strong>Ông Nguyễn Trường Lân</li>
+                        <li><strong>Số giấy chứng nhận kinh doanh:  </strong><%= @contact_info.certificate_of_business_registration_no %></li>
+                        <li><strong>Cấp ngày:  </strong><%= @contact_info.date_of_issue %></li>
+                        <li><strong>Nơi cấp:  </strong><%= @contact_info.place_of_issue %></li>
+                        <li><strong>Tel:  </strong><%= @contact_info.phone %> - <%= @contact_info.phone_2 %></li>
+                        <li><strong>Fax:  </strong><%= @contact_info.fax %></li>
+                        <li><a href="mailto:<%= @contact_info.email %>"><%= @contact_info.email %></a></li>
+                        <li><a href="mailto:<%= @contact_info.email_2 %>"><%= @contact_info.email_2 %></a></li>
+                    </ul>
+                <% end %>
             </div>
             <div class="box_style_4">
                 <i class="icon_set_1_icon-57"></i>
                 <h4><span>Hotline</span></h4>
-                <a href="tel:<%= @contact_info.hotline_1 %>" class="phone"><%= @contact_info.hotline_1 %></a>
-                <a href="tel:<%= @contact_info.hotline_2 %>" class="phone"><%= @contact_info.hotline_2 %></a>
-                <small>Thứ 2 - Thứ 6 9:00am - 7:30pm</small><br>
-                <small>Thứ 7 - Chủ nhật 9:00am - 7:00pm</small>
+                <% if @contact_info.present? %>
+                    <a href="tel:<%= @contact_info.hotline_1 %>" class="phone"><%= @contact_info.hotline_1 %></a>
+                    <a href="tel:<%= @contact_info.hotline_2 %>" class="phone"><%= @contact_info.hotline_2 %></a>
+                    <small>Thứ 2 - Thứ 6 9:00am - 7:30pm</small><br>
+                    <small>Thứ 7 - Chủ nhật 9:00am - 7:00pm</small>
+                <% end %>
             </div>
         </div>
         <!-- End col-md-4 -->
