@@ -1,8 +1,8 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/header_bg.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= @current_menu.image.default %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>LIÊN HỆ</h1>
-            <p>Gửi lời nhắn và thông tin liên hệ với chúng tôi tại đây.</p>
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
         </div>
     </div>
 </section>
@@ -12,7 +12,7 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li>Liên Hệ</li>
+            <li><%= @current_menu.name %></li>
         </ul>
     </div>
 </div>
