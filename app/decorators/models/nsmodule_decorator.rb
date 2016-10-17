@@ -4,5 +4,7 @@ Naturesoft::Nsmodule.class_eval do
     "footer-box-col-1" => nil,
     "footer-box-col-2" => nil,
     "footer-box-col-3" => nil,
+    "home-slider" => nil,
+    "main-menu" => nil,
   }
 end

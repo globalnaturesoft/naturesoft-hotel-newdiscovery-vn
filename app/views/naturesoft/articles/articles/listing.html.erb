@@ -1,8 +1,8 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/bg_blog.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= @current_menu.image.default.present? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>BLOG DU LỊCH</h1>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
         </div>
     </div>
 </section>
@@ -12,7 +12,7 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li>Blog Du Lịch</li>
+            <li><%= @current_menu.name %></li>
         </ul>
     </div>
 </div>

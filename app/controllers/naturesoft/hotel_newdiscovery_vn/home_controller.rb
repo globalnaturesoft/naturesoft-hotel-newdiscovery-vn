@@ -3,6 +3,8 @@ module Naturesoft
     class HomeController < Naturesoft::FrontendController
       def index
       end
+      def about_us
+      end
     end
   end
 end
