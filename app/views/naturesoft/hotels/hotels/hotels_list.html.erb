@@ -29,7 +29,30 @@
         <div class="col-lg-9 col-md-9">
 
             <div id="tools">
-                <%= render "/modules/hotels_sort_tools" %>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_price" id="sort_price">
+                                    <option value="" selected>Sắp xếp theo giá</option>
+                                    <option value="lower">Giá từ cao đến thấp</option>
+                                    <option value="higher">Giá từ thấp đến cao</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_rating" id="sort_rating">
+                                <option value="" selected>Sắp xếp theo đánh giá</option>
+                                <option value="lower">Điểm từ cao - thấp</option>
+                                <option value="higher">Điểm từ thấp - cao</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 hidden-xs text-right">
+                            <a href="<%= naturesoft_hotels.hotels_grid_path %>" class="bt_filters"><i class="icon-th"></i></a>
+                            <a class="bt_filters"><i class=" icon-list"></i></a>
+                    </div>
+                </div>
             </div>
             <!--/tools -->
             
