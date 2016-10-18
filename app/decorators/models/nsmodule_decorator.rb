@@ -1,12 +1,17 @@
 Naturesoft::Nsmodule.class_eval do
   @hotel_newdiscovery_vn_positions = {
     "header-top-line" => nil,
+    "main-menu" => nil,
+    "home-slider" => nil,
+    "top-favourite" => nil,
+    "top-areas" => nil,
+    "facilities-list" => nil,
+    "home-banner" => nil,
+    "booking-guide" => nil,
     "footer-box-col-1" => nil,
     "footer-box-col-2" => nil,
     "footer-box-col-3" => nil,
-    "home-slider" => nil,
-    "main-menu" => nil,
-    "top-areas" => nil,
-    "facilities-list" => nil,
+    "social-footer" => nil,
+    "copyright-info" => nil,
   }
 end
