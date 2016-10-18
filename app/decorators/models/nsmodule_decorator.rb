@@ -7,5 +7,6 @@ Naturesoft::Nsmodule.class_eval do
     "home-slider" => nil,
     "main-menu" => nil,
     "top-areas" => nil,
+    "facilities-list" => nil,
   }
 end
