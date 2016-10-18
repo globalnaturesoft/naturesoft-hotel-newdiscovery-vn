@@ -42,3 +42,10 @@ body {
 .banner h4 {
   font-family: "Open Sans",Arial,sans-serif;
 }
+
+@media screen and (min-width: 1200px) {
+  .product-list.grid .product-container {
+    height: 290px;
+  }
+}
+  
