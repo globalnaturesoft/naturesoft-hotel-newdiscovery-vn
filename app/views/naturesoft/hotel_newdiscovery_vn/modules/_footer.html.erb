@@ -19,12 +19,14 @@
             <div class="col-md-3 col-sm-3" id="newsletter">
                 <h3>ĐỪNG BỎ LỠ CƠ HỘI GIÁ TỐT!</h3>
                 <p>Du Lịch Khám Phá Mới sẽ cập nhật thường xuyên về những ưu đãi, khuyến mãi mới và hot trong tháng đến quý khách.</p>
-                <form class="newsletter_validate">
+                <!--<form class="newsletter_validate">-->
+                <%= form_for Naturesoft::Newsletters::Newsletter.new, url: root_path, html: {class: "newsletter_validate"} do |f| %>
                     <div class="form-group">
-                        <input type="email" value="" placeholder="Nhập email đăng ký tại đây..." class="form-control required email">
+                        <input type="email" name="newsletter[email]" placeholder="Nhập email đăng ký tại đây..." class="form-control required email">
                     </div>
                     <input type="submit" value="Đăng ký theo dõi" class="btn_1">
-                </form>
+                <% end %>
+                <!--</form>-->
                 <br>
                 <!--<%= link_to image_tag("/frontend/img/registered.png", width: "220px", alt: ""), "#registered" %>-->
             </div>

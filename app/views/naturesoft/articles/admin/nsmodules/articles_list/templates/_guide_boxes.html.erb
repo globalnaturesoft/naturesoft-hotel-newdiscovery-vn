@@ -2,6 +2,6 @@
     <div class="col-md-3 col-sm-6 text-center">
         <p><%= link_to image_tag(article.image_url.medial, alt: "", class: "img-responsive"), "" %></p>
         <h4><%= article.title %><span></span></h4>
-        <%= article.content.html_safe %>
+        <%= article.intro_text %>
     </div>
 <% end %>
