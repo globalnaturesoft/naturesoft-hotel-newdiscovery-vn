@@ -1,0 +1,37 @@
+<div class="main_title">
+    <h2>Khách sạn <span>yêu thích</span> nhất</h2>
+    <p><%= options["description"] %></p>
+</div>
+
+<div class="row">
+    
+    <% hotels.each do |item| %>
+    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="tour_container">
+            <div class="img_container">
+                <a href="<%= naturesoft_hotels.hotel_detail_path %>">
+                    <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
+                    <div class="ribbon top_rated"></div>
+                    <div class="short_info hotel">
+                        Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
+                    </div>
+                </a>
+            </div>
+            <div class="tour_title">
+                <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path %></strong></h3>
+                <div class="rating">
+                    <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i><small>(75)</small>
+                </div>
+                <!-- end rating -->
+                <div class="wishlist">
+                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
+                </div>
+                <!-- End wish list-->
+            </div>
+        </div>
+        <!-- End box tour -->
+    </div>
+    <!-- End col-md-4 -->
+    <% end %>
+
+</div>
