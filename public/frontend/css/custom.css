@@ -54,3 +54,7 @@ p {
 p a img.img-responsive {
   width: 100%;
 }
+.marker_infowindow {
+  text-align: center;
+  width: 380px;
+}
