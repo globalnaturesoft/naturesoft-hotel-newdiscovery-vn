@@ -38,11 +38,14 @@ label.error {
 /*Change font all pages*/
 body {
   font-family: "Open Sans",Arial,sans-serif;
+  font-size: 13px;
 }
 .banner h4 {
   font-family: "Open Sans",Arial,sans-serif;
 }
-
+p {
+    margin: 0 0 11px;
+}
 @media screen and (min-width: 1200px) {
   .product-list.grid .product-container {
     height: 290px;
@@ -51,4 +54,3 @@ body {
 p a img.img-responsive {
   width: 100%;
 }
-  
