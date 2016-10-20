@@ -25,5 +25,34 @@
             }
         } catch (e) {}
     })(document); /* ]]> */
+    
+    $(document).ready(function() {
+        // this is the id of the form
+        $("#new_newsletter").submit(function(e) {
+            var form = $(this);
+            var url = form.attr("action"); // the script where you handle the form input.
+            
+            // button before
+            form.find("input[type=submit]").addClass("posting");
+            //form.find("input[type=submit]").after('<i class="icon-spin3 animate-spin"></i>');
+            
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: form.serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {
+                       alert(data); // show response from the php script.
+                       form.find("input[type=email]").val("");
+                       
+                        // button before
+                        form.find("input[type=submit]").removeClass("posting");
+                        //form.find(".icon-spin3").remove();
+                   }
+                 });
+        
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });    
+    });
 </script>
 

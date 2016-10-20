@@ -1,4 +1,4 @@
-<h3>Thông Tin Liên Hệ</h3>
+<h3><%= nsmodule.name %></h3>
 <% if contact_info.hotline_1.present? %><a href="tel:<%= contact_info.hotline_1 %>" id="phone"><%= contact_info.hotline_1 %></a><% end %>
 <% if contact_info.hotline_2.present? %><a href="tel:<%= contact_info.hotline_2 %>" id="phone"><%= contact_info.hotline_2 %></a><% end %>
 <% if contact_info.email.present? %><a href="mailto:<%= contact_info.email %>" id="email_footer"><%= contact_info.email %></a><% end %>

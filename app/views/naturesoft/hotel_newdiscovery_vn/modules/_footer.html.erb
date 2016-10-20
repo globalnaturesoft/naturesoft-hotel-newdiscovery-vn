@@ -5,37 +5,19 @@
                 <%= position("hotel_newdiscovery_vn::footer-box-col-1") %>
             </div>
             <div class="col-md-4 col-sm-4">
-                <h3>Du Lịch Khám Phá Mới</h3>
-                <ul>
-                    <li><%= link_to "Về chúng tôi", naturesoft_hotel_newdiscovery_vn.about_us_path %></li>
-                    <li><%= link_to "Hướng dẫn đặt phòng", naturesoft_articles.faq_path(faq_id: "book_guide") %></li>
-                    <li><%= link_to "Blog du lịch", naturesoft_articles.listing_path %></li>
-                    <li><a href="">Đăng ký nhận voucher</a></li>
-                    <li><%= link_to "Câu hỏi thường gặp", naturesoft_articles.faq_path(faq_id: "question") %></li>
-                    <li><%= link_to "Chăm sóc khách hàng", naturesoft_articles.faq_path(faq_id: "customer") %></li>
-                </ul>
-                <h3>Liên Kết Nhanh</h3>
-                <ul>
-                    <li><%= link_to "Tất cả khách sạn", naturesoft_hotels.hotels_grid_path %></li>
-                    <li><a href="">Khách sạn theo địa điểm</a></li>
-                    <li><a href="">Khách sạn theo dịch vụ</a></li>
-                    <li><a href="">Resort</a></li>
-                    <li><a href="">Villa</a></li>
-                    <li><a href="">Căn hộ</a></li>
-                    <li><a href="">Khách sạn có khuyến mãi</a></li>
-                    <li><a href="">Khách sạn theo sao</a></li>
-                    <li><a href="">Thông tin về tiêu chuẩn khách sạn</a></li>
-                </ul>
+                <%= position("hotel_newdiscovery_vn::footer-box-col-2") %>
+                <!--<h3>Du Lịch Khám Phá Mới</h3>-->
+                <!--<ul>-->
+                <!--    <li><%= link_to "Về chúng tôi", naturesoft_hotel_newdiscovery_vn.about_us_path %></li>-->
+                <!--    <li><%= link_to "Hướng dẫn đặt phòng", naturesoft_articles.faq_path(faq_id: "book_guide") %></li>-->
+                <!--    <li><%= link_to "Blog du lịch", naturesoft_articles.listing_path %></li>-->
+                <!--    <li><a href="">Đăng ký nhận voucher</a></li>-->
+                <!--    <li><%= link_to "Câu hỏi thường gặp", naturesoft_articles.faq_path(faq_id: "question") %></li>-->
+                <!--    <li><%= link_to "Chăm sóc khách hàng", naturesoft_articles.faq_path(faq_id: "customer") %></li>-->
+                <!--</ul>-->
             </div>
             <div class="col-md-3 col-sm-3" id="newsletter">
-                <h3>ĐỪNG BỎ LỠ CƠ HỘI GIÁ TỐT!</h3>
-                <p>Du Lịch Khám Phá Mới sẽ cập nhật thường xuyên về những ưu đãi, khuyến mãi mới và hot trong tháng đến quý khách.</p>
-                <form class="newsletter_validate">
-                    <div class="form-group">
-                        <input type="email" value="" placeholder="Nhập email đăng ký tại đây..." class="form-control required email">
-                    </div>
-                    <input type="submit" value="Đăng ký theo dõi" class="btn_1">
-                </form>
+                <%= position("hotel_newdiscovery_vn::footer-box-col-3") %>
                 <br>
                 <!--<%= link_to image_tag("/frontend/img/registered.png", width: "220px", alt: ""), "#registered" %>-->
             </div>
@@ -44,16 +26,9 @@
             <div class="col-md-12">
                 <div id="social_footer">
                     <ul>
-                        <li><a href=""><i class="icon-facebook"></i></a></li>
-                        <li><a href=""><i class="icon-twitter"></i></a></li>
-                        <li><a href=""><i class="icon-google"></i></a></li>
-                        <li><a href=""><i class="icon-instagram"></i></a></li>
-                        <li><a href=""><i class="icon-pinterest"></i></a></li>
-                        <li><a href=""><i class="icon-vimeo"></i></a></li>
-                        <li><a href=""><i class="icon-youtube-play"></i></a></li>
-                        <li><a href=""><i class="icon-linkedin"></i></a></li>
+                        <%= position("hotel_newdiscovery_vn::social-footer") %>
                     </ul>
-                    <p>&copy; Copyright 2016 <%= link_to "NewDiscovery.vn", naturesoft_hotel_newdiscovery_vn.root_path %>. Developed by <%= link_to "Global Naturesoft", "http://globalnaturesoft.com/", target: "_blank" %></p>
+                    <%= position("hotel_newdiscovery_vn::copyright-info") %>
                 </div>
             </div>
         </div><!-- End row -->

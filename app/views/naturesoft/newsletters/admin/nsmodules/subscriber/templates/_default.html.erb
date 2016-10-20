@@ -1,0 +1,8 @@
+<h3><%= nsmodule.name %></h3>
+<p><%= options["description"] %></p>
+<%= form_for Naturesoft::Newsletters::Newsletter.new, url: naturesoft_newsletters.newsletters_path, html: {class: "newsletter_validate"} do |f| %>
+    <div class="form-group">
+        <input type="email" name="newsletter[email]" placeholder="Nhập email đăng ký tại đây..." class="form-control required email">
+    </div>
+    <input type="submit" value="Đăng ký theo dõi" class="btn_1">
+<% end %>

@@ -23,3 +23,7 @@ Naturesoft::Hotels::Engine.routes.draw do
   get "danh-sach-khach-san/chi-tiet.html" => "hotels#detail", as: :hotel_detail
   get "khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
 end
+Naturesoft::Newsletters::Engine.routes.draw do
+  get "dang-ky-nhan-tin.html" => "newsletters#add_email", as: :newsletters
+  post "dang-ky-nhan-tin.html" => "newsletters#add_email"
+end
