@@ -38,7 +38,11 @@ label.error {
 /*Change font all pages*/
 body {
   font-family: "Open Sans",Arial,sans-serif;
+  font-size: 13px;
 }
 .banner h4 {
   font-family: "Open Sans",Arial,sans-serif;
+}
+p {
+    margin: 0 0 11px;
 }

@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-8">
-                    <span class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class=" icon-star-empty"></i></span>
-                    <h1><%= "An Hoa Residence - Luxury Villas" %></h1>
-                    <span><%= "Thị trấn Long Hải, Bà Riạ - Vũng Tàu, Vũng Tàu" %>.</span>
+                    <span class="rating"><% (1..@detail.star).each do |item| %><i class="icon-star voted"></i><% end %></span>
+                    <h1><%= @detail.name %></h1>
+                    <span><%= @detail.address %>.</span>
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div id="price_single_main" class="hotel">
-                        Giá/đêm <span><%= "1,620,000" %> VNĐ</span>
+                        Giá/đêm <span><%= format_number(@detail.from_per_night) %> VNĐ</span>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
         <ul>
             <li><%= link_to "Trang chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
             <li><%= link_to "Danh sách khách sạn", naturesoft_hotels.hotels_grid_path %></li>
-            <li><%= "An Hoa Residence - Luxury Villas" %></li>
+            <li><%= @detail.name %></li>
         </ul>
     </div>
 </div>
@@ -53,7 +53,6 @@
             <!-- Map button for tablets/mobiles -->
             <div id="Img_carousel" class="slider-pro">
                 <div class="sp-slides">
-
                     <div class="sp-slide">
                         <img alt="Image" class="sp-image" src="/frontend/css/images/blank.gif" data-src="/frontend/img/slider_single_tour/1_medium.jpg" data-small="/frontend/img/slider_single_tour/1_small.jpg" data-medium="/frontend/img/slider_single_tour/1_medium.jpg" data-large="/frontend/img/slider_single_tour/1_large.jpg" data-retina="/frontend/img/slider_single_tour/1_large.jpg">
                     </div>
@@ -83,35 +82,29 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Mô tả khách sạn</h3>
+                    <h3><strong>Giới thiệu</strong></h3>
                 </div>
                 <div class="col-md-9">
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi. Eu ponderum mediocrem has, vitae adolescens in pro. Mea liber ridens inermis ei, mei legendos vulputate an, labitur tibique te qui.
-                    </p>
-                    <h4>Tiện nghi - Dịch vụ khách sạn</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-                    </p>
+                    <div class="text-justify"><%= @detail.description.html_safe if !@detail.description.empty? %></div>
+                    <h4><strong>Tiện nghi - Dịch vụ khách sạn</strong></h4>
+                    <p>Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.</p>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <ul class="list_ok">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
-                                <li>Ut est saepe munere ceteros</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
+                                <% @detail.facilities.each_with_index do |item,index| %>
+                                <% if index%2==0 %>
+                                <li><%= item.name %></li>
+                                <% end %>
+                                <% end %>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <ul class="list_ok">
-                                <li>Lorem ipsum dolor sit amet</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
-                                <li>Ut est saepe munere ceteros</li>
-                                <li>No scripta electram necessitatibus sit</li>
-                                <li>Quidam percipitur instructior an eum</li>
+                                <% @detail.facilities.each_with_index do |item,index| %>
+                                <% if index%2==1 %>
+                                <li><%= item.name %></li>
+                                <% end %>
+                                <% end %>
                             </ul>
                         </div>
                     </div>
@@ -125,86 +118,43 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Loại phòng</h3>
+                    <h3><strong>Loại phòng</strong></h3>
                 </div>
                 <div class="col-md-9">
-                    <h4>Deluxe Garden</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-                    </p>
-
+                    <% @detail.rooms.each do |item| %>
+                    <h4><strong><%= item.name %></strong></h4>
+                    <div class="text-justify"><%= item.description.html_safe if !item.description.empty? %></div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <ul class="list_ok">
-                                <li>Tivi</li>
-                                <li>Dụng cụ pha trà / cafe</li>
-                                <li>Quạt trần / Quạt máy</li>
+                                <% item.services.each_with_index do |service,index| %>
+                                <% if index%2==0 %>
+                                <li><%= service.name %></li>
+                                <% end %>
+                                <% end %>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <ul class="list_ok">
-                                <li>Tủ lạnh</li>
-                                <li>Điện thoại</li>
-                                <li>Máy sấy tóc</li>
+                                <% item.services.each_with_index do |service,index| %>
+                                <% if index%2==1 %>
+                                <li><%= service.name %></li>
+                                <% end %>
+                                <% end %>
                             </ul>
                         </div>
                     </div>
                     <!-- End row  -->
                     <div class="carousel magnific-gallery">
+                        <% item.room_images.each do |room_image| %>
                         <div class="item">
-                            <a href="/frontend/img/carousel/1.jpg"><img src="/frontend/img/carousel/1.jpg" alt="Image"></a>
+                            <%= link_to image_tag(room_image.image.large, alt: item.name), room_image.image.larger.to_s %>
                         </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/2.jpg"><img src="/frontend/img/carousel/2.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/3.jpg"><img src="/frontend/img/carousel/3.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/4.jpg"><img src="/frontend/img/carousel/4.jpg" alt="Image"></a>
-                        </div>
+                        <% end %>
                     </div>
                     <!-- End photo carousel  -->
-
                     <hr>
-
-                    <h4>Premier Garden (Premier Deluxe Garden View)</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.
-                    </p>
-
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>Tivi</li>
-                                <li>Dụng cụ pha trà / cafe</li>
-                                <li>Quạt trần / Quạt máy</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
-                                <li>Tủ lạnh</li>
-                                <li>Điện thoại</li>
-                                <li>Máy sấy tóc</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- End row  -->
-                    <div class="carousel magnific-gallery">
-                        <div class="item">
-                            <a href="/frontend/img/carousel/1.jpg"><img src="/frontend/img/carousel/1.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/2.jpg"><img src="/frontend/img/carousel/2.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/3.jpg"><img src="/frontend/img/carousel/3.jpg" alt="Image"></a>
-                        </div>
-                        <div class="item">
-                            <a href="/frontend/img/carousel/4.jpg"><img src="/frontend/img/carousel/4.jpg" alt="Image"></a>
-                        </div>
-                    </div>
-                    <!-- End photo carousel  -->
+                    <% end %>
                 </div>
                 <!-- End col-md-9  -->
             </div>
@@ -214,7 +164,7 @@
             
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Quy định</h3>
+                    <h3><strong>Quy định</strong></h3>
                 </div>
                 <div class="col-md-9">
                     <div class="panel-group" id="accordion">
@@ -226,43 +176,43 @@
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                    <%= @detail.terms_1.html_safe if !@detail.terms_1.empty? %>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Qui định nhận phòng<i class="indicator icon-plus pull-right"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Quy định nhận phòng<i class="indicator icon-plus pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                    <%= @detail.terms_2.html_safe if !@detail.terms_2.empty? %>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Qui định hủy đổi của khách sạn<i class="indicator icon-plus pull-right"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Quy định hủy đổi của khách sạn<i class="indicator icon-plus pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                    <%= @detail.terms_3.html_safe if !@detail.terms_3.empty? %>
                                 </div>
                             </div>
                         </div>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Qui định về trẻ em và giường phụ<i class="indicator icon-plus pull-right"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Quy định về trẻ em và giường phụ<i class="indicator icon-plus pull-right"></i></a>
                                 </h4>
                             </div>
                             <div id="collapseFour" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                    <%= @detail.terms_4.html_safe if !@detail.terms_4.empty? %>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +224,7 @@
                             </div>
                             <div id="collapseFive" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                    <%= @detail.terms_5.html_safe if !@detail.terms_5.empty? %>
                                 </div>
                             </div>
                         </div>
