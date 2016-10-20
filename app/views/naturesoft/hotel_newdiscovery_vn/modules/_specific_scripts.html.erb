@@ -97,7 +97,7 @@ $('input.date-pick').datepicker('setDate', 'today');
 				initMap(center, 8);
 				
 				// Add main hotel
-				var marker = addMarker(center, "hallo", APP_URL + "/frontend/img/pins/Single_hotel.png");
+				var marker = addMarker(center, '<%= @detail.name %>', APP_URL + "/frontend/img/pins/Single_hotel.png");
 				
 				// add infobox
 				var html = '<div class="marker_infowindow">' +
@@ -111,6 +111,9 @@ $('input.date-pick').datepicker('setDate', 'today');
 				});
 				marker.addListener('click', function() {
 				  infowindow.open(map, marker);
+				});
+				google.maps.event.addListenerOnce(map, 'idle', function(){
+					infowindow.open(map, marker);
 				});
 			}
 		});
