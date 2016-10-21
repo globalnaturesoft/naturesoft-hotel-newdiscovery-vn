@@ -5,7 +5,7 @@
                 <div id="login">
                     <div class="text-center"><img src="/frontend/img/logo_sticky.png" alt="Image" data-retina="true"></div>
                     <hr>
-                    <form>
+                    <%= form_for(:user, :url => session_path(:user)) do |f| %>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 login_social">
                                 <a href="" class="btn btn-primary btn-block"><i class="icon-facebook"></i> Facebook</a>
@@ -29,10 +29,10 @@
                         <p class="small">
                             <%= link_to "Quên mật khẩu", naturesoft.forgot_password_path %>
                         </p>
-                        <!--<button class="btn_full">Đăng nhập</button>-->
-                        <%= link_to "Đăng nhập", naturesoft.admin_area_path, class: "btn_full" %>
+                        <button type="submit" class="btn_full">Đăng nhập</button>
+                        <!--<%= link_to "Đăng nhập", naturesoft.admin_area_path, class: "btn_full" %>-->
                         <%= link_to "Đăng ký", naturesoft.register_path, class: "btn_full_outline" %>
-                    </form>
+                    <% end %>
                 </div>
             </div>
         </div>
