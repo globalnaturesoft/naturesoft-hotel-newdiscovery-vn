@@ -9,17 +9,18 @@
 			<div class="modal-body">
 				<div id="message-review">
 				</div>
-				<form id="review_hotel">
-          <input name="hotel_id" id="hotel_id" type="hidden" value="<%= @detail.id %>">
+				<%= form_for @review do |f| %>					
+					<%= f.hidden_field :user_id, value: current_user.id %>
+					<%= f.hidden_field :hotel_id, value: @detail.id %>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" placeholder="Nhập họ tại đây (*)..." class="form-control">
+								<%= f.text_field :first_name, class: "form-control required", value: current_user.first_name, placeholder: "Nhập họ tại đây (*)..." %>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" placeholder="Nhập tên tại đây (*)..." class="form-control">
+								<%= f.text_field :last_name, class: "form-control required", value: current_user.last_name, placeholder: "Nhập tên tại đây (*)..." %>
 							</div>
 						</div>
 					</div>
@@ -27,12 +28,12 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="email" placeholder="Nhập email tại đây..." class="form-control">
+								<%= f.text_field :email, class: "form-control required", value: current_user.email, placeholder: "Nhập email tại đây (*)..." %>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="email" placeholder="Nhập số điện thoại tại đây (*)..." class="form-control">
+								<%= f.text_field :phone, class: "form-control required", value: current_user.phone, placeholder: "Nhập phone tại đây (*)..." %>
 							</div>
 						</div>
 					</div>
@@ -41,20 +42,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Loại phòng</label>
-								<select class="form-control">
-									<option value="">Chọn loại phòng</option>
-									<option value="1">Deluxe Garden</option>
-									<option value="2">Premier Garden (Premier Deluxe Garden View)</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="form-group">
 								<label>Đánh giá</label>
-								<select class="form-control">
+								<select class="form-control" name="review[rate]" id="review_rate">
 									<option value="">Chọn mức đánh giá</option>
 									<option value="5">Tuyệt vời</option>
 									<option value="4">Rất tốt</option>
@@ -67,10 +56,10 @@
 					</div>
 					<!-- End row -->
 					<div class="form-group">
-						<textarea class="form-control" style="height:100px" placeholder="Viết nội dung đánh giá tại đây (*)..."></textarea>
+						<textarea class="form-control" style="height:100px" name="review[content]" id="review_content" placeholder="Viết nội dung đánh giá tại đây (*)..."></textarea>
 					</div>
 					<input type="submit" value="Đánh giá" class="btn_1">
-				</form>
+				<% end %>
 			</div>
 		</div>
 	</div>

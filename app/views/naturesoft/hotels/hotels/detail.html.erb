@@ -1,4 +1,4 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<% if @detail.get_main_image.present? %><%= @detail.get_main_image.image.detail_bg %><% else %>/frontend/img/single_hotel_bg_1.jpg<% end %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-2">
         <div class="container">
             <div class="row">
@@ -235,23 +235,29 @@
             <div class="row">
                 <div class="col-md-3">
                     <h3>Đánh giá</h3>
+                    <% if current_user.present? %>
                     <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Viết đánh giá</a>
+                    <% else %>
+                        <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myWarning">Viết đánh giá</a>
+                    <% end %>
                 </div>
                 <div class="col-md-9">
-                    <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng 34 lượt đánh giá)</small></div>
-                    <% (0..2).each do |item| %>
+                    <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small></div>
+                    <% @detail.reviews.get_active.each do |item| %>
                     <div class="review_strip_single">
                         <img src="/frontend/img/avatar3.jpg" alt="Image" class="img-circle">
-                        <small> - 30/09/2016 -</small>
-                        <h4>Nguyễn Ngọc Sơn</h4>
-                        <p class="text-justify"><%= "Nội dung đánh giá" %></p>
+                        <small> - <%= item.created_at.strftime("%d/%m/%Y") %> -</small>
+                        <h4><%= item.first_name+" "+item.last_name %></h4>
+                        <p class="text-justify"><%= item.content %></p>
+                        <% if !item.rate.nil? %>
                         <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            <% (1..item.rate).each do |item| %><i class="icon-smile voted"></i><% end %>
                         </div>
+                        <% end %>
                     </div>
                     <!-- End review strip -->
                     <% end %>
-                    <a href="#" class="btn_1 green">Xem thêm (31)</a>
+                    <%= link_to "Xem thêm ("+"0"+")", "", class: "btn_1 green" %>
                 </div>
             </div>
         </div>
