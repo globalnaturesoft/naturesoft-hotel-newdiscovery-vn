@@ -42,7 +42,12 @@
                    data: form.serialize(), // serializes the form's elements.
                    success: function(data)
                    {
-                       alert(data); // show response from the php script.
+                       //alert(data); // show response from the php script.
+                       swal({
+                        title: data.title,
+                        text: data.text,
+                        type: data.status
+                        });
                        form.find("input[type=email]").val("");
                        
                         // button before

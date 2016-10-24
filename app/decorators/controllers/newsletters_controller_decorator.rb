@@ -7,9 +7,17 @@ module Naturesoft
         @newsletter = Newsletter.new(newsletter_params)
   
         if @newsletter.save
-          render text: 'Đăng ký thành công. Cảm ơn bạn đã đăng ký nhận bản tin.'
+          render json: {
+            title: "Đăng ký thành công",
+            text: 'Cảm ơn bạn đã đăng ký nhận bản tin.',
+            status: 'success'
+          }
         else
-          render text: 'Email của bạn đã được đăng ký (hoặc sai định dạng). Vui lòng cung cấp một địa chỉ email hợp lệ.'
+          render json: {
+            title: "Lỗi!",
+            text: 'Rất tiếc! Email của bạn không đúng hoặc đã được đăng ký. Vui lòng cung cấp một địa chỉ email hợp lệ.',
+            status: 'error'
+          }
         end
       end
   
