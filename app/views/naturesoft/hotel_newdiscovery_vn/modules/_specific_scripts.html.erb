@@ -184,7 +184,19 @@ $(document).ready(function(){
 <% end %>
 <script>
 	$(".newsletter_validate").validate();
-	$(".validate").validate();
+	$(".validate").validate({
+		rules: {
+			"user[password]": {
+				required: true,
+				minlength: 5
+			},
+			"user[password_confirmation]": {
+				required: true,
+				minlength: 5,
+				equalTo: "#password"
+			}
+		}
+	});
 </script>
 <script src="/frontend/dist/sweetalert.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="/frontend/dist/sweetalert.css">
