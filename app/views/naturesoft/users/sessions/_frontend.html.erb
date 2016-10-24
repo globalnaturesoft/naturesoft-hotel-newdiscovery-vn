@@ -2,29 +2,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                <div id="login">
+                <div id="login">                    
                     <div class="text-center"><img src="/frontend/img/logo_sticky.png" alt="Image" data-retina="true"></div>
                     <hr>
-                    <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                    <% colors = {"success" => "success", "alert" => "danger"} %>
+                    <% flash.each do |key, value| %>
+                        <div class="alert alert-<%= colors[key] %>"><%= value %></div>
+                    <% end %>
+                    
+                    <%= form_for(:user, :url => session_path(:user), html: {class: "validate"}) do |f| %>
                         <div class="row">
                             <div class="col-md-6 col-sm-6 login_social">
-                                <a href="#" class="btn btn-primary btn-block"><i class="icon-facebook"></i> Facebook</a>
+                                <a href="#" class="btn btn-primary btn-block"><i class="icon-facebook"></i>Facebook</a>
                             </div>
                             <div class="col-md-6 col-sm-6 login_social">
-                                <a href="#" class="btn btn-info btn-block "><i class="icon-google"></i>Google</a>
+                                <a href="#" class="btn btn-info btn-block"><i class="icon-google"></i>Google</a>
                             </div>
                         </div>
                         <!-- end row -->
                         <div class="login-or">
                         <hr class="hr-or"><span class="span-or">hoặc</span></div>
-
+                        
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="user[email]" class="form-control" placeholder="Nhập email tại đây...">
+                            <input type="text" name="user[email]" class="form-control required" placeholder="Nhập email tại đây...">
                         </div>
                         <div class="form-group">
                             <label>Mật khẩu</label>
-                            <input type="password" name="user[password]" class="form-control" placeholder="Nhập mật khẩu tại đây...">
+                            <input type="password" name="user[password]" class="form-control required" placeholder="Nhập mật khẩu tại đây...">
                         </div>
                         <p class="small">
                             <%= link_to "Quên mật khẩu ?", naturesoft.forgot_password_path %>
