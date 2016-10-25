@@ -18,6 +18,7 @@ Naturesoft::Core::Engine.routes.draw do
   get "thanh-vien.html" => "users#admin_area", as: :admin_area
 end
 Naturesoft::Hotels::Engine.routes.draw do
+  resources :reviews
   get "danh-sach-khach-san/dang-luoi.html" => "hotels#hotels_grid", as: :hotels_grid
   get "danh-sach-khach-san/dang-danh-sach.html" => "hotels#hotels_list", as: :hotels_list
   get "danh-sach-khach-san/chi-tiet.html" => "hotels#detail", as: :hotel_detail

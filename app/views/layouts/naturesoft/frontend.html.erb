@@ -107,7 +107,11 @@
     
     <% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
       <%= render "/modules/hotel_overlay" %>
+      <% if current_user.present? %>
       <%= render "/modules/hotel_leave_review" %>
+      <% else %>
+      <%= render "/modules/hotel_warning_review" %>
+      <% end %>
     <% end %>
     
     <%= render "/modules/quick_register" %>

@@ -1,4 +1,4 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/single_hotel_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<% if @detail.get_main_image.present? %><%= @detail.get_main_image.image.detail_bg %><% else %>/frontend/img/single_hotel_bg_1.jpg<% end %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-2">
         <div class="container">
             <div class="row">
@@ -51,35 +51,31 @@
             </div>
             <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a></p>
             <!-- Map button for tablets/mobiles -->
+            <% if @detail.get_main_image.present? %>
             <div id="Img_carousel" class="slider-pro">
                 <div class="sp-slides">
                     <div class="sp-slide">
-                        <img alt="Image" class="sp-image" src="/frontend/css/images/blank.gif" data-src="/frontend/img/slider_single_tour/1_medium.jpg" data-small="/frontend/img/slider_single_tour/1_small.jpg" data-medium="/frontend/img/slider_single_tour/1_medium.jpg" data-large="/frontend/img/slider_single_tour/1_large.jpg" data-retina="/frontend/img/slider_single_tour/1_large.jpg">
+                        <% if @detail.get_main_image.present? %>
+                        <img alt="Image" class="sp-image" src="/frontend/css/images/blank.gif" data-src="<%= @detail.get_main_image.image.detail_slide_medium %>" data-small="<%= @detail.get_main_image.image.detail_slide_small %>" data-medium="<%= @detail.get_main_image.image.detail_slide_medium %>" data-large="<%= @detail.get_main_image.image.detail_slide_large %>" data-retina="<%= @detail.get_main_image.image.detail_slide_large %>">
+                        <% end %>
                     </div>
-                    <% (0..7).each do |item| %>
+                    <% @detail.get_extra_images.each do |item| %>
                     <div class="sp-slide">
-                        <img alt="Image" class="sp-image" src="/frontend/css/images/blank.gif" data-src="/frontend/img/slider_single_tour/4_medium.jpg" data-small="/frontend/img/slider_single_tour/4_small.jpg" data-medium="/frontend/img/slider_single_tour/4_medium.jpg" data-large="/frontend/img/slider_single_tour/4_large.jpg" data-retina="/frontend/img/slider_single_tour/4_large.jpg">
-                        <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-vertical="0" data-width="100%" data-show-transition="up">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+                        <img alt="Image" class="sp-image" src="/frontend/css/images/blank.gif" data-src="<%= item.image.detail_slide_medium %>" data-small="<%= item.image.detail_slide_small %>" data-medium="<%= item.image.detail_slide_medium %>" data-large="<%= item.image.detail_slide_large %>" data-retina="<%= item.image.detail_slide_large %>">
+                        <p class="sp-layer sp-black sp-padding" data-position="bottomLeft" data-vertical="0" data-width="100%" data-show-transition="up"><%= item.title %></p>
                     </div>
                     <% end %>
                 </div>
                 <div class="sp-thumbnails">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/1_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/2_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/3_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/4_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/5_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/6_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/7_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/8_medium.jpg">
-                    <img alt="Image" class="sp-thumbnail" src="/frontend/img/slider_single_tour/9_medium.jpg">
+                    <img alt="Image" class="sp-thumbnail" src="<%= @detail.get_main_image.image.detail_slide_medium if @detail.get_main_image.present? %>">
+                    <% @detail.get_extra_images.each do |item| %>
+                    <img alt="Image" class="sp-thumbnail" src="<%= item.image.detail_slide_medium %>">
+                    <% end %>
                 </div>
             </div>
 
             <hr>
-
+            <% end %>
             <div class="row">
                 <div class="col-md-3">
                     <h3><strong>Giới thiệu</strong></h3>
@@ -239,23 +235,29 @@
             <div class="row">
                 <div class="col-md-3">
                     <h3>Đánh giá</h3>
+                    <% if current_user.present? %>
                     <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Viết đánh giá</a>
+                    <% else %>
+                        <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myWarning">Viết đánh giá</a>
+                    <% end %>
                 </div>
                 <div class="col-md-9">
-                    <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng 34 lượt đánh giá)</small></div>
-                    <% (0..2).each do |item| %>
+                    <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small></div>
+                    <% @detail.reviews.get_active.each do |item| %>
                     <div class="review_strip_single">
                         <img src="/frontend/img/avatar3.jpg" alt="Image" class="img-circle">
-                        <small> - 30/09/2016 -</small>
-                        <h4>Nguyễn Ngọc Sơn</h4>
-                        <p class="text-justify"><%= "Nội dung đánh giá" %></p>
+                        <small> - <%= item.created_at.strftime("%d/%m/%Y") %> -</small>
+                        <h4><%= item.first_name+" "+item.last_name %></h4>
+                        <p class="text-justify"><%= item.content %></p>
+                        <% if !item.rate.nil? %>
                         <div class="rating">
-                            <i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile voted"></i><i class="icon-smile"></i><i class="icon-smile"></i>
+                            <% (1..item.rate).each do |item| %><i class="icon-smile voted"></i><% end %>
                         </div>
+                        <% end %>
                     </div>
                     <!-- End review strip -->
                     <% end %>
-                    <a href="#" class="btn_1 green">Xem thêm (31)</a>
+                    <%= link_to "Xem thêm ("+"0"+")", "", class: "btn_1 green" %>
                 </div>
             </div>
         </div>
