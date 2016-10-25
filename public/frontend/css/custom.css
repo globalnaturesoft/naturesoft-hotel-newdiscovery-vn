@@ -72,6 +72,9 @@ p a img.img-responsive {
     text-indent: -9999px;
     margin-top: -10px;
 }
+header.sticky #logo_home h1 a {
+    background-image: url(../img/logo_sticky.png);
+}
 header.sticky #logo_home h1 {
     margin: 0;
 }
