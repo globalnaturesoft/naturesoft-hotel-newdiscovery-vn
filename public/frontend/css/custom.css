@@ -61,3 +61,17 @@ p a img.img-responsive {
   text-align: center;
   width: 380px;
 }
+#logo_home h1 a, header.sticky #logo_home h1 a, header#plain #logo_home h1 a, header#colored #logo_home h1 a {
+    width: 160px;
+    height: 62px;
+    display: block;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 132px 62px;
+    text-indent: -9999px;
+    margin-top: -10px;
+}
+header.sticky #logo_home h1 {
+    margin: 0;
+}
