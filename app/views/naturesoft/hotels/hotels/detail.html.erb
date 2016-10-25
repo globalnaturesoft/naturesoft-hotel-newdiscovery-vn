@@ -269,12 +269,14 @@
             </p>
             <div class="box_style_1 margin_30 expose">
                 <h3 class="inner">Đặt phòng</h3>
-                <form>
+                <%= form_for @order, html: {class: "validate"} do |f| %>
+                <% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
+                <%= f.hidden_field :hotel_id, value: @detail.id %>
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-user"></i> Họ (*)</label>
-                            <input class="form-control" type="text" placeholder="Nhập họ tại đây...">
+                            <%= f.text_field :first_name, class: "form-control required", value: (current_user.first_name if current_user.present?), placeholder: "Nhập họ tại đây..." %>
                         </div>
                     </div>
                 </div>
@@ -282,7 +284,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-user"></i> Tên (*)</label>
-                            <input class="form-control" type="text" placeholder="Nhập tên tại đây...">
+                            <%= f.text_field :last_name, class: "form-control required", value: (current_user.last_name if current_user.present?), placeholder: "Nhập tên tại đây..." %>
                         </div>
                     </div>
                 </div>
@@ -290,7 +292,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-email"></i> Email</label>
-                            <input class="form-control" type="text" placeholder="Nhập email tại đây...">
+                            <%= f.text_field :email, class: "form-control", value: (current_user.email if current_user.present?), placeholder: "Nhập email tại đây..." %>
                         </div>
                     </div>
                 </div>
@@ -298,7 +300,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-mobile-1"></i> Di động (*)</label>
-                            <input class="form-control" type="text" placeholder="Nhập số di động tại đây...">
+                            <%= f.text_field :phone, class: "form-control required", value: (current_user.phone if current_user.present?), placeholder: "Nhập số di động tại đây..." %>
                         </div>
                     </div>
                 </div>
@@ -306,7 +308,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-phone"></i> Điện thoại bàn</label>
-                            <input class="form-control" type="text" placeholder="Nhập số điện thoại bàn tại đây...">
+                            <%= f.text_field :tel, class: "form-control", placeholder: "Nhập số điện thoại bàn tại đây..." %>
                         </div>
                     </div>
                 </div>
@@ -314,10 +316,11 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label>Loại phòng (*)</label>
-                            <select class="form-control" name="cleanliness_review" id="cleanliness_review">
+                            <select class="form-control" name="order[room_id]" id="room_id">
                                 <option value="">Chọn loại phòng cần đặt</option>
-                                <option value="1">Deluxe Garden</option>
-                                <option value="2">Premier Garden (Premier Deluxe Garden View)</option>
+                                <% @detail.rooms.each do |item| %>
+                                <option value="<%= item.id %>"><%= item.name %></option>
+                                <% end %>
                             </select>
                         </div>
                     </div>
@@ -326,7 +329,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-calendar-7"></i> Ngày nhận phòng (*)</label>
-                            <input class="form-control" data-date-format="M d, D" type="text" id="check_in" placeholder="Ngày nhận phòng...">
+                            <input class="form-control" data-date-format="dd/mm/yyyy" name="order[checkin]" type="text" id="check_in" placeholder="Ngày nhận phòng...">
                         </div>
                     </div>
                 </div>
@@ -334,7 +337,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-calendar-7"></i> Ngày trả phòng (*)</label>
-                            <input class="form-control" data-date-format="M d, D" type="text" id="check_out" placeholder="Ngày trả phòng...">
+                            <input class="form-control" data-date-format="dd/mm/yyyy" name="order[checkout]" type="text" id="check_out" placeholder="Ngày trả phòng...">
                         </div>
                     </div>
                 </div>
@@ -343,15 +346,15 @@
                         <div class="form-group">
                             <label>Số người lớn (*)</label>
                             <div class="numbers-row">
-                                <input type="text" value="1" id="adults" class="qty2 form-control" name="quantity">
+                                <input type="text" value="1" id="adults" class="qty2 form-control" name="order[adult]">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div class="form-group">
-                            <label>Số trẻ em ()</label>
+                            <label>Số trẻ em (*)</label>
                             <div class="numbers-row">
-                                <input type="text" value="0" id="children" class="qty2 form-control" name="quantity">
+                                <input type="text" value="0" id="children" class="qty2 form-control" name="order[child]">
                             </div>
                         </div>
                     </div>
@@ -359,15 +362,16 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <textarea name="review_text" id="review_text" class="form-control" style="height:100px" placeholder="Ghi chú thêm..."></textarea>
+                            <textarea name="order[note]" id="order_note" class="form-control" style="height:100px" placeholder="Ghi chú thêm..."></textarea>
                         </div>
                     </div>
                 </div>
                 <br>
-                <!--<input type="submit" value="Đặt phòng" class="btn_full">-->
-                <%= link_to "Đặt Phòng", "", class: "btn_full" %>
-                <%= link_to '<i class=" icon-heart"></i> Yêu thích khách sạn'.html_safe, "", class: "btn_full_outline" %>
-                </form>
+                <input type="submit" value="Đặt phòng" class="btn_full">
+                <% if current_user.present? %>
+                <%= link_to '<i class=" icon-heart"></i> Yêu thích khách sạn'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: @detail.id, user_id: current_user.id), class: "btn_full_outline" %>
+                <% end %>
+                <% end %>
             </div>
             <!--/box_style_1 -->
 
