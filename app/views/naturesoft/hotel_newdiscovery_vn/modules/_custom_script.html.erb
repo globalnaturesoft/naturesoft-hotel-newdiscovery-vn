@@ -36,7 +36,8 @@
             form.find("input[type=submit]").addClass("posting");
             //form.find("input[type=submit]").after('<i class="icon-spin3 animate-spin"></i>');
             
-            $.ajax({
+            if(form.valid()) {
+                $.ajax({
                    type: "POST",
                    url: url,
                    data: form.serialize(), // serializes the form's elements.
@@ -55,6 +56,37 @@
                         //form.find(".icon-spin3").remove();
                    }
                  });
+            }
+        
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+        });
+        
+        // this is the id of the form
+        $("#review_hotel").submit(function(e) {
+            var form = $(this);
+            var url = form.attr("action"); // the script where you handle the form input.
+            
+            if(form.valid()) {
+                $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: form.serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {
+                       //alert(data); // show response from the php script.
+                       swal({
+                        title: data.title,
+                        text: data.text,
+                        type: data.status
+                        });
+                       form.find("input[type=email]").val("");
+                       form.find("input[type=text]").val("");
+                       form.find("input[type=phone]").val("");
+                       form.find("textarea").val("");
+                       $('#quickRegister').modal("hide");
+                   }
+                 });
+            }
         
             e.preventDefault(); // avoid to execute the actual submit of the form.
         });    

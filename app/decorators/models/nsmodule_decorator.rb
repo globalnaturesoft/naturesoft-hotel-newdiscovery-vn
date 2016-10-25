@@ -1,6 +1,7 @@
 Naturesoft::Nsmodule.class_eval do
   @hotel_newdiscovery_vn_positions = {
     "header-top-line" => nil,
+    "quick-register-top-line" => nil,
     "main-menu" => nil,
     "home-slider" => nil,
     "top-favourite" => nil,
