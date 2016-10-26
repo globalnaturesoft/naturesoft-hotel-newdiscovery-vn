@@ -23,28 +23,24 @@
 
         <div class="col-md-9">
             <div class="box_style_1">
-                <% (0..2).each do |item| %>
+                <% @articles.each do |item| %>
                 <div class="post">
-                    <%= link_to image_tag("/frontend/img/blog-3.jpg", alt: "", class: "img-responsive"), naturesoft_articles.blog_detail_path %>
+                    <%= link_to image_tag(item.image_url.lager, alt: "786x310", class: "img-responsive"), naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)) %>
                     <div class="post_info clearfix">
                         <div class="post-left">
                             <ul>
-                                <li><i class="icon-calendar-empty"></i> Đăng ngày <span>30/09/2016</span></li>
-                                <li><i class="icon-inbox-alt"></i> Chuyên mục: Blog du lịch</li>
+                                <li><i class="icon-calendar-empty"></i> Đăng ngày <span><%= item.created_at.strftime("%d/%m/%Y") %></span></li>
+                                <li><i class="icon-inbox-alt"></i> Chuyên mục: <% item.categories.each do |c| %><%= c.name %><% end %>
+                                </li>
                                 <li><i class="icon-tags"></i> Nhãn: <%= link_to "Đặt phòng khách sạn", "" %>, <%= link_to "Blog du lịch", "" %></li>
                             </ul>
                         </div>
                     </div>
-                    <h2>Tiêu đề của blog du lịch</h2>
+                    <h2><%= item.title %></h2>
                     <div class="text-justify">
-                        <p>
-                            Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
-                        </p>
-                        <p>
-                            Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
-                        </p>
+                        <%= item.content.html_safe %>
                     </div>
-                    <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path, class: "btn_1" %>
+                    <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
                 </div>
                 <!-- end post -->
 
@@ -54,15 +50,7 @@
             <hr>
 
             <div class="text-center">
-                <ul class="pagination">
-                    <li><a href="">Trang trước</a></li>
-                    <li class="active"><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">Trang sau</a></li>
-                </ul>
+                <%= will_paginate @articles, previous_label: 'Trang trước', next_label: 'Trang sau', renderer: BootstrapPagination::Rails %>
                 <!-- end pagination-->
             </div>
         </div>
