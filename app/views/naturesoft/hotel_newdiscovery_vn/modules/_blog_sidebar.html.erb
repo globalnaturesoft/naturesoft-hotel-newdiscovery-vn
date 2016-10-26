@@ -27,7 +27,7 @@
     <ul class="recent_post">
         <% Naturesoft::Articles::Article.get_recent_posts.each do |item| %>
         <li>
-            <i class="icon-calendar-empty"></i> 30/09/2016
+            <i class="icon-calendar-empty"></i> <%= item.created_at.strftime("%d/%m/%Y") %>
             <div><%= link_to item.title, naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)) %></div>
         </li>
         <% end %>

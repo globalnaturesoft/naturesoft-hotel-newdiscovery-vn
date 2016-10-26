@@ -32,7 +32,18 @@
                                 <li><i class="icon-calendar-empty"></i> Đăng ngày <span><%= item.created_at.strftime("%d/%m/%Y") %></span></li>
                                 <li><i class="icon-inbox-alt"></i> Chuyên mục: <% item.categories.each do |c| %><%= c.name %><% end %>
                                 </li>
-                                <li><i class="icon-tags"></i> Nhãn: <%= link_to "Đặt phòng khách sạn", "" %>, <%= link_to "Blog du lịch", "" %></li>
+                                <li><i class="icon-tags"></i> Nhãn:
+                                <% if !item.get_tags.empty? %>
+                                    <% len = item.get_tags.length %>
+                                    <% item.get_tags.each_with_index do |tag,i| %>
+                                        <% if i+1==len %>
+                                            <%= link_to(tag,'') %>
+                                        <% else %>
+                                            <%= link_to(tag,'') %>,
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                                </li>
                             </ul>
                         </div>
                     </div>
