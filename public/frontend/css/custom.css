@@ -78,3 +78,6 @@ header.sticky #logo_home h1 a {
 header.sticky #logo_home h1 {
     margin: 0;
 }
+.font-bold {
+  font-weight: bold;
+}

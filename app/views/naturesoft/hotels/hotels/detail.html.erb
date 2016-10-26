@@ -238,7 +238,7 @@
                     <% if current_user.present? %>
                     <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myReview">Viết đánh giá</a>
                     <% else %>
-                        <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myWarning">Viết đánh giá</a>
+                    <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myWarning">Viết đánh giá</a>
                     <% end %>
                 </div>
                 <div class="col-md-9">
@@ -368,9 +368,12 @@
                 </div>
                 <br>
                 <input type="submit" value="Đặt phòng" class="btn_full">
-                <% if current_user.present? %>
-                <%= link_to '<i class=" icon-heart"></i> Yêu thích khách sạn'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: @detail.id, user_id: current_user.id), class: "btn_full_outline" %>
                 <% end %>
+            
+                <% if current_user.present? %>
+                    <%= link_to '<i class="icon-heart"></i> Yêu thích khách sạn'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: @detail.id, user_id: current_user.id), class: "btn_full_outline" %>
+                <% else %>
+                    <a href="#" class="btn_full_outline" data-toggle="modal" data-target="#myWishList"><i class="icon-heart"></i> Yêu thích khách sạn</a>
                 <% end %>
             </div>
             <!--/box_style_1 -->

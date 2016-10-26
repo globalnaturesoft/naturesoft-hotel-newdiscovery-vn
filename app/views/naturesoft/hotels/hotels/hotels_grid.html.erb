@@ -83,7 +83,7 @@
                                 <% if current_user.present? %>
                                 <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
                                 <% else %>
-                                <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Vui lòng đăng nhập</span></span>'.html_safe, "#login", class: "tooltip_flip tooltip-effect-1" %>
+                                <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
                                 <% end %>
                             </div>
                             <!-- End wish list-->
