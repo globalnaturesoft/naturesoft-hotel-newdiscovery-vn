@@ -19,6 +19,12 @@ Naturesoft::Core::Engine.routes.draw do
 end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews
+  resources :orders
+  resources :wish_lists do
+    collection do
+      get 'add_item'
+    end
+  end
   get "danh-sach-khach-san/dang-luoi.html" => "hotels#hotels_grid", as: :hotels_grid
   get "danh-sach-khach-san/dang-danh-sach.html" => "hotels#hotels_list", as: :hotels_list
   get "danh-sach-khach-san/chi-tiet.html" => "hotels#detail", as: :hotel_detail

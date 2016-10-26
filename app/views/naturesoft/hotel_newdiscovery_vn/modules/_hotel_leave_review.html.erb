@@ -9,7 +9,7 @@
 			<div class="modal-body">
 				<div id="message-review">
 				</div>
-				<%= form_for @review do |f| %>					
+				<%= form_for @review, html: {class: "review_validate"} do |f| %>
 					<%= f.hidden_field :user_id, value: current_user.id %>
 					<%= f.hidden_field :hotel_id, value: @detail.id %>
 					<div class="row">
@@ -56,7 +56,7 @@
 					</div>
 					<!-- End row -->
 					<div class="form-group">
-						<textarea class="form-control" style="height:100px" name="review[content]" id="review_content" placeholder="Viết nội dung đánh giá tại đây (*)..."></textarea>
+						<textarea class="form-control required" style="height:100px" name="review[content]" id="review_content" placeholder="Viết nội dung đánh giá tại đây (*)..."></textarea>
 					</div>
 					<input type="submit" value="Đánh giá" class="btn_1">
 				<% end %>
