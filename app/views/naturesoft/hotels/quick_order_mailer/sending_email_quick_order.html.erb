@@ -1,0 +1,17 @@
+Xin chào,
+<p>
+    <b>Thông Báo Từ Hệ Thống Website Đặt Phòng Khách Sạn.</b>
+</p>
+
+<p>
+    Có một yêu cầu đặt phòng nhanh đã được gửi tới bạn, với nội dung như sau:
+</p>
+
+<p>
+    Họ tên: <%= @quick_order.first_name %> <%= @quick_order.last_name %><br/>
+    Địa chỉ email: <%= @quick_order.email %><br/>
+    Số điện thoại: <%= @quick_order.phone %><br/>
+    Yêu cầu: <%= @quick_order.message %><br/>
+    =========================================
+    <div>*Ban QT.*</div>
+</p>

@@ -13,6 +13,7 @@ module Naturesoft
             text: 'Cảm ơn bạn đã đăng ký thông tin. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất',
             status: 'success'
           }
+          Naturesoft::Hotels::QuickOrderMailer.sending_email_quick_order(@quick_order).deliver_now
         else
           render json: {
             title: "Rất tiếc!",
