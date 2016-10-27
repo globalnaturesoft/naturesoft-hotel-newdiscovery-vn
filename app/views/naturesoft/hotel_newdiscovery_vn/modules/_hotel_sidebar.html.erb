@@ -1,8 +1,8 @@
+<div id="search_results"><%= @hotels.count %> khách sạn được tìm thấy.</div>
 <div id="filters_col">
     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Bộ lọc khách sạn <i class="icon-plus-1 pull-right"></i></a>
     <div class="collapse in" id="collapseFilters">
-        <%= form_tag(naturesoft_hotels.hotels_grid_path, method: "get") do %>
-        <%= hidden_field_tag :menu_id, @current_menu.id %>
+        <%= form_tag("", method: "get") do %>
         <div class="filter_type">
             <h6>Tìm khách sạn</h6>
             <div class="form-group">
@@ -13,13 +13,14 @@
             <h6>Thành phố</h6>
             <div class="form-group">
                 <select class="form-control" name="area_id">
+                    <option value="">Chọn khu vực</option>
                     <% Naturesoft::Areas::Area.order("name asc").each do |item| %>
                         <% if item.level == 1 %>
-                            <option value="<%= item.id %>" class="font-bold"><%= item.name %></option>
+                            <option<% if item.id == params[:area_id] %> selected<% end %> value="<%= item.id %>" class="font-bold"><%= item.name %></option>
                             <% item.children.order("name asc").each do |child_1| %>
-                            <option>-- <%= child_1.name %></option>
+                            <option<% if child_1.id == params[:area_id] %> selected<% end %> value="<%= child_1.id %>">-- <%= child_1.name %></option>
                             <% child_1.children.order("name asc").each do |child_2| %>
-                            <option value="<%= child_2.id %>">-- <%= child_1.name %> - <%= child_2.name %></option>
+                            <option<% if child_2.id == params[:area_id] %> selected<% end %> value="<%= child_2.id %>">-- <%= child_1.name %> - <%= child_2.name %></option>
                             <% end %>
                             <% end %>
                         <% end %>
@@ -30,64 +31,63 @@
         <div class="filter_type">
             <h6>Giá</h6>
             <ul>
-                <li><label><input type="checkbox">Đang khuyến mãi</label></li>
-                <li><label><input type="checkbox">Dưới 500,000 VNĐ</label></li>
-                <li><label><input type="checkbox">Từ 500,000 - 1,000,000 VNĐ</label></li>
-                <li><label><input type="checkbox">Từ 1,00,000 - 2,000,000 VNĐ</label></li>
-                <li><label><input type="checkbox">Từ 2,000,000 - 5,000,000 VNĐ</label></li>
-                <li><label><input type="checkbox">Trên 5,000,000 VNĐ</label></li>
+                <li><label><input type="checkbox" name="is_deal" value="true">Đang khuyến mãi</label></li>
+                <li><label><input type="checkbox" name="prices[]" value="0_500000">Dưới 500,000 VNĐ</label></li>
+                <li><label><input type="checkbox" name="prices[]" value="500000_10000000">Từ 500,000 - 1,000,000 VNĐ</label></li>
+                <li><label><input type="checkbox" name="prices[]" value="10000000_20000000">Từ 1,00,000 - 2,000,000 VNĐ</label></li>
+                <li><label><input type="checkbox" name="prices[]" value="20000000_50000000">Từ 2,000,000 - 5,000,000 VNĐ</label></li>
+                <li><label><input type="checkbox" name="prices[]" value=">_500000">Trên 5,000,000 VNĐ</label></li>
             </ul>
         </div>
         <div class="filter_type">
             <h6>Tiêu chuẩn</h6>
             <ul>
-                <li><label><input type="checkbox" name="hotel_rating" value="5"><span class="rating">
-                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i>
-                </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(5) %>)</label></li>
-                <li><label><input type="checkbox" name="hotel_rating" value="4"><span class="rating">
-                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i>
-                </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(4) %>)</label></li>
-                <li><label><input type="checkbox" name="hotel_rating" value="3"><span class="rating">
-                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(3) %>)</label></li>
-                <li><label><input type="checkbox" name="hotel_rating" value="2"><span class="rating">
-                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(2) %>)</label></li>
-                <li><label><input type="checkbox" name="hotel_rating" value="1"><span class="rating">
-                <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
-                </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(1) %>)</label></li>
+                <li>
+                    <label><input type="checkbox" name="hotel_ratings[]" value="5"><span class="rating">
+                    <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i>
+                    </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(5) %>)</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="hotel_ratings[]" value="4"><span class="rating">
+                    <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i>
+                    </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(4) %>)</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="hotel_ratings[]" value="3"><span class="rating">
+                    <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
+                    </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(3) %>)</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="hotel_ratings[]" value="2"><span class="rating">
+                    <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
+                    </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(2) %>)</label>
+                </li>
+                <li>
+                    <label><input type="checkbox" name="hotel_ratings[]" value="1"><span class="rating">
+                    <i class="icon_set_1_icon-81 voted"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i><i class="icon_set_1_icon-81"></i>
+                    </span>(<%= Naturesoft::Hotels::Hotel.get_hotel_stars(1) %>)</label>
+                </li>
             </ul>
         </div>
         <div class="filter_type">
             <h6>Loại</h6>
             <ul>
                 <% Naturesoft::Hotels::HotelType.order("name asc").each do |item| %>
-                <li><label><input type="checkbox" name="type_id" value="<%= item.id %>"><%= item.name %></label></li>
+                <li><label><input type="checkbox" name="hotel_type_ids[]" value="<%= item.id %>"><%= item.name %></label></li>
                 <% end %>
-            </ul>
-        </div>
-        <div class="filter_type">
-            <h6>Đánh giá</h6>
-            <ul>
-                <li><label><input type="checkbox">Tuyệt vời: 9+ (0)</label></li>
-                <li><label><input type="checkbox">Rất tốt: 8+ (0)</label></li>
-                <li><label><input type="checkbox">Tốt: 7+ (0)</label></li>
-                <li><label><input type="checkbox">Tạm chấp nhận: 6+ (0)</label></li>
-                <li><label><input type="checkbox">Không tốt lắm: 5+ (0)</label></li>
-                <li><label><input type="checkbox">Không có đánh giá: (0)</label></li>
             </ul>
         </div>
         <div class="filter_type">
             <h6>Tiện nghi - Dịch vụ</h6>
             <ul>
                 <% Naturesoft::Hotels::Facility.order("name asc").each do |item| %>
-                <li><label><input type="checkbox" name="facility_id" value="<%= item.id %>"><%= item.name %></label></li>
+                <li><label><input type="checkbox" name="facility_ids[]" value="<%= item.id %>"><%= item.name %></label></li>
                 <% end %>
             </ul>
         </div>
         
         <div class="filter_type">
-            <input type="submit" value="Submit" class="btn_1" id="submit-contact">
+            <input type="submit" value="Tìm Kiếm" class="btn_1" id="submit-contact">
         </div>
         <% end %>
     </div>
