@@ -39,7 +39,7 @@
                         <li>Họ <span><%= current_user.first_name %></span></li>
                         <li>Tên <span><%= current_user.last_name %></span></li>
                         <li>Số điện thoại <span><%= current_user.phone %></span></li>
-                        <li>Ngày sinh <span><%= current_user.birthdate.strftime("%d/%m/%Y") %></span></li>
+                        <li>Ngày sinh <span><%= current_user.birthdate.strftime("%d/%m/%Y") if !current_user.birthdate.nil? %></span></li>
                         <li>Địa chỉ <span><%= current_user.address %></span></li>
                         <li>Tỉnh/Thành phố <span>TP. Hồ Chí Minh</span></li>
                         <li>Mã Zip <span><%= current_user.zip %></span></li>
@@ -47,8 +47,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <img src="<%= image_src(current_user.image.profile) %>" alt="Image" class="img-responsive styled profile_pic">
-                    <!--<%= image_tag(image_src(current_user.image.profile), class: "img-responsive styled profile_pic") %>-->
+                    <img src="<%= user_image_src(current_user.image.profile) %>" alt="Image" class="img-responsive styled profile_pic">
                     </p>
                 </div>
             </div>
