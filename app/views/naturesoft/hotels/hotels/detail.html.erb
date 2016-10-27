@@ -83,7 +83,6 @@
                 <div class="col-md-9">
                     <div class="text-justify"><%= @detail.description.html_safe if !@detail.description.empty? %></div>
                     <h4><strong>Tiện nghi - Dịch vụ khách sạn</strong></h4>
-                    <p>Lorem ipsum dolor sit amet, at omnes deseruisse pri. Quo aeterno legimus insolens ad. Sit cu detraxit constituam, an mel iudico constituto efficiendi.</p>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <ul class="list_ok">
@@ -371,7 +370,11 @@
                 <% end %>
             
                 <% if current_user.present? %>
+                    <% if Naturesoft::Hotels::WishList.check_present(@detail.id, current_user).count == 0 %>
                     <%= link_to '<i class="icon-heart"></i> Yêu thích khách sạn'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: @detail.id, user_id: current_user.id), class: "btn_full_outline" %>
+                    <% else %>
+                    <%= link_to '<i class="icon-heart"></i> Đã yêu thích khách sạn'.html_safe, "javascript:void(0);", class: "btn_full_outline detail-hotel-loved" %>
+                    <% end %>
                 <% else %>
                     <a href="#" class="btn_full_outline" data-toggle="modal" data-target="#myWishList"><i class="icon-heart"></i> Yêu thích khách sạn</a>
                 <% end %>
