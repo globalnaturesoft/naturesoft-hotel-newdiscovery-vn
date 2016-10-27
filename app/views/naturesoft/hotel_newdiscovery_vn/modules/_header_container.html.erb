@@ -2,14 +2,14 @@
     <div class="row">
         <div class="col-md-3 col-sm-3 col-xs-3">
             <div id="logo_home">
-                <h1><%= link_to "City Tours travel template", naturesoft_hotel_newdiscovery_vn.root_path, title: "City tours travel template" %></h1>
+                <h1><%= link_to "Newdiscovery Travel!", naturesoft_hotel_newdiscovery_vn.root_path, title: "Newdiscovery Travel!" %></h1>
             </div>
         </div>
         <nav class="col-md-9 col-sm-9 col-xs-9">
             <a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="javascript:void(0);"><span>Mục Lục Trên Di Động</span></a>
             <div class="main-menu">
                 <div id="header_menu">
-                    <img src="/frontend/img/logo_sticky.png" width="160" height="34" alt="City tours" data-retina="true">
+                    <img src="/frontend/img/logo_sticky.png" width="160" height="34" alt="Newdiscovery Travel!" data-retina="true">
                 </div>
                 <a href="#" class="open_close" id="close_in"><i class="icon_set_1_icon-77"></i></a>
                 <ul>
@@ -22,16 +22,16 @@
                     <div class="dropdown dropdown-search">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
                         <div class="dropdown-menu">
-                            <form>
+                            <%= form_tag(naturesoft_hotels.hotels_grid_path, method: "get") do %>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm khách sạn...">
+                                    <input type="text" class="form-control" name="keyword" placeholder="Nhập tên khách sạn.....">
                                     <span class="input-group-btn">
                                     <button class="btn btn-default" type="button" style="margin-left:0;">
                                     <i class="icon-search"></i>
                                     </button>
                                     </span>
                                 </div>
-                            </form>
+                            <% end %>
                         </div>
                     </div>
                 </li>

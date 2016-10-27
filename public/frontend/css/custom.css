@@ -81,3 +81,13 @@ header.sticky #logo_home h1 {
 .font-bold {
   font-weight: bold;
 }
+.wishlist.hotel-loved a {
+  color: #ff0000;
+}
+.wishlist.hotel-loved:before {
+  color: #ff0000;
+}
+a.detail-hotel-loved {
+  color: #ff0000;
+  border: 2px solid #ff0000;
+}

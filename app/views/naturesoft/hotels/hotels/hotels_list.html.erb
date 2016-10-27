@@ -43,13 +43,21 @@
             <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="wishlist">
-                            <% if current_user.present? %>
-                            <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
+                        <% if current_user.present? %>
+                            <% if Naturesoft::Hotels::WishList.check_present(item.id, current_user).count == 0 %>
+                                <div class="wishlist">
+                                    <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
+                                </div>
                             <% else %>
-                            <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
+                                <div class="wishlist hotel-loved">
+                                <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Đã yêu thích khách sạn</span></span></a>
+                                </div>
                             <% end %>
-                        </div>
+                        <% else %>
+                            <div class="wishlist">
+                                <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
+                            </div>
+                        <% end %>
                         <div class="img_list">
                             <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
                                 <!--<div class="ribbon popular"></div>-->
