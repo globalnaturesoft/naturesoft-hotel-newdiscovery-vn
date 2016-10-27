@@ -30,42 +30,30 @@
 
             <div id="tools">
                 <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="styled-select-filters">
-                            <select name="sort_price" id="sort_price">
-                                    <option value="" selected>Sắp xếp theo giá</option>
-                                    <option value="lower">Giá từ cao đến thấp</option>
-                                    <option value="higher">Giá từ thấp đến cao</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="styled-select-filters">
-                            <select name="sort_rating" id="sort_rating">
-                                <option value="" selected>Sắp xếp theo đánh giá</option>
-                                <option value="lower">Điểm từ cao - thấp</option>
-                                <option value="higher">Điểm từ thấp - cao</option>
-                            </select>
-                        </div>
-                    </div>
+                    <%= render "/modules/hotel_sort" %>
                     <div class="col-md-6 col-sm-6 hidden-xs text-right">
-                            <a href="<%= naturesoft_hotels.hotels_grid_path %>" class="bt_filters"><i class="icon-th"></i></a>
-                            <a class="bt_filters"><i class=" icon-list"></i></a>
+                        <a href="<%= naturesoft_hotels.hotels_grid_path(menu_id: @current_menu) %>" class="bt_filters"><i class="icon-th"></i></a>
+                        <a class="bt_filters"><i class=" icon-list"></i></a>
                     </div>
                 </div>
             </div>
             <!--/tools -->
             
-            <% (0..6).each do |item| %>
+            <% @hotels.each do |item| %>
             <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-4">
                         <div class="wishlist">
-                            <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
+                            <% if current_user.present? %>
+                            <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
+                            <% else %>
+                            <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
+                            <% end %>
                         </div>
                         <div class="img_list">
-                            <a href="<%= naturesoft_hotels.hotel_detail_path %>">
-                                <div class="ribbon popular"></div><img src="/frontend/img/hotel_1.jpg" alt="Image">
+                            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
+                                <!--<div class="ribbon popular"></div>-->
+                                <% if item.hotel_images.count > 0 %><%= image_tag(item.get_main_image.image.large, alt: item.name) %><% else %><%= image_tag("/frontend/img/no-img.png", alt: item.name) %><% end %>
                                 <div class="short_info"></div>
                             </a>
                         </div>
@@ -74,32 +62,21 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="tour_list_desc">
                             <div class="score">Tuyệt vời<span>9.0</span></div>
-                            <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i></div>
-                            <h3><strong><%= link_to "Tên khách sạn", naturesoft_hotels.hotel_detail_path %></strong></h3>
-                            <p class="text-justify">Mô tả ngắn cho khách sạn...</p>
-                            <ul class="add_info">
-                                <li>
-                                    <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="Wifi miễn phí"><i class="icon_set_1_icon-86"></i></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="TV truyền hình cáp"><i class="icon_set_2_icon-116"></i></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="Hồ bơi"><i class="icon_set_2_icon-110"></i></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="Phòng tập Gym"><i class="icon_set_2_icon-117"></i></a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" class="tooltip-1" data-placement="top" title="Nhà hàng"><i class="icon_set_1_icon-58"></i></a>
-                                </li>
-                            </ul>
+                            <div class="rating"><% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %></div>
+                            <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id), title: item.name %></strong></h3>
+                            <div class="text-justify"><p><%= item.address %></p></div>
+                            <ul class="list_ok">
+                                <% item.facilities.limit(4).each do |item| %>
+                                <li><%= item.name %></li>
+                                <% end %>
+                           </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <div class="price_list">
-                            <div>10,000,000 VNĐ<span class="normal_price_list">12,000,000 VNĐ</span><small>*Giá/Đêm</small>
-                                <p><%= link_to "Chi tiết", naturesoft_hotels.hotel_detail_path, class: "btn_1" %></a></p>
+                            <div>
+                                <%= format_number(item.from_per_night) %> VNĐ<!--<span class="normal_price_list">12,000,000 VNĐ</span>--><small>*Giá/Đêm</small>
+                                <p><%= link_to "Chi tiết", naturesoft_hotels.hotel_detail_path(hotel_id: item.id), class: "btn_1" %></a></p>
                             </div>
                         </div>
                     </div>
@@ -111,15 +88,7 @@
             <hr>
 
             <div class="text-center">
-                <ul class="pagination">
-                    <li><a href="">Trang trước</a></li>
-                    <li class="active"><a href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
-                    <li><a href="">Trang sau</a></li>
-                </ul>
+                <%= will_paginate @hotels, previous_label: 'Trang trước', next_label: 'Trang sau', renderer: BootstrapPagination::Rails %>
             </div>
             <!-- end pagination-->
 
