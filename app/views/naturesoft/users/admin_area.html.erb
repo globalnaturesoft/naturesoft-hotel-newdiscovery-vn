@@ -1,7 +1,7 @@
 <section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
 <div class="parallax-content-1">
     <div class="animated fadeInDown">
-        <h1>Hello Nguyễn Ngọc Sơn!</h1>
+        <h1>Welcome, <%= current_user.display_name %></h1>
         <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
     </div>
 </div>
@@ -12,7 +12,7 @@
 <div class="container">
     <ul>
         <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-        <li>Trang thành viên</li>
+        <li>Tài khoản thành viên</li>
     </ul>
 </div>
 </div>
@@ -35,19 +35,20 @@
                 <div class="col-md-8 col-sm-6">
                     <h4>Thông tin của bạn</h4>
                     <ul id="profile_summary">
-                        <li>Email <span><a href="mailto:sonnn@hoangkhang.com.vn"></a>sonnn@hoangkhang.com.vn</span></li>
-                        <li>Họ <span>Nguyễn Ngọc</span></li>
-                        <li>Tên <span>Sơn</span></li>
-                        <li>Số điện thoại <span>(+84) 01644 406 123</span></li>
-                        <li>Ngày sinh <span>08/11/1994</span></li>
-                        <li>Địa chỉ <span>118 đường số 1, phường 16, quận Gò Vấp, TP. Hồ Chí Minh</span></li>
+                        <li>Email <span><a href="mailto:<%= current_user.email %>"></a><%= current_user.email %></span></li>
+                        <li>Họ <span><%= current_user.first_name %></span></li>
+                        <li>Tên <span><%= current_user.last_name %></span></li>
+                        <li>Số điện thoại <span><%= current_user.phone %></span></li>
+                        <li>Ngày sinh <span><%= current_user.birthdate.strftime("%d/%m/%Y") %></span></li>
+                        <li>Địa chỉ <span><%= current_user.address %></span></li>
                         <li>Tỉnh/Thành phố <span>TP. Hồ Chí Minh</span></li>
-                        <li>Mã Zip <span>002843</span></li>
+                        <li>Mã Zip <span><%= current_user.zip %></span></li>
                         <li>Quốc tịch <span>Việt Nam</span></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <img src="/frontend/img/tourist_guide_pic.jpg" alt="Image" class="img-responsive styled profile_pic">
+                    <img src="<%= image_src(current_user.image.profile) %>" alt="Image" class="img-responsive styled profile_pic">
+                    <!--<%= image_tag(image_src(current_user.image.profile), class: "img-responsive styled profile_pic") %>-->
                     </p>
                 </div>
             </div>
@@ -55,6 +56,7 @@
 
             <div class="divider"></div>
 
+            <%= form_for(:user, url: admin_area_path, html: {class: "validate", multipart: true}) do |f| %>
             <div class="row">
                 <div class="col-md-12">
                     <h4>Cập nhật thông tin</h4>
@@ -62,13 +64,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Họ</label>
-                        <input class="form-control" type="text">
+                        <%= f.text_field :first_name, class: "form-control required" %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Tên</label>
-                        <input class="form-control" type="text">
+                        <%= f.text_field :last_name, class: "form-control required" %>
                     </div>
                 </div>
             </div>
@@ -78,13 +80,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Số điện thoại</label>
-                        <input class="form-control" type="text">
+                        <%= f.text_field :phone, class: "form-control required" %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Ngày sinh <small>(dd/mm/yyyy)</small></label>
-                        <input class="form-control" type="text">
+                        <%= f.text_field :birthdate, class: "form-control required" %>
                     </div>
                 </div>
             </div>
@@ -98,7 +100,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Địa chỉ</label>
-                        <input class="form-control" type="text">
+                        <%= f.text_field :address, class: "form-control" %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -114,7 +116,7 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Mã Zip</label>
-                        <input class="form-control" name="email" id="email" type="text">
+                        <%= f.text_field :zip, class: "form-control" %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -133,7 +135,7 @@
             <h4>Cập nhật hình đại diện</h4>
             <div class="form-inline upload_1">
                 <div class="form-group">
-                    <input type="file" name="files[]" id="js-upload-files" multiple>
+                    <input type="file" name="user[image]" id="js-upload-files" multiple>
                 </div>
                 <button type="submit" class="btn_1 green" id="js-upload-submit">Tải hình ảnh</button>
             </div>
@@ -158,10 +160,12 @@
                         <a class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Hoàn thành</span>hinh-anh-01.jpg</a>
                     </div>
                 </div>
-                <!-- End Hidden on mobiles -->
+            </div>
+            <!-- End Hidden on mobiles -->
 
-                <hr>
-                <button type="submit" class="btn_1 green">Cập nhật thông tin</button>
+            <hr>
+            <button type="submit" class="btn_1 green">Cập nhật thông tin</button>
+            <% end %>
         </section>
         <!-- End section 1 -->
 

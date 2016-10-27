@@ -16,6 +16,7 @@ Naturesoft::Core::Engine.routes.draw do
   get "dang-ky.html" => "users#register", as: :register
   get "quen-mat-khau.html" => "users#forgot_password", as: :forgot_password
   get "thanh-vien.html" => "users#admin_area", as: :admin_area
+  post "thanh-vien.html" => "users#admin_area"
 end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews
