@@ -8,13 +8,13 @@
             <div class="col-md-6 col-sm-6 col-xs-6">
                 <ul id="top_links">
                     <% if current_user.present? %>
-                        <li><%= link_to(current_user.display_name, naturesoft.admin_area_path, id: "access_link") %></li>
-                        <li><i class="icon-logout-1"></i><%= link_to "Đăng xuất", naturesoft.destroy_user_session_path, method: :delete, redirect_to: naturesoft.admin_area_path %></li>
+                    <li><%= link_to(current_user.display_name, naturesoft.admin_area_path, id: "access_link") %></li>
+                    <li><i class="icon-logout-1"></i><%= link_to "Đăng xuất", naturesoft.destroy_user_session_path, method: :delete, redirect_to: naturesoft.login_path %></li>
                     <% else %>
-                        <li><%= link_to "Đăng nhập", naturesoft.new_user_session_path, id: "login_link" %></li>
-                        <li><%= link_to "Đăng ký", naturesoft.new_user_registration_path, id: "access_link" %></li>
+                    <li><%= link_to "Đăng nhập", naturesoft.new_user_session_path, id: "login_link" %></li>
+                    <li><%= link_to "Đăng ký", naturesoft.new_user_registration_path, id: "access_link" %></li>
                     <% end %>
-                        <li><a href="#" id="register_link" data-toggle="modal" data-target="#quickRegister">Đặt phòng nhanh</a></li>
+                    <li><a href="#" id="register_link" data-toggle="modal" data-target="#quickRegister">Đặt phòng nhanh</a></li>
                 </ul>
             </div>
         </div>
