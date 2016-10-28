@@ -41,9 +41,7 @@
                         <li>Số điện thoại <span><%= current_user.phone %></span></li>
                         <li>Ngày sinh <span><%= current_user.birthdate.strftime("%d/%m/%Y") if !current_user.birthdate.nil? %></span></li>
                         <li>Địa chỉ <span><%= current_user.address %></span></li>
-                        <li>Tỉnh/Thành phố <span>TP. Hồ Chí Minh</span></li>
                         <li>Mã Zip <span><%= current_user.zip %></span></li>
-                        <li>Quốc tịch <span>Việt Nam</span></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-6">
@@ -62,7 +60,7 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
-                        <label>Họ</label>
+                        <label>Họ & đệm</label>
                         <%= f.text_field :first_name, class: "form-control required" %>
                     </div>
                 </div>
@@ -99,32 +97,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Địa chỉ</label>
-                        <%= f.text_field :address, class: "form-control" %>
+                        <%= f.text_field :address, class: "form-control required" %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
-                        <label>Tỉnh/Thành phố</label>
-                        <input class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-            <!-- End row -->
-
-            <div class="row">
-                <div class="col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>Mã Zip</label>
-                        <%= f.text_field :zip, class: "form-control" %>
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6">
-                    <div class="form-group">
-                        <label>Quốc tịch</label>
-                        <select id="country" class="form-control">
-                          <option value="">Chọn quốc tịch...</option>
-                          <option value="">Việt Nam</option>
-                        </select>
+                        <label>Mã bưu chính (Zip Code)</label>
+                        <%= f.text_field :zip, class: "form-control required" %>
                     </div>
                 </div>
             </div>
@@ -136,31 +115,7 @@
                 <div class="form-group">
                     <input type="file" name="user[image]" id="js-upload-files" multiple>
                 </div>
-                <button type="submit" class="btn_1 green" id="js-upload-submit">Tải hình ảnh</button>
             </div>
-
-            <!-- Hidden on mobiles -->
-            <div class="hidden-xs">
-                <!-- Drop Zone -->
-                <h5>Hoặc kéo thả hình ảnh vào đây</h5>
-                <div class="upload-drop-zone" id="drop-zone">
-                    Kéo thả hình ảnh tại đây
-                </div>
-                <!-- Progress Bar -->
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                        <span class="sr-only">60% Complete</span>
-                    </div>
-                </div>
-                <!-- Upload Finished -->
-                <div class="js-upload-finished">
-                    <h5>Đang tải hình ảnh</h5>
-                    <div class="list-group">
-                        <a class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Hoàn thành</span>hinh-anh-01.jpg</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Hidden on mobiles -->
 
             <hr>
             <button type="submit" class="btn_1 green">Cập nhật thông tin</button>
@@ -277,19 +232,21 @@
                 </div>
                 <div class="col-md-6 col-sm-6 add_bottom_30">
                     <h4>Thay đổi email</h4>
+                    <%= form_for(:user, url: admin_area_path, html: {class: "validate", multipart: true}) do |f| %>
                     <div class="form-group">
                         <label>Email cũ</label>
-                        <input class="form-control" name="old_password" id="old_password" type="password">
+                        <%= f.text_field :email, class: "form-control required", disabled: true %>
                     </div>
                     <div class="form-group">
                         <label>Email mới</label>
-                        <input class="form-control" name="new_password" id="new_password" type="password">
+                        <input disabled class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label>Nhập lại email mới</label>
-                        <input class="form-control" name="confirm_new_password" id="confirm_new_password" type="password">
+                        <input disabled class="form-control" type="text">
                     </div>
-                    <button type="submit" class="btn_1 green">Cập nhật email</button>
+                    <button type="submit" disabled class="btn_1 green">Cập nhật email</button>
+                    <% end %>
                 </div>
             </div>
             <!-- End row -->
