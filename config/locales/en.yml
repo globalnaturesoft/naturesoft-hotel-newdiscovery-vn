@@ -21,6 +21,10 @@
 
 en:
   hello: "Hello world"
+  
+  announce_new_quick_booking: "[Đặt Phòng Nhanh] Bạn vừa nhận được yêu cầu đặt phòng từ "
+  booking_hotel_successfully: "[Du Lịch Khám Phá Mới] Xác nhận yêu cầu đặt phòng khách sạn"
+  
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -80,3 +84,5 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+        
+  
