@@ -9,7 +9,11 @@
                 <ul id="top_links">
                     <% if current_user.present? %>
                     <li><%= link_to(current_user.display_name, naturesoft.admin_area_path, id: "access_link") %></li>
-                    <li><i class="icon-logout-1"></i><%= link_to "Đăng xuất", naturesoft.destroy_user_session_path, method: :delete, redirect_to: naturesoft.login_path %></li>
+                    <li>
+                        <%= form_for current_user, :url => naturesoft.destroy_user_session_path, method: "DELETE" do |f| %>
+                            <i class="icon-logout-1"></i><%= link_to "Đăng xuất", "#signpout", method: :delete, redirect_to: naturesoft.login_path, "onclick" => "$(this).parents('form').submit()" %>
+                        <% end %>
+                    </li>
                     <% else %>
                     <li><%= link_to "Đăng nhập", naturesoft.new_user_session_path, id: "login_link" %></li>
                     <li><%= link_to "Đăng ký", naturesoft.new_user_registration_path, id: "access_link" %></li>
