@@ -22,4 +22,5 @@
 en:
   hello: "Hello world"
   ok: "OK"
-  
+  announce_new_quick_booking: "[Đặt Phòng Nhanh] Bạn vừa nhận được yêu cầu đặt phòng nhanh từ "
+  booking_hotel_successfully: "[CT TNHH MTV DL Khám Phá Mới] Xác nhận yêu cầu đặt phòng"
