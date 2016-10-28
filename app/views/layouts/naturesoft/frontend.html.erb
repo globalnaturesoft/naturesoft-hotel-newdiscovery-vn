@@ -56,6 +56,10 @@
     <%= stylesheet_link_tag "/frontend/css/owl.carousel.css" %>
     <%= stylesheet_link_tag "/frontend/css/owl.theme.css" %>
     <% end %>
+    <% if params[:controller] == 'naturesoft/hotels/events' && params[:action] == 'hotel_listing' %>
+    <!-- Radio and check inputs -->
+    <%= stylesheet_link_tag "/frontend/css/skins/square/grey.css" %>
+    <% end %>
   
     <!-- Google web fonts -->
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat:400,700" %>

@@ -1,0 +1,63 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= !@current_menu.nil? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
+        </div>
+    </div>
+</section>
+<!-- End section -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li><%= @current_menu.name %></li>
+        </ul>
+    </div>
+</div>
+<!-- Position -->
+
+<div class="container margin_60">
+    <div class="main_title">
+        <h2><span>Top</span> Deals</h2>
+        <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+    </div>
+
+    <div class="row">
+				
+				<% (0..14).each do |item| %>
+        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+            <div class="hotel_container">
+                <div class="img_container">
+                    <a href="<%= naturesoft_hotels.hotel_detail_path %>">
+						<%= image_tag "/frontend/img/hotel_1.jpg", size: "800x533", class: "img-responsive", alt: "Image" %>
+                        <div class="ribbon top_rated"></div>
+                        <div class="short_info hotel">
+                            Giá/đêm<span class="price">10,000,000 VNĐ</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="hotel_title">
+                    <h3><strong><%= link_to "Tên khách sạn", naturesoft_hotels.hotel_detail_path %></strong></h3>
+                    <div class="rating">
+                        <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+                    </div>
+                    <!-- end rating -->
+                    <div class="wishlist">
+                        <a class="tooltip_flip tooltip-effect-1" href="">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
+                    </div>
+                    <!-- End wish list-->
+                </div>
+            </div>
+            <!-- End box -->
+        </div>
+        <!-- End col-md-4 -->
+				<% end %>
+
+    </div>
+    <!-- End row -->
+    <p class="text-center nopadding">
+        <a href="all_hotels_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>Xem thêm (70) </a>
+    </p>
+</div>
