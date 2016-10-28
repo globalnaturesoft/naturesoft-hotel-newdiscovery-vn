@@ -1,0 +1,15 @@
+Hello, <%= @quick_order.first_name %> <%= @quick_order.last_name %> <br/>
+<p>Công ty TNHH MTV Du Lịch Khám Phá Mới vừa nhận được yêu cầu đặt phòng từ Quý khách, lúc <%= @quick_order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %> (GMT+07:00).</p>
+<p>Yêu cầu đặt phòng của Quý khách đang được xử lý. Nhân viên của chúng tôi sẽ liên hệ lại cho Quý khách trong thời gian sớm nhất. </p>
+<p><b>Nội dung yêu cầu của Quý khách: </b></p>
+<p>
+    Họ & tên: <%= @quick_order.first_name %> <%= @quick_order.last_name %><br/>
+    Email: <%= @quick_order.email %><br/>
+    Số ĐT: <%= @quick_order.phone %><br/>
+    Nội dung yêu cầu: <%= @quick_order.message %><br/>
+</p>
+<p>Cảm ơn Quý khách đã tin tưởng sử dụng dịch vụ của chúng tôi!</p>
+<p>
+    Trân trọng,<br/>
+    Du Lịch Khám Phá Mới
+</p>

@@ -24,6 +24,8 @@
     <!-- BASE CSS -->
     <%= stylesheet_link_tag "/frontend/css/base.css" %>
     
+    <%= render "/modules/common_scripts" %>
+    
     <% if["naturesoft/hotel_newdiscovery_vn/home"].include?(params[:controller]) %>
     <!-- REVOLUTION SLIDER CSS -->
     <%= stylesheet_link_tag "/frontend/layerslider/css/layerslider.css" %>
@@ -123,8 +125,6 @@
 
     <div id="toTop"></div>
     <!-- Back to top button -->
-    
-    <%= render "/modules/common_scripts" %>
 
     <%= render "/modules/specific_scripts" %>
     
