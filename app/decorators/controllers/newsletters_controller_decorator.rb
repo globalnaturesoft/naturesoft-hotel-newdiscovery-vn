@@ -2,7 +2,7 @@ Naturesoft::Newsletters::NewslettersController.class_eval do
   before_action :set_newsletter, only: [:add_newsletter]
 
   def add_email
-    @newsletter = Newsletter.new(newsletter_params)
+    @newsletter = Naturesoft::Newsletters::Newsletter.new(newsletter_params)
 
     if @newsletter.save
       render json: {
@@ -22,7 +22,7 @@ Naturesoft::Newsletters::NewslettersController.class_eval do
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_newsletter
-      @newsletter = Newsletter.find(params[:id])
+      @newsletter = Naturesoft::Newsletters::Newsletter.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

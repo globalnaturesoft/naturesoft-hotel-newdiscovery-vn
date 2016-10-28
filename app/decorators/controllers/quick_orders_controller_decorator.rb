@@ -3,7 +3,7 @@ Naturesoft::Hotels::QuickOrdersController.class_eval do
   
   # POST /quick_orders
   def quick_booking
-    @quick_order = QuickOrder.new(quick_order_params)
+    @quick_order = Naturesoft::Hotels::QuickOrder.new(quick_order_params)
 
     if @quick_order.save
       render json: {
@@ -11,7 +11,8 @@ Naturesoft::Hotels::QuickOrdersController.class_eval do
         text: 'Cảm ơn bạn đã đăng ký thông tin. Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất',
         status: 'success'
       }
-      Naturesoft::Hotels::QuickOrderMailer.sending_email_quick_order(@quick_order).deliver_now
+      Naturesoft::Hotels::QuickOrderMailer.sending_announce_email_quick_order(@quick_order).deliver_now
+      Naturesoft::Hotels::QuickOrderMailer.sending_customer_email_quick_order(@quick_order).deliver_now
     else
       render json: {
         title: "Rất tiếc!",
@@ -24,7 +25,7 @@ Naturesoft::Hotels::QuickOrdersController.class_eval do
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quick_order
-      @quick_order = QuickOrder.find(params[:id])
+      @quick_order = Naturesoft::Hotels::QuickOrder.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
