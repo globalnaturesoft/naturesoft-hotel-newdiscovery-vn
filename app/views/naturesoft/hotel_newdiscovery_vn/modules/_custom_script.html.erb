@@ -1,10 +1,26 @@
 <script type="text/javascript">
+    
+    function getQueryParams(qs) {
+        qs = qs.split('+').join(' ');
+    
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+    
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+    
+        return params;
+    }
+    
     var xhr_hotel_filter;
     function hotelListFilter() {
         var form = $(".hotel_filter");
         var url = form.attr("action");
         
         $(".hotel-list-container").append("<div class='loading'></div>");
+        $(".hotel-list-container").find(".loading").height($(".hotel-list-container").height());
         
         if(typeof(xhr_hotel_filter) != 'undefined') {
             xhr_hotel_filter.abort()
@@ -141,6 +157,12 @@
             $("input[name='style']").val(val);
             
             hotelListFilter();   
+        });
+        $(document).on("click", ".hotel-list-container .pagination li a", function(e) {
+            $("input[name='page']").val(getQueryParams($(this).attr("href"))["page"]);
+            hotelListFilter();
+            
+            e.preventDefault();
         });
         
         
