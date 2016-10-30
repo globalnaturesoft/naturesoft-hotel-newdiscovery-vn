@@ -94,3 +94,19 @@ a.detail-hotel-loved {
 a#copyright {
     color: #8c8c8c;
 }
+.bt_filters.active {
+  background: #ddd;
+}
+.hotel-list-container {
+  position: relative;
+}
+.hotel-list-container .loading {
+  content: "aaa";
+  display: block;
+  width: 100%;
+  height: 300px;
+  background: url(../img/loading.gif) no-repeat top center;
+  z-index: 10;
+  top: 20px;
+  position: absolute;
+}
