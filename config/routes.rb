@@ -15,8 +15,12 @@ Naturesoft::Core::Engine.routes.draw do
   get "dang-nhap.html" => "users#login", as: :login
   get "dang-ky.html" => "users#register", as: :register
   get "quen-mat-khau.html" => "users#forgot_password", as: :forgot_password
-  get "thanh-vien.html" => "users#admin_area", as: :admin_area
-  post "thanh-vien.html" => "users#admin_area"
+  get "thanh-vien/ho-so.html" => "users#admin_area", as: :admin_area
+  post "thanh-vien/ho-so.html" => "users#admin_area"
+  get "thanh-vien/lich-su.html" => "users#order_history", as: :tab_history
+  get "thanh-vien/yeu-thich.html" => "users#wish_list", as: :tab_favorite
+  get "thanh-vien/cai-dat.html" => "users#settings", as: :tab_setting
+  post "thanh-vien/cai-dat.html" => "users#settings"
 end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews

@@ -38,7 +38,7 @@
     <!-- CSS -->
     <%= stylesheet_link_tag "/frontend/css/skins/square/grey.css" %>
     <% end %>
-    <% if params[:controller] == 'naturesoft/users' && params[:action] == 'admin_area' %>
+    <% if params[:controller] == 'naturesoft/users' && (params[:action] == 'admin_area' || params[:action] == 'order_history' || params[:action] == 'wish_list' || params[:action] == 'settings') %>
     <!-- SPECIFIC CSS -->
     <%= stylesheet_link_tag "/frontend/css/admin.css" %>
     <%= stylesheet_link_tag "/frontend/css/jquery.switch.css" %>

@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+        <li class="<%= 'tab-current' if params[:action] == 'admin_area' %>">
+            <%= link_to('<span>Thông tin thành viên</span>'.html_safe, admin_area_path, class: "icon-profile") %>
+        </li>
+        <li class="<%= 'tab-current' if params[:action] == 'order_history' %>">
+            <%= link_to('<span>Lịch sử đặt phòng</span>'.html_safe, tab_history_path, class: "icon-booking") %>
+        </li>
+        <li class="<%= 'tab-current' if params[:action] == 'wish_list' %>">
+            <%= link_to('<span>Khách sạn yêu thích</span>'.html_safe, tab_favorite_path, class: "icon-wishlist") %>
+        </li>
+        <li class="<%= 'tab-current' if params[:action] == 'settings' %>">
+            <%= link_to('<span>Cài đặt</span>'.html_safe, tab_setting_path, class: "icon-settings") %>
+        </li>
+    </ul>
+</nav>

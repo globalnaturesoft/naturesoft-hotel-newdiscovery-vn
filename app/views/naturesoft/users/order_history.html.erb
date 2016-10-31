@@ -1,0 +1,79 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/admin_top.jpg" data-natural-width="1400" data-natural-height="470">
+<div class="parallax-content-1">
+    <div class="animated fadeInDown">
+        <h1>Welcome, <%= current_user.display_name %></h1>
+        <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+    </div>
+</div>
+</section>
+<!-- End section -->
+
+<div id="position">
+<div class="container">
+    <ul>
+        <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+        <li>Tài khoản thành viên</li>
+    </ul>
+</div>
+</div>
+<!-- End Position -->
+
+<div class="margin_60 container">
+<div id="tabs" class="tabs">
+    <%= render '/modules/nav_tabs_admin_area' %>
+    <div class="content">
+        <section id="section-1"></section>
+        <section id="section-2" class="content-current">
+            <div id="tools">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="styled-select-filters">
+                            <select name="sort_date" id="sort_date">
+                              <option value="" selected>Sắp xếp theo thời gian</option>
+                              <option value="oldest">Thời gian gần đây</option>
+                              <option value="recent">Thời gian trước</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/tools -->
+            
+            <% (0..4).each do |item| %>
+            <div class="strip_booking">
+                <div class="row">
+                    <div class="col-md-2 col-sm-2">
+                        <div class="date">
+                            <span class="month">09</span>
+                            <span class="day"><strong>30</strong>2016</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-5">
+                        <h3 class="hotel_booking"><%= link_to "Tên khách sạn", "" %><span>2 người lớn / 2 đêm</span></h3>
+                    </div>
+                    <div class="col-md-2 col-sm-3">
+                        <ul class="info_booking">
+                            <li><strong>Mã phòng</strong> #23442</li>
+                            <li><strong>Ngày đặt phòng</strong> 10:00 30/09/2016</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+						<div class="booking_buttons">
+                            <%= link_to "Xuất bản in", "#invoice", class: "btn_2" %>
+						</div>
+					</div>
+                </div>
+                <!-- End row -->
+            </div>
+            <!-- End strip booking -->
+            <% end %>
+
+        </section>
+        <!-- End section 2 -->
+
+        </div>
+        <!-- End content -->
+    </div>
+    <!-- End tabs -->
+</div>
+<!-- end container -->
