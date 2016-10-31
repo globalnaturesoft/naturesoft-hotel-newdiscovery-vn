@@ -4,8 +4,7 @@
     <div class="collapse in" id="collapseFilters">
         <%= form_tag("", method: "get", class: "hotel_filter") do %>
         <input name="style" value="grid" type="hidden" />
-        <input name="sort_price" value="" type="hidden" />
-        <input name="sort_rating" value="" type="hidden" />
+        <input name="sort" value="" type="hidden" />
         <div class="filter_type">
             <h6>Tìm khách sạn</h6>
             <div class="form-group">
@@ -34,7 +33,6 @@
         <div class="filter_type">
             <h6>Giá</h6>
             <ul>
-                <li><label><input type="checkbox" name="is_deal" value="true">Đang khuyến mãi</label></li>
                 <li><label><input type="checkbox" name="prices[]" value="0_500000">Dưới 500,000 VNĐ</label></li>
                 <li><label><input type="checkbox" name="prices[]" value="500000_10000000">Từ 500,000 - 1,000,000 VNĐ</label></li>
                 <li><label><input type="checkbox" name="prices[]" value="10000000_20000000">Từ 1,00,000 - 2,000,000 VNĐ</label></li>
@@ -90,10 +88,6 @@
         </div>
         
         <input name="page" value="1" type="hidden" />
-        
-        <div class="filter_type">
-            <input type="submit" value="Tìm Kiếm" class="btn_1">
-        </div>
         <% end %>
     </div>
     <!--End collapse -->
