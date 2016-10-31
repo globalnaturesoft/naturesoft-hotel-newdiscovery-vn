@@ -1,19 +1,12 @@
 <%= form_tag("", method: "get") do %>
 	<div class="col-md-3 col-sm-3 col-xs-6">
 			<div class="styled-select-filters">
-					<select name="sort_price" id="sort_price">
-							<option value="" selected>Sắp xếp theo giá</option>
-							<option value="desc">Giá từ cao đến thấp</option>
-							<option value="asc">Giá từ thấp đến cao</option>
-					</select>
-			</div>
-	</div>
-	<div class="col-md-3 col-sm-3 col-xs-6">
-			<div class="styled-select-filters">
-					<select name="sort_rating" id="sort_rating">
-							<option value="" selected>Sắp xếp theo đánh giá</option>
-							<option value="desc">Điểm từ cao - thấp</option>
-							<option value="asc">Điểm từ thấp - cao</option>
+					<select name="sort" id="sort">
+							<option value="" selected>Sắp xếp khách sạn</option>
+							<option value="price_desc">Giá từ cao đến thấp</option>
+							<option value="price_asc">Giá từ thấp đến cao</option>
+							<option value="rating_desc">Điểm từ cao - thấp</option>
+							<option value="rating_asc">Điểm từ thấp - cao</option>
 					</select>
 			</div>
 	</div>
