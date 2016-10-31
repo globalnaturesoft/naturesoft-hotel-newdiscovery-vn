@@ -94,3 +94,6 @@ a.detail-hotel-loved {
 a#copyright {
     color: #8c8c8c;
 }
+a.tooltip-user {
+    position: inherit;
+}
