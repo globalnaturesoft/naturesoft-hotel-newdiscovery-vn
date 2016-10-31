@@ -25,7 +25,7 @@ label.error {
 .newsletter_validate input.error {
   border: solid 1px #e34f4f;
 }
-.validate input.error {
+.validate input.error, select.error {
   border: solid 1px #e34f4f;
 }
 #search_results {
