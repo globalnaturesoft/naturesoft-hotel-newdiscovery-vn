@@ -94,10 +94,9 @@ a.detail-hotel-loved {
 a#copyright {
     color: #8c8c8c;
 }
-<<<<<<< HEAD
 a.tooltip-user {
     position: inherit;
-=======
+}
 .bt_filters.active {
   background: #ddd;
 }
@@ -116,5 +115,4 @@ a.tooltip-user {
 }
 .icheckbox_square-grey ins, .icheckbox_square-grey input {
   left: -9000px !important;
->>>>>>> 16f54dbfbdb481c16de7acfb1294302df2b5a645
 }

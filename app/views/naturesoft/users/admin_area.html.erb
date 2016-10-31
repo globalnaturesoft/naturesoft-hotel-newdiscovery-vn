@@ -24,7 +24,7 @@
         <ul>
             <li><a href="#section-1" class="icon-profile"><span>Thông tin thành viên</span></a></li>
             <li><a href="#section-2" class="icon-booking"><span>Lịch sử đặt phòng</span></a></li>
-            <li><a href="#section-3" class="icon-wishlist"><span>Khách sạn yêu thích</span></a></li>
+            <li class="<%= 'tab-current' if params[:tab] == 'favorite' %>"><a href="#section-3" class="icon-wishlist"><span>Khách sạn yêu thích</span></a></li>
             <li><a href="#section-4" class="icon-settings"><span>Cài đặt</span></a></li>
         </ul>
     </nav>
@@ -171,7 +171,7 @@
         </section>
         <!-- End section 2 -->
 
-        <section id="section-3">
+        <section id="section-3" class="<%= 'content-current' if params[:tab] == 'favorite' %>">
             <div class="row">
                 <% @wish_list = Naturesoft::Hotels::WishList.all %>
                 <% if @wish_list.count == 0 %>
