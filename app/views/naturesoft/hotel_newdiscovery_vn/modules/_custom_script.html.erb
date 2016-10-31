@@ -1,4 +1,45 @@
 <script type="text/javascript">
+    
+    function getQueryParams(qs) {
+        qs = qs.split('+').join(' ');
+    
+        var params = {},
+            tokens,
+            re = /[?&]?([^=]+)=([^&]*)/g;
+    
+        while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+        }
+    
+        return params;
+    }
+    
+    var xhr_hotel_filter;
+    function hotelListFilter() {
+        var form = $(".hotel_filter");
+        var url = form.attr("action");
+        
+        $(".hotel-list-container").append("<div class='loading'></div>");
+        $(".hotel-list-container").find(".loading").height($(".hotel-list-container").height());
+        
+        // more params
+        form.find("input[name=sort_price]").val($(".styled-select-filters #sort_price").val());
+        form.find("input[name=sort_rating]").val($(".styled-select-filters #sort_rating").val());
+        
+        if(typeof(xhr_hotel_filter) != 'undefined') {
+            xhr_hotel_filter.abort();
+        }
+        xhr_hotel_filter = $.ajax({
+            type: "GET",
+            url: url,
+            data: form.serialize(), // serializes the form's elements.
+            success: function(data)
+            {
+                $(".hotel-list-container").html($("<div>").html(data).find(".hotel-list-container").html());
+            }
+        });
+    }
+    
     /* <![CDATA[ */
     (function(d, s, a, i, j, r, l, m, t) {
         try {
@@ -55,7 +96,7 @@
                         form.find("input[type=submit]").removeClass("posting");
                         //form.find(".icon-spin3").remove();
                    }
-                 });
+                });
             }
         
             e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -93,7 +134,40 @@
             }
         
             e.preventDefault(); // avoid to execute the actual submit of the form.
-        });    
+        });
+        
+        
+        // Ajax listing page
+        $(".hotel_filter").submit(function(e) {
+            hotelListFilter();            
+            e.preventDefault();
+        });
+        $(document).on("change", "input,select", function(e) {
+            hotelListFilter();            
+        });
+        $(document).on("keyup", "input", function(e) {
+            hotelListFilter();            
+        });
+        $(document).on("mouseup", ".hotel_filter", function(e) {
+            setTimeout("hotelListFilter();", 100);            
+        });
+        $(document).on("click", ".bt_filters", function(e) {
+            var val = $(this).attr("rel");
+            $(".bt_filters").removeClass("active");
+            $(this).addClass("active");
+            
+            $("input[name='style']").val(val);
+            
+            hotelListFilter();   
+        });
+        $(document).on("click", ".hotel-list-container .pagination li a", function(e) {
+            $("input[name='page']").val(getQueryParams($(this).attr("href"))["page"]);
+            hotelListFilter();
+            
+            e.preventDefault();
+        });
+        
+        
     });
 </script>
 

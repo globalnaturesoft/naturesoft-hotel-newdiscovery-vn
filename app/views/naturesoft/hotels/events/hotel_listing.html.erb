@@ -1,63 +1,168 @@
 <section class="parallax-window" data-parallax="scroll" data-image-src="<%= !@current_menu.nil? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1><%= @current_menu.name %></h1>
-            <p><%= @current_menu.description %></p>
+        <h1><%= @current_menu.name %></h1>
+        <p><%= @current_menu.description %></p>
         </div>
     </div>
-</section>
-<!-- End section -->
+</section><!-- End section -->
 
 <div id="position">
     <div class="container">
-        <ul>
-            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+		<ul>
+			<li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
             <li><%= @current_menu.name %></li>
-        </ul>
+		</ul>
     </div>
-</div>
-<!-- Position -->
+</div><!-- Position -->
 
 <div class="container margin_60">
-    <div class="main_title">
-        <h2><span>Top</span> Deals</h2>
-        <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
-    </div>
 
     <div class="row">
-				
-				<% (0..14).each do |item| %>
-        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-            <div class="hotel_container">
-                <div class="img_container">
-                    <a href="<%= naturesoft_hotels.hotel_detail_path %>">
-						<%= image_tag "/frontend/img/hotel_1.jpg", size: "800x533", class: "img-responsive", alt: "Image" %>
-                        <div class="ribbon top_rated"></div>
-                        <div class="short_info hotel">
-                            Giá/đêm<span class="price">10,000,000 VNĐ</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="hotel_title">
-                    <h3><strong><%= link_to "Tên khách sạn", naturesoft_hotels.hotel_detail_path %></strong></h3>
-                    <div class="rating">
-                        <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
+        <aside class="col-lg-3 col-md-3">
+			<div id="search_results">Có <%= @deals.count %> khách sạn đang khuyến mãi.</div>
+			<div class="box_style_2">
+                <i class="icon_set_1_icon-57"></i>
+                <h4>Need <span>Help?</span></h4>
+                <a href="tel://004542344599" class="phone">+45 423 445 99</a>
+                <small>Monday to Friday 9.00am - 7.30pm</small>
+            </div>
+            <%= render "/modules/deal_sidebar" %>
+        </aside>
+        <!--End aside -->
+        <div class="col-lg-9 col-md-9">
+
+            <div id="tools">
+                <div class="row">
+                    <%= render "/modules/deal_sort" %>
+
+                    <div class="col-md-6 col-sm-6 hidden-xs text-right">
+                        <a href="#danh-sach" class="bt_filters"><i class="icon-list"></i></a>
                     </div>
-                    <!-- end rating -->
-                    <div class="wishlist">
-                        <a class="tooltip_flip tooltip-effect-1" href="">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
-                    </div>
-                    <!-- End wish list-->
                 </div>
             </div>
-            <!-- End box -->
-        </div>
-        <!-- End col-md-4 -->
-				<% end %>
+            <!--/tools -->
+			
+			<% @deals.each do |item| %>
+            <div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+						<% if current_user.present? %>
+							<% if Naturesoft::Hotels::WishList.check_present(item.hotel.id, current_user).count == 0 %>
+								<div class="wishlist">
+									<%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.hotel.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
+								</div>
+							<% else %>
+								<div class="wishlist hotel-loved">
+								<a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Đã yêu thích khách sạn</span></span></a>
+								</div>
+							<% end %>
+						<% else %>
+							<div class="wishlist">
+								<%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
+							</div>
+						<% end %>
+                        <div class="img_list">
+                            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id) %>">
+								<% if item.hotel.hotel_images.count > 0 %>
+                                <div class="ribbon popular"></div><%= image_tag(item.hotel.get_main_image.image.larger, size: "800x533", alt: "") %>
+								<% else %>
+								<div class="ribbon popular"></div><%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "") %>
+								<% end %>
+                                <div class="short_info"><i class="icon_set_1_icon-6"></i>Khách Sạn </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clearfix visible-xs-block"></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="tour_list_desc">
+							<span class="label label-danger"><%= item.title %></span>
+                            <div class="rating"><% (1..item.hotel.star).each do |star| %><i class="icon-star voted"></i><% end %></div>
+                            <h3><strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id), title: item.hotel.name %></strong></h3>
+                            <div class="text-justify"><p><%= item.hotel.address %></p></div>
+                            <ul class="add_info">
+                                <li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Thời hạn chương trình</h4>
+                                            <%= item.content.html_safe if !item.content.nil? %>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon_set_1_icon-23"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Trọn gói bao gồm</h4>
+											<%= item.content_1.html_safe if !item.content_1.nil? %>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon-dollar"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Giá & Loại phòng</h4>
+											<%= item.content_2.html_safe if !item.content_1.nil? %>
+                                        </div>
+                                    </div>
+                                </li>
+								<li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon_set_1_icon-51"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Phụ thu</h4>
+											<%= item.content_3.html_safe if !item.content_1.nil? %>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon_set_1_icon-75"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Lưu ý</h4>
+											<%= item.content_4.html_safe if !item.content_1.nil? %>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="tooltip_styled tooltip-effect-4">
+                                        <span class="tooltip-item"><i class="icon_set_1_icon-73"></i></span>
+                                        <div class="tooltip-content">
+                                            <h4>Hỗ trợ khách hàng</h4>
+                                            <i class="icon-phone"></i> 0919 515 059<br>
+											<i class="icon-phone"></i> 0919 623 535<br>
+											<i class="icon-email"></i> info@newdiscovery.vn<br>
+											<i class="icon-email"></i> info@cungmuadulich.net<br>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2">
+                        <div class="price_list">
+                            <div>
+								<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id), class: "btn_1" %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End strip -->
+			<% end %>
 
+            <hr>
+
+            <div class="text-center">
+				<%= will_paginate @deals, previous_label: 'Trang trước', next_label: 'Trang sau', renderer: BootstrapPagination::Rails %>
+            </div>
+            <!-- end pagination-->
+
+        </div>
+        <!-- End col lg-9 -->
     </div>
     <!-- End row -->
-    <p class="text-center nopadding">
-        <a href="all_hotels_list.html" class="btn_1 medium"><i class="icon-eye-7"></i>Xem thêm (70) </a>
-    </p>
 </div>
+<!-- End container -->

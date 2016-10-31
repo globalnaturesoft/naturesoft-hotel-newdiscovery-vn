@@ -7,7 +7,7 @@
 <% if["naturesoft/contacts/contacts"].include?(params[:controller]) %>
 <!-- Specific scripts -->
 <%= javascript_include_tag "/frontend/assets/validate.js" %>
-<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js" %>
+<%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyCJKi_NyJ3n_fWaj2b74uRyExMnnLEPwUw" %>
 <%= javascript_include_tag "/frontend/js/map_contact.js" %>
 <%= javascript_include_tag "/frontend/js/infobox.js" %>
 <% end %>
@@ -33,6 +33,22 @@ $('input').iCheck({
 });
 </script>
 <% end %>
+
+<% if params[:controller] == 'naturesoft/hotels/events' && params[:action] == 'hotel_listing' %>
+<!-- Specific scripts -->
+<!-- Cat nav mobile -->
+<%= javascript_include_tag "/frontend/js/cat_nav_mobile.js" %>
+<script>$('#cat_nav').mobileMenu();</script>
+<!-- Check and radio inputs -->
+<%= javascript_include_tag "/frontend/js/icheck.js" %>
+<script>  
+$('input').iCheck({
+   checkboxClass: 'icheckbox_square-grey',
+   radioClass: 'iradio_square-grey'
+ });
+</script>
+<% end %>
+
 <% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
 <!-- Date and time pickers -->
 <%= javascript_include_tag "/frontend/js/jquery.sliderPro.min.js" %>

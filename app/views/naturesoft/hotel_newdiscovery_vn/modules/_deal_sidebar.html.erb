@@ -1,11 +1,8 @@
-<div id="search_results"><%= @hotels.count %> khách sạn được tìm thấy.</div>
 <div id="filters_col">
     <a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt"><i class="icon_set_1_icon-65"></i>Bộ lọc khách sạn <i class="icon-plus-1 pull-right"></i></a>
     <div class="collapse in" id="collapseFilters">
         <%= form_tag("", method: "get", class: "hotel_filter") do %>
-        <input name="style" value="grid" type="hidden" />
-        <input name="sort_price" value="" type="hidden" />
-        <input name="sort_rating" value="" type="hidden" />
+        <input name="style" value="grid" type="hidden" />        
         <div class="filter_type">
             <h6>Tìm khách sạn</h6>
             <div class="form-group">
