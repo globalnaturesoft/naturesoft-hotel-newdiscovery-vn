@@ -22,8 +22,12 @@
         $(".hotel-list-container").append("<div class='loading'></div>");
         $(".hotel-list-container").find(".loading").height($(".hotel-list-container").height());
         
+        // more params
+        form.find("input[name=sort_price]").val($(".styled-select-filters #sort_price").val());
+        form.find("input[name=sort_rating]").val($(".styled-select-filters #sort_rating").val());
+        
         if(typeof(xhr_hotel_filter) != 'undefined') {
-            xhr_hotel_filter.abort()
+            xhr_hotel_filter.abort();
         }
         xhr_hotel_filter = $.ajax({
             type: "GET",
@@ -32,8 +36,6 @@
             success: function(data)
             {
                 $(".hotel-list-container").html($("<div>").html(data).find(".hotel-list-container").html());
-                
-                //$(".hotel-list-container").removeClass("loading");
             }
         });
     }
