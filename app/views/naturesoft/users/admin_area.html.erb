@@ -24,7 +24,7 @@
         <ul>
             <li><a href="#section-1" class="icon-profile"><span>Thông tin thành viên</span></a></li>
             <li><a href="#section-2" class="icon-booking"><span>Lịch sử đặt phòng</span></a></li>
-            <li><a href="#section-3" class="icon-wishlist"><span>Khách sạn yêu thích</span></a></li>
+            <li class="<%= 'tab-current' if params[:tab] == 'favorite' %>"><a href="#section-3" class="icon-wishlist"><span>Khách sạn yêu thích</span></a></li>
             <li><a href="#section-4" class="icon-settings"><span>Cài đặt</span></a></li>
         </ul>
     </nav>
@@ -171,40 +171,56 @@
         </section>
         <!-- End section 2 -->
 
-        <section id="section-3">
+        <section id="section-3" class="<%= 'content-current' if params[:tab] == 'favorite' %>">
             <div class="row">
-                <% (0..5).each do |item| %>
-                <div class="col-md-4 col-sm-6">
-                    <div class="hotel_container">
-                        <div class="img_container">
-                            <a href="<%= "" %>">
-                                <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
-                                <div class="ribbon top_rated">
-                                </div>
-                                <div class="score">
-                                    <span>7.5</span>Good
-                                </div>
-                                <div class="short_info hotel">
-                                    Giá TB/đêm<span class="price">1,000,000 VNĐ</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="hotel_title">
-                            <h3>Tên khach sạn</h3>
-                            <div class="rating">
-                                <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>
-                            </div>
-                            <!-- end rating -->
-                            <div class="wishlist_close_admin">
-                                -
-                            </div>
+                <% @wish_list = Naturesoft::Hotels::WishList.all %>
+                <% if @wish_list.count == 0 %>
+                    <div class="col-md-4 col-sm-6">
+                        <div>
+                            Danh sách khách sạn yêu thích hiện đang trống.
                         </div>
                     </div>
-                    <!-- End box tour -->
-                </div>
-                <!-- End col-md-6 -->
+                <% else %>
+                    <% Naturesoft::Hotels::WishList.all.each do |item| %>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="hotel_container">
+                            <div class="img_container">
+                                <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel.id) %>">
+                                    <% if item.hotel.hotel_images.count > 0 %>
+                                        <%= image_tag(item.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
+                                    <% else %>
+                                        <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
+                                    <% end %>
+                                    <div class="ribbon top_rated">
+                                    </div>
+                                    <div class="score">
+                                        <span>7.5</span>Tốt
+                                    </div>
+                                    <div class="short_info hotel">
+                                        Giá TB/đêm<span class="price"><%= format_number(item.hotel.from_per_night) %> VNĐ</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="hotel_title">
+                                <h3><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel.id) %></h3>
+                                <div class="rating">
+                                    <!--<i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i>-->
+                                    <% (1..item.hotel.star).each do |item| %><i class="icon-star voted"></i><% end %>
+                                </div>
+                                <!-- end rating -->
+                                <div>
+                                    <%= form_tag(naturesoft_hotels.wish_list_path(item), method: :delete) do |f| %>
+                                        <%= link_to '<div class="wishlist_close_admin">-<span class="tooltip-content-flip"><span class="tooltip-back">Hủy yêu thích khách sạn</span></span></div>'.html_safe,
+                                            "#remove", {onclick: "$(this).parents('form').submit()", class: "tooltip-user tooltip_flip tooltip-effect-1"} %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End box tour -->
+                    </div>
+                    <!-- End col-md-6 -->
+                    <% end %>
                 <% end %>
-
             </div>
             <!-- End row -->
         </section>
