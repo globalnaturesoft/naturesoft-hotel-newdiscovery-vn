@@ -37,23 +37,22 @@
             </div>
             <!--End tools -->
             
-            <div class="row hotel-list-container">
+            <div class="hotel-list-container">
+                
                 <% if params[:style] == "list" %>
                     <%= render "list", hotels: @hotels %>
                 <% else %>
                     <%= render "grid", hotels: @hotels %>
                 <% end %>
                 
-                <br style="clear: both" />
-                <hr>
-
+                
+                <hr />
+                
                 <div class="text-center">
                     <%= will_paginate @hotels, previous_label: 'Trang trước', next_label: 'Trang sau', renderer: BootstrapPagination::Rails %>
                 </div>
                 <!-- end pagination-->
             </div>
-            <!-- End row -->
-
             
 
         </div>

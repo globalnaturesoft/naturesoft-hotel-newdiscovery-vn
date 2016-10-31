@@ -110,3 +110,6 @@ a#copyright {
   top: 0px;
   position: absolute;
 }
+.icheckbox_square-grey ins, .icheckbox_square-grey input {
+  left: -9000px !important;
+}
