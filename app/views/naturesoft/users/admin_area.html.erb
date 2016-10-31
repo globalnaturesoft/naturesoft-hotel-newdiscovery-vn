@@ -187,7 +187,7 @@
                             <div class="img_container">
                                 <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel.id) %>">
                                     <% if item.hotel.hotel_images.count > 0 %>
-                                        <%= image_tag(item.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
+                                        <%= image_tag(item.hotel.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
                                     <% else %>
                                         <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                                     <% end %>
