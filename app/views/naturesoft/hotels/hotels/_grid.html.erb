@@ -1,48 +1,48 @@
-                <% hotels.each_with_index do |item,index| %>
-                <div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                    <div class="hotel_container">
-                        <div class="img_container">
-                            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
-                                <% if item.hotel_images.count > 0 %>
-                                    <%= image_tag(item.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
-                                <% else %>
-                                    <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
-                                <% end %>
-                                <div class="ribbon top_rated"></div>
-                                <div class="score"><span>7.5</span>Tốt</div>
-                                <div class="short_info hotel">
-                                    Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="hotel_title">
-                            <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %></strong></h3>
-                            <div class="text-justify"><%= item.address %></div>
-                            <div class="rating">
-                                <% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %>
-                            </div>
-                            <!-- end rating -->
-                            
-                            <% if current_user.present? %>
-                                <% if Naturesoft::Hotels::WishList.check_present(item.id, current_user).count == 0 %>
-                                    <div class="wishlist">
-                                        <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
-                                    </div>
-                                <% else %>
-                                    <div class="wishlist hotel-loved">
-                                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Đã yêu thích khách sạn</span></span></a>
-                                    </div>
-                                <% end %>
-                            <% else %>
-                                <div class="wishlist">
-                                    <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
-                                </div>
-                            <% end %>
-                            <!-- End wish list-->
-                        </div>
-                    </div>
-                    <!-- End box tour -->
-                </div>
-                <!-- End col-md-6 -->
-                <%= '</div><!-- End row --><div class="row">'.html_safe if index%2 == 1 %>
+<% hotels.each_with_index do |item,index| %>
+<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+    <div class="hotel_container">
+        <div class="img_container">
+            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
+                <% if item.hotel_images.count > 0 %>
+                    <%= image_tag(item.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
+                <% else %>
+                    <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                 <% end %>
+                <div class="ribbon top_rated"></div>
+                <div class="score"><span>7.5</span>Tốt</div>
+                <div class="short_info hotel">
+                    Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
+                </div>
+            </a>
+        </div>
+        <div class="hotel_title">
+            <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %></strong></h3>
+            <div class="text-justify"><%= item.address %></div>
+            <div class="rating">
+                <% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %>
+            </div>
+            <!-- end rating -->
+            
+            <% if current_user.present? %>
+                <% if Naturesoft::Hotels::WishList.check_present(item.id, current_user).count == 0 %>
+                    <div class="wishlist">
+                        <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span>'.html_safe, naturesoft_hotels.add_item_wish_lists_path(hotel_id: item.id, user_id: current_user.id), class: "tooltip_flip tooltip-effect-1" %>
+                    </div>
+                <% else %>
+                    <div class="wishlist hotel-loved">
+                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Đã yêu thích khách sạn</span></span></a>
+                    </div>
+                <% end %>
+            <% else %>
+                <div class="wishlist">
+                    <%= link_to '+<span class="tooltip-content-flip"><span class="tooltip-back">Bạn chưa đăng nhập</span></span>'.html_safe, naturesoft.login_path, class: "tooltip_flip tooltip-effect-1" %>
+                </div>
+            <% end %>
+            <!-- End wish list-->
+        </div>
+    </div>
+    <!-- End box tour -->
+</div>
+<!-- End col-md-6 -->
+<%= '</div><!-- End row --><div class="row">'.html_safe if index%2 == 1 %>
+<% end %>
