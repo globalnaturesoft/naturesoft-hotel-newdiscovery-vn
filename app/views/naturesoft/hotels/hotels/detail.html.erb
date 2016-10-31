@@ -315,7 +315,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label>Loại phòng (*)</label>
-                            <select class="form-control" name="order[room_id]" id="room_id">
+                            <select class="form-control required" name="order[room_id]" id="room_id">
                                 <option value="">Chọn loại phòng cần đặt</option>
                                 <% @detail.rooms.each do |item| %>
                                 <option value="<%= item.id %>"><%= item.name %></option>
@@ -328,7 +328,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-calendar-7"></i> Ngày nhận phòng (*)</label>
-                            <input class="form-control" data-date-format="dd/mm/yyyy" name="order[checkin]" type="text" id="check_in" placeholder="Ngày nhận phòng...">
+                            <input class="form-control required" data-date-format="dd/mm/yyyy" name="order[checkin]" type="text" id="check_in" placeholder="Ngày nhận phòng...">
                         </div>
                     </div>
                 </div>
@@ -336,7 +336,7 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-calendar-7"></i> Ngày trả phòng (*)</label>
-                            <input class="form-control" data-date-format="dd/mm/yyyy" name="order[checkout]" type="text" id="check_out" placeholder="Ngày trả phòng...">
+                            <input class="form-control required" data-date-format="dd/mm/yyyy" name="order[checkout]" type="text" id="check_out" placeholder="Ngày trả phòng...">
                         </div>
                     </div>
                 </div>
@@ -345,7 +345,7 @@
                         <div class="form-group">
                             <label>Số người lớn (*)</label>
                             <div class="numbers-row">
-                                <input type="text" value="1" id="adults" class="qty2 form-control" name="order[adult]">
+                                <input type="text" value="1" id="adults" class="qty2 form-control required" name="order[adult]">
                             </div>
                         </div>
                     </div>
@@ -353,7 +353,7 @@
                         <div class="form-group">
                             <label>Số trẻ em (*)</label>
                             <div class="numbers-row">
-                                <input type="text" value="0" id="children" class="qty2 form-control" name="order[child]">
+                                <input type="text" value="0" id="children" class="qty2 form-control required" name="order[child]">
                             </div>
                         </div>
                     </div>
