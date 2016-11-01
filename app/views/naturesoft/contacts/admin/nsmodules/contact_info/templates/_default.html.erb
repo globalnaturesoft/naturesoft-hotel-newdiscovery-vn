@@ -8,7 +8,7 @@
         <li><strong><%= contact_info.company %></strong></li>
     <% end %>
     <% if contact_info.hotline_1.present? %>
-        <li><strong>Người đại diện:  </strong>Ông Nguyễn Trường Lân</li>
+        <li><strong>Người đại diện:  </strong><%= contact_info.agent %></li>
     <% end %>
     <% if contact_info.certificate_of_business_registration_no.present? %>
         <li><strong>Số giấy chứng nhận kinh doanh:  </strong><%= contact_info.certificate_of_business_registration_no %></li>
