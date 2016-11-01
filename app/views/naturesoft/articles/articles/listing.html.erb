@@ -49,7 +49,7 @@
                     </div>
                     <h2><%= item.title %></h2>
                     <div class="text-justify">
-                        <%= item.content.html_safe %>
+                        <p><%= truncate(strip_tags(item.content.html_safe), length: 360, omission: ' [...]') %></p>
                     </div>
                     <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
                 </div>
