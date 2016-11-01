@@ -1,0 +1,75 @@
+<!-- Modal Review -->
+<div class="modal fade" id="myEventOrder" tabindex="-1" role="dialog" aria-labelledby="myEventOrderLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myEventOrderLabel">Đăng ký phòng khuyến mãi</h4>
+			</div>
+			<div class="modal-body">
+				<%= form_for Naturesoft::Hotels::EventOrder.new, html: {class: "event_order_validate"} do |f| %>
+					<% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
+					<%= f.hidden_field :hotel_id, value: @detail.id %>
+                    <%= f.hidden_field :event_id, value: item.id %>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<%= f.text_field :first_name, class: "form-control required", value: (current_user.first_name if current_user.present?), placeholder: "Nhập họ tại đây (*)..." %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<%= f.text_field :last_name, class: "form-control required", value: (current_user.last_name if current_user.present?), placeholder: "Nhập tên tại đây (*)..." %>
+							</div>
+						</div>
+					</div>
+					<!-- End row -->
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<%= f.text_field :email, class: "form-control required", value: (current_user.email if current_user.present?), placeholder: "Nhập email tại đây (*)..." %>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<%= f.text_field :phone, class: "form-control required", value: (current_user.phone if current_user.present?), placeholder: "Nhập số di động tại đây (*)..." %>
+							</div>
+						</div>
+					</div>
+					<!-- End row -->
+					<hr>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<select class="form-control required" name="event_order[number]" id="event_order_number">
+									<option value="">Chọn số lượng phòng</option>
+									<% (0..19).each_with_index do |item,index| %>
+									<option value="<%= index+1 %>"><%= index+1 %></option>
+									<% end %>
+								</select>
+							</div>
+						</div>
+					</div>
+					<!-- End row -->
+                    <div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input class="form-control required" data-date-format="dd/mm/yyyy" name="event_order[checkin]" type="text" id="event_check_in" placeholder="Chọn ngày nhận phòng (*)...">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input class="form-control required" data-date-format="dd/mm/yyyy" name="event_order[checkout]" type="text" id="event_check_out" placeholder="Chọn ngày trả phòng (*)...">
+							</div>
+						</div>
+					</div>
+					<!-- End row -->
+					<div class="form-group">
+						<textarea class="form-control" style="height:100px" name="event_order[note]" id="event_order_note" placeholder="Viết lời nhắn tại đây..."></textarea>
+					</div>
+					<input type="submit" value="Đặt phòng" class="btn_1">
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div><!-- End modal review -->

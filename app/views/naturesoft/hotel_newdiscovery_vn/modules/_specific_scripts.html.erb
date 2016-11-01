@@ -48,7 +48,6 @@ $('input').iCheck({
  });
 </script>
 <% end %>
-
 <% if params[:controller] == 'naturesoft/hotels/hotels' && params[:action] == 'detail' %>
 <!-- Date and time pickers -->
 <%= javascript_include_tag "/frontend/js/jquery.sliderPro.min.js" %>
@@ -160,6 +159,15 @@ $(document).ready(function(){
 <%= javascript_include_tag "/frontend/assets/validate.js" %>
 
 <%= javascript_include_tag "/frontend/js/datepicker_advanced.js" %>
+<%= javascript_include_tag "/frontend/js/datepicker_event.js" %>
+<script>
+	jQuery('document').ready(function() {
+		jQuery('.event_order_button').click(function() {
+			var id = $(this).attr("event-id");
+			jQuery("#event_order_event_id").val(id);
+		});
+	});
+</script>
 <% end %>
 <% if params[:controller] == 'naturesoft/articles/articles' && params[:action] == 'faq' %>
 <!-- Specific scripts -->
@@ -199,6 +207,7 @@ $(document).ready(function(){
 </script>
 <% end %>
 <script>
+	$(".event_order_validate").validate();
 	$(".newsletter_validate").validate();
 	$(".review_validate").validate();
 	$(".validate").validate({
