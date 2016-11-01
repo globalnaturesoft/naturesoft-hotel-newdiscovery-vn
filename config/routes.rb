@@ -24,6 +24,7 @@ Naturesoft::Core::Engine.routes.draw do
 end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews
+  resources :event_orders
   resources :orders
   resources :wish_lists do
     collection do

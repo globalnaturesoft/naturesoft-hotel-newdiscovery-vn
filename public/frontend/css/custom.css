@@ -28,6 +28,9 @@ label.error {
 .validate input.error, select.error {
   border: solid 1px #e34f4f;
 }
+.event_order_validate input.error, select.error {
+  border: solid 1px #e34f4f;
+}
 #search_results {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -115,4 +118,15 @@ a.tooltip-user {
 }
 .icheckbox_square-grey ins, .icheckbox_square-grey input {
   left: -9000px !important;
+}
+.event_list_desc {
+  border-right: 1px solid #ededed;
+  height: 80px;
+  line-height: 17px;
+}
+.event_price_list {
+  height: 80px;
+}
+.event-title {
+  color: #ff0000;
 }

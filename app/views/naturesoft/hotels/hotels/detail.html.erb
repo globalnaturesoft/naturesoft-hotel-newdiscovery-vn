@@ -116,6 +116,84 @@
                     <h3><strong>Loại phòng</strong></h3>
                 </div>
                 <div class="col-md-9">
+                    <% @detail.events.each do |item| %>
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-9">
+                            <div class="event_list_desc">
+                                <h4 class="event-title"><strong><%= item.title %></strong></h4>
+                                <ul class="add_info">
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon_set_1_icon-83"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Thời hạn chương trình</h4>
+                                                <%= item.content.html_safe if !item.content.nil? %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon_set_1_icon-23"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Trọn gói bao gồm</h4>
+                                                <%= item.content_1.html_safe if !item.content_1.nil? %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon-dollar"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Giá & Loại phòng</h4>
+                                                <%= item.content_2.html_safe if !item.content_1.nil? %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon_set_1_icon-51"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Phụ thu</h4>
+                                                <%= item.content_3.html_safe if !item.content_1.nil? %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon_set_1_icon-75"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Lưu ý</h4>
+                                                <%= item.content_4.html_safe if !item.content_1.nil? %>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="tooltip_styled tooltip-effect-4">
+                                            <span class="tooltip-item"><i class="icon_set_1_icon-73"></i></span>
+                                            <div class="tooltip-content">
+                                                <h4>Hỗ trợ khách hàng</h4>
+                                                <i class="icon-phone"></i> 0919 515 059<br>
+                                                <i class="icon-phone"></i> 0919 623 535<br>
+                                                <i class="icon-email"></i> info@newdiscovery.vn<br>
+                                                <i class="icon-email"></i> info@cungmuadulich.net<br>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <div class="price_list event_price_list">
+                                <div>
+                                    <%= format_number(item.price) %> VNĐ<small>*Giá/Đêm</small>
+                                    <p><a href="#" class="btn_1 add_bottom_30 event_order_button" data-toggle="modal" data-target="#myEventOrder" event-id="<%= item.id %>">Đặt phòng</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <%= render "/modules/hotel_event_order", item: item %>
+                    <hr>
+                    <% end %>
                     <% @detail.rooms.each do |item| %>
                     <h4><strong><%= item.name %></strong></h4>
                     <div class="text-justify"><%= item.description.html_safe if !item.description.empty? %></div>
@@ -290,8 +368,8 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
-                            <label><i class="icon-email"></i> Email</label>
-                            <%= f.text_field :email, class: "form-control", value: (current_user.email if current_user.present?), placeholder: "Nhập email tại đây..." %>
+                            <label><i class="icon-email"></i> Email (*)</label>
+                            <%= f.text_field :email, class: "form-control required", value: (current_user.email if current_user.present?), placeholder: "Nhập email tại đây..." %>
                         </div>
                     </div>
                 </div>

@@ -63,7 +63,7 @@
 								<% else %>
 								<div class="ribbon popular"></div><%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "") %>
 								<% end %>
-                                <div class="short_info"><i class="icon_set_1_icon-6"></i>Khách Sạn </div>
+                                <div class="short_info"><i class="icon_set_1_icon-6"></i>Khách sạn</div>
                             </a>
                         </div>
                     </div>
@@ -138,6 +138,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-2">
                         <div class="price_list">
                             <div>
+								<%= format_number(item.price) %> VNĐ<small>*Giá/Đêm</small>
 								<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id), class: "btn_1" %></p>
                             </div>
                         </div>
