@@ -23,39 +23,43 @@
 
         <div class="col-md-9">
             <div class="box_style_1">
-                <% @articles.each do |item| %>
-                <div class="post">
-                    <%= link_to image_tag(item.image_url.lager, alt: "786x310", class: "img-responsive"), naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)) %>
-                    <div class="post_info clearfix">
-                        <div class="post-left">
-                            <ul>
-                                <li><i class="icon-calendar-empty"></i> Đăng ngày <span><%= item.created_at.strftime("%d/%m/%Y") %></span></li>
-                                <li><i class="icon-inbox-alt"></i> Chuyên mục: <% item.categories.each do |c| %><%= c.name %><% end %>
-                                </li>
-                                <li><i class="icon-tags"></i> Nhãn:
-                                <% if !item.get_tags.empty? %>
-                                    <% len = item.get_tags.length %>
-                                    <% item.get_tags.each_with_index do |tag,i| %>
-                                        <% if i+1==len %>
-                                            <%= link_to(tag,'') %>
-                                        <% else %>
-                                            <%= link_to(tag,'') %>,
+                <% if @articles.count == 0 %>
+                    <p>Không tìm thấy bài viết</p>
+                <% else %>
+                    <% @articles.each do |item| %>
+                        <div class="post">
+                            <%= link_to image_tag(item.image_url.lager, alt: "786x310", class: "img-responsive"), naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)) %>
+                            <div class="post_info clearfix">
+                                <div class="post-left">
+                                    <ul>
+                                        <li><i class="icon-calendar-empty"></i> Đăng ngày <span><%= item.created_at.strftime("%d/%m/%Y") %></span></li>
+                                        <li><i class="icon-inbox-alt"></i> Chuyên mục: <% item.categories.each do |c| %><%= c.name %><% end %>
+                                        </li>
+                                        <li><i class="icon-tags"></i> Nhãn:
+                                        <% if !item.get_tags.empty? %>
+                                            <% len = item.get_tags.length %>
+                                            <% item.get_tags.each_with_index do |tag,i| %>
+                                                <% if i+1==len %>
+                                                    <%= link_to(tag,'') %>
+                                                <% else %>
+                                                    <%= link_to(tag,'') %>,
+                                                <% end %>
+                                            <% end %>
                                         <% end %>
-                                    <% end %>
-                                <% end %>
-                                </li>
-                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h2><%= item.title %></h2>
+                            <div class="text-justify">
+                                <p><%= truncate(strip_tags(item.content.html_safe), length: 360, omission: ' [...]') %></p>
+                            </div>
+                            <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
                         </div>
-                    </div>
-                    <h2><%= item.title %></h2>
-                    <div class="text-justify">
-                        <p><%= truncate(strip_tags(item.content.html_safe), length: 360, omission: ' [...]') %></p>
-                    </div>
-                    <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
-                </div>
-                <!-- end post -->
-
-                <hr>
+                        <!-- end post -->
+        
+                        <hr>
+                    <% end %>
                 <% end %>
             </div>
             <hr>

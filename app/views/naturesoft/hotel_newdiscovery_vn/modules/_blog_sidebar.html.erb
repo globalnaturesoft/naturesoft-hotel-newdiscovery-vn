@@ -1,9 +1,11 @@
 <div class="widget">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Tìm kiếm...">
-        <span class="input-group-btn">
-        <button class="btn btn-default" type="button" style="margin-left:0;"><i class="icon-search"></i></button>
-        </span>
+        <%= form_tag(listing_path, method: "get", class: "input-group") do %>
+            <input type="text" name="key" value="<%= params[:key] if params[:key].present? %>" class="form-control" placeholder="Tìm kiếm...">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="submit" style="margin-left:0;"><i class="icon-search"></i></button>
+            </span>
+        <% end %>
     </div>
     <!-- /input-group -->
 </div>
@@ -12,10 +14,9 @@
 <div class="widget" id="cat_blog">
     <h4>Chuyên mục</h4>
     <ul>
-        <li><a href="#">Places to visit</a></li>
-        <li><a href="#">Top tours</a></li>
-        <li><a href="#">Tips for travellers</a></li>
-        <li><a href="#">Events</a></li>
+        <% Naturesoft::Articles::Category.get_all_categories.each do |item| %>
+            <li><%= link_to(item.name, listing_path(cat_id: item.id)) %></li>
+        <% end %>
     </ul>
 </div>
 <!-- End widget -->
