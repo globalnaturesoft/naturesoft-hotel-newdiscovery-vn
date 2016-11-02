@@ -346,7 +346,7 @@
             </p>
             <div class="box_style_1 margin_30 expose">
                 <h3 class="inner">Đặt phòng</h3>
-                <%= form_for @order, html: {class: "validate"} do |f| %>
+                <%= form_for @order, html: {class: "validate ajax_form_alert"} do |f| %>
                 <% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
                 <%= f.hidden_field :hotel_id, value: @detail.id %>
                 <div class="row">
@@ -444,7 +444,7 @@
                     </div>
                 </div>
                 <br>
-                <input type="submit" value="Đặt phòng" class="btn_full">
+                <input type="button" value="Đặt phòng" class="btn_full submit">
                 <% end %>
             
                 <% if current_user.present? %>

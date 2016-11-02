@@ -7,7 +7,7 @@
 				<h4 class="modal-title" id="myEventOrderLabel">Đăng ký phòng khuyến mãi</h4>
 			</div>
 			<div class="modal-body">
-				<%= form_for Naturesoft::Hotels::EventOrder.new, html: {class: "event_order_validate"} do |f| %>
+				<%= form_for Naturesoft::Hotels::EventOrder.new, html: {class: "event_order_validate ajax_form_alert"} do |f| %>
 					<% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
 					<%= f.hidden_field :hotel_id, value: @detail.id %>
                     <%= f.hidden_field :event_id, value: item.id %>
@@ -67,7 +67,7 @@
 					<div class="form-group">
 						<textarea class="form-control" style="height:100px" name="event_order[note]" id="event_order_note" placeholder="Viết lời nhắn tại đây..."></textarea>
 					</div>
-					<input type="submit" value="Đặt phòng" class="btn_1">
+					<input type="button" value="Đặt phòng" class="btn_1 submit">
 				<% end %>
 			</div>
 		</div>
