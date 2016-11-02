@@ -130,6 +130,18 @@ a.tooltip-user {
 .event-title {
   color: #ff0000;
 }
+
+#register #error_explanation h2 {
+  display: none;
+}
+#register #error_explanation ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+#register #error_explanation li {
+  list-style: none;
+}
+
 .submitting .submit {
     opacity: 0.4;
     visibility: hidden;
