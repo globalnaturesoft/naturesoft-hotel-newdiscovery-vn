@@ -111,14 +111,7 @@
                 <% end %>
             </div>
             <div class="box_style_4">
-                <i class="icon_set_1_icon-57"></i>
-                <h4><span>Hotline</span></h4>
-                <% if @contact_info.present? %>
-                    <a href="tel:<%= @contact_info.hotline_1 %>" class="phone"><%= @contact_info.hotline_1 %></a>
-                    <a href="tel:<%= @contact_info.hotline_2 %>" class="phone"><%= @contact_info.hotline_2 %></a>
-                    <small>Thứ 2 - Thứ 6 9:00am - 7:30pm</small><br>
-                    <small>Thứ 7 - Chủ nhật 9:00am - 7:00pm</small>
-                <% end %>
+                <%= position("hotel_newdiscovery_vn::hotline-module") %>
             </div>
         </div>
         <!-- End col-md-4 -->
