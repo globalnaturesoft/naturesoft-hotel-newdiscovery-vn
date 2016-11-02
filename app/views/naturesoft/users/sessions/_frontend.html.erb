@@ -9,18 +9,7 @@
                     <%= render "naturesoft/hotel_newdiscovery_vn/modules/flash_messages" %>
                     
                     <%= form_for(:user, :url => session_path(:user), html: {class: "validate"}) do |f| %>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6 login_social">
-                                <a href="#" class="btn btn-primary btn-block"><i class="icon-facebook"></i>Facebook</a>
-                            </div>
-                            <div class="col-md-6 col-sm-6 login_social">
-                                <a href="#" class="btn btn-info btn-block"><i class="icon-google"></i>Google</a>
-                            </div>
-                        </div>
-                        <!-- end row -->
-                        <div class="login-or">
-                        <hr class="hr-or"><span class="span-or">hoặc</span></div>
-                        
+                                                
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="user[email]" class="form-control required" placeholder="Nhập email tại đây...">
