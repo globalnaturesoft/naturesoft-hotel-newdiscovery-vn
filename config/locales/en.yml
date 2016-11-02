@@ -25,5 +25,6 @@ en:
   announce_new_quick_booking: "[Đặt Phòng Nhanh] Bạn vừa nhận được yêu cầu đặt phòng nhanh từ "
   booking_hotel_successfully: "[CT TNHH MTV DL Khám Phá Mới] Xác nhận yêu cầu đặt phòng"
   success: "Thành công"
-  event_ordered_sucess: "Bạn đã đặt sự kiện khuyến mãi thành công. Chúng tôi sẽ liên hệ sớm với bạn."
-  hotel_ordered_sucess: "Bạn đã đặt phòng khách sạn thành công. Chúng tôi sẽ liên hệ sớm với bạn."
+  event_ordered_success: "Bạn đã đặt sự kiện khuyến mãi thành công. Chúng tôi sẽ liên hệ sớm với bạn."
+  hotel_ordered_success: "Bạn đã đặt phòng khách sạn thành công. Chúng tôi sẽ liên hệ sớm với bạn."
+  review_success: "Cám ơn bạn đã viết đánh giá. Chúng tôi sẽ duyệt và đưa lên trong thời gian sớm nhất."

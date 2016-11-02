@@ -37,6 +37,7 @@ Naturesoft::Hotels::Engine.routes.draw do
   get "khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
   get "dang-ky-nhanh.html" => "quick_orders#quick_booking", as: :quick_bookings
   post "dang-ky-nhanh.html" => "quick_orders#quick_booking"
+  get "danh-gia-khach-san-:id.html" => "hotels#reviews_list", as: :hotel_reviews_list
 end
 Naturesoft::Newsletters::Engine.routes.draw do
   get "dang-ky-nhan-tin.html" => "newsletters#add_email", as: :newsletters

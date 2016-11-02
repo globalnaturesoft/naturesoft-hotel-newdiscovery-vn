@@ -318,7 +318,7 @@
                     <a href="#" class="btn_1 add_bottom_30" data-toggle="modal" data-target="#myWarning">Viết đánh giá</a>
                     <% end %>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 review-list" hotel-id="<%= @detail.id %>" data-url="<%= naturesoft_hotels.hotel_reviews_list_path(@detail.id) %>">
                     <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small></div>
                     <% @detail.reviews.get_active.each do |item| %>
                     <div class="review_strip_single">
@@ -334,7 +334,7 @@
                     </div>
                     <!-- End review strip -->
                     <% end %>
-                    <%= link_to "Xem thêm ("+"0"+")", "", class: "btn_1 green" %>
+                    <%= link_to "Xem thêm ("+@detail.reviews.get_active.count.to_s+")", "", class: "btn_1 green" %>
                 </div>
             </div>
         </div>
