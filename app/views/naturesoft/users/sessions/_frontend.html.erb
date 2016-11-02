@@ -9,7 +9,6 @@
                     <%= render "naturesoft/hotel_newdiscovery_vn/modules/flash_messages" %>
                     
                     <%= form_for(:user, :url => session_path(:user), html: {class: "validate"}) do |f| %>
-                                                
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="user[email]" class="form-control required" placeholder="Nhập email tại đây...">
@@ -22,8 +21,6 @@
                             <%= link_to "Quên mật khẩu ?", naturesoft.forgot_password_path %>
                         </p>
                         <button type="submit" class="btn_full">Đăng nhập</button>
-                        <!--<%= link_to "Đăng nhập", naturesoft.admin_area_path, class: "btn_full" %>-->
-                        <!--<%= link_to "Đăng ký", naturesoft.register_path, class: "btn_full_outline" %>-->
                     <% end %>
                 </div>
             </div>
