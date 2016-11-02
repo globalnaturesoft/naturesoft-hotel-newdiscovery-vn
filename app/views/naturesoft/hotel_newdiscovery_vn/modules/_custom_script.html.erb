@@ -35,6 +35,7 @@
             success: function(data)
             {
                 $(".hotel-list-container").html($("<div>").html(data).find(".hotel-list-container").html());
+                $("#search_results").html($("<div>").html(data).find("#search_results").html());
             }
         });
     }
@@ -167,6 +168,37 @@
             hotelListFilter();
             
             e.preventDefault();
+        });
+        
+        
+        // Ajax event order
+        $(".ajax_form_alert .submit").click(function(e) {
+            var form = $(this).parents("form");
+            var action = form.attr("action");
+            
+            if(form.valid()) {
+                form.addClass("submitting");
+                $.ajax({
+                    type: "POST",
+                    url: action + "?format=json",
+                    data: form.serialize(), // serializes the form's elements.
+                    success: function(data)
+                    {                        
+                        form.removeClass("submitting");
+                        
+                        swal({
+                            title: data.title,
+                            text: data.message,
+                            confirmButtonText: "<%= t('ok') %>",
+                            allowOutsideClick: true
+                        });
+                        
+                        // close modal
+                        $('.modal').modal('hide');
+                    }
+                });
+            }
+            
         });
         
         

@@ -130,7 +130,7 @@ a.tooltip-user {
 .event-title {
   color: #ff0000;
 }
-/*validate for divice*/
+
 #register #error_explanation h2 {
   display: none;
 }
@@ -140,4 +140,21 @@ a.tooltip-user {
 }
 #register #error_explanation li {
   list-style: none;
+}
+
+.submitting .submit {
+    opacity: 0.4;
+    visibility: hidden;
+}
+.submitting::after {
+    content: "aaa";
+    text-indent: -9000px;
+    top: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background: url(../img/loading.gif) no-repeat center center transparent;
+    z-index: 10;
+    top: 0px;
 }
