@@ -15,6 +15,7 @@ Naturesoft::Core::Engine.routes.draw do
   get "dang-nhap.html" => "users#login", as: :login
   get "dang-ky.html" => "users#register", as: :register
   get "quen-mat-khau.html" => "users#forgot_password", as: :forgot_password
+  get "cap-nhat-mat-khau-moi.html" => "users#reset_password", as: :reset_password
   get "thanh-vien/ho-so.html" => "users#admin_area", as: :admin_area
   post "thanh-vien/ho-so.html" => "users#admin_area"
   get "thanh-vien/lich-su.html" => "users#order_history", as: :order_history
