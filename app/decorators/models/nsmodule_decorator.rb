@@ -15,5 +15,6 @@ Naturesoft::Nsmodule.class_eval do
     "footer-box-col-3" => nil,
     "social-footer" => nil,
     "copyright-info" => nil,
+    "hotline-module" => nil,
   }
 end
