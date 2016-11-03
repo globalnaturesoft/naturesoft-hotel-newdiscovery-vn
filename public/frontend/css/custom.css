@@ -25,6 +25,9 @@ label.error {
 .newsletter_validate input.error {
   border: solid 1px #e34f4f;
 }
+.review_validate input.error, textarea.error, select.error {
+  border: solid 1px #e34f4f;
+}
 .validate input.error, select.error {
   border: solid 1px #e34f4f;
 }
