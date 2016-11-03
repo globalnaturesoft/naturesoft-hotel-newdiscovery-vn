@@ -24,50 +24,42 @@
     <div class="content">
         <section id="section-1"></section>
         <section id="section-2" class="content-current">
-            <div id="tools">
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 col-xs-6">
-                        <div class="styled-select-filters">
-                            <select name="sort_date" id="sort_date">
-                              <option value="" selected>Sắp xếp theo thời gian</option>
-                              <option value="oldest">Thời gian gần đây</option>
-                              <option value="recent">Thời gian trước</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/tools -->
-            
-            <% (0..4).each do |item| %>
-            <div class="strip_booking">
-                <div class="row">
-                    <div class="col-md-2 col-sm-2">
-                        <div class="date">
-                            <span class="month">09</span>
-                            <span class="day"><strong>30</strong>2016</span>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-5">
-                        <h3 class="hotel_booking"><%= link_to "Tên khách sạn", "" %><span>2 người lớn / 2 đêm</span></h3>
-                    </div>
-                    <div class="col-md-2 col-sm-3">
-                        <ul class="info_booking">
-                            <li><strong>Mã phòng</strong> #23442</li>
-                            <li><strong>Ngày đặt phòng</strong> 10:00 30/09/2016</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 col-sm-2">
-						<div class="booking_buttons">
-                            <%= link_to "Xuất bản in", "#invoice", class: "btn_2" %>
+			<% if current_user.hotels_orders.count > 0 %>
+				<% current_user.hotels_orders.each do |item| %>
+				<div class="strip_booking">
+					<div class="row">
+						<div class="col-md-2 col-sm-2">
+							<div class="date">
+								<span class="month"><%= item.created_at.strftime("%m") %></span>
+								<span class="day"><strong><%= item.created_at.strftime("%d") %></strong><%= item.created_at.strftime("%Y") %></span>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-5">
+							<h3 class="hotel_booking">
+								<strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel.id) %></strong>
+								<span><%= item.adult %> người lớn - <%= item.child %> trẻ em.</span>
+							</h3>
+						</div>
+						<div class="col-md-2 col-sm-3">
+							<ul class="info_booking">
+								<li><strong>Loại phòng</strong> <%= item.room.name %></li>
+								<li><strong>Ngày nhận phòng</strong> <%= item.checkin.strftime("%d/%m/%y") %></li>
+								<li><strong>Ngày trả phòng</strong> <%= item.checkout.strftime("%d/%m/%y") %></li>
+							</ul>
+						</div>
+						<div class="col-md-2 col-sm-2">
+							<div class="booking_buttons">
+								<%= link_to "Xuất bản chi tiết", naturesoft_hotels.invoice_orders_path(order_id: item.id), class: "btn_2", target: "_blank" %>
+							</div>
 						</div>
 					</div>
-                </div>
-                <!-- End row -->
-            </div>
-            <!-- End strip booking -->
-            <% end %>
-
+					<!-- End row -->
+				</div>
+				<!-- End strip booking -->
+				<% end %>
+			<% else %>
+				<h3>Lịch sử đặt phòng hiện đang trống.</h3>
+			<% end %>
         </section>
         <!-- End section 2 -->
 

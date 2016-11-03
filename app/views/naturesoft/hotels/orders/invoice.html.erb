@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+    <meta name="author" content="Ansonika">
+    <title>CITY TOURS - City tours and travel site template by Ansonika</title>
+
+    <!-- Favicons-->
+    <link rel="shortcut icon" href="/frontend/img/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="/frontend/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="/frontend/img/apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="/frontend/img/apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="/frontend/img/apple-touch-icon-144x144-precomposed.png">
+
+    <!-- BASE CSS -->
+    <%= stylesheet_link_tag "/frontend/css/base.css" %>
+	
+    <!-- Google web fonts -->
+   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    
+	<style>
+    .invoice-title h2, .invoice-title h3 {
+        display: inline-block;
+    }
+    
+    .table > tbody > tr > .no-line {
+        border-top: none;
+    }
+    
+    .table > thead > tr > .no-line {
+        border-bottom: none;
+    }
+    
+    .table > tbody > tr > .thick-line {
+        border-top: 2px solid;
+    }
+    </style>
+        
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag "/frontend/js/html5shiv.min.js" %>
+      <%= javascript_include_tag "/frontend/js/respond.min.js" %>
+    <![endif]-->
+        
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h2>Thông tin đặt phòng</h2>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong>Thông tin khách hàng:</strong><br>
+    					Tên khách hàng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).first_name + " " + Naturesoft::Hotels::Order.find(params[:order_id]).last_name %><br>
+    					Email: <%= Naturesoft::Hotels::Order.find(params[:order_id]).email %><br>
+    					Số di động: <%= Naturesoft::Hotels::Order.find(params[:order_id]).phone %><br>
+    					Số bàn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).email %><br>
+    				</address>
+    			</div>
+    			<div class="col-xs-6 text-right">
+    				<address>
+                        <strong>Thông tin đặt phòng:</strong><br>
+    					Loại phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).room.name %><br>
+    					Ngày nhận phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkin.strftime("%d/%m/%Y") %><br>
+                        Ngày trả phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkout.strftime("%d/%m/%Y") %><br>
+                        Số lượng: phòng<br>
+                        Số người lớn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).adult %><br>
+                        Số trẻ em: <%= Naturesoft::Hotels::Order.find(params[:order_id]).child %><br>
+    				</address>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+                        <strong>Thông tin khách sạn:</strong><br>
+    					Tên khách sạn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).hotel.name %><br>
+    					Địa chỉ: <%= Naturesoft::Hotels::Order.find(params[:order_id]).hotel.address %><br>
+    				</address>
+    			</div>
+                <div class="col-xs-6 text-right">
+    				<address>
+                        <strong>Lời nhắn:</strong><br>
+    					<%= Naturesoft::Hotels::Order.find(params[:order_id]).note %><br>
+    				</address>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
+  </body>
+</html>

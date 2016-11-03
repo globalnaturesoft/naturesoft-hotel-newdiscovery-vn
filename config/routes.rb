@@ -26,7 +26,11 @@ end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews
   resources :event_orders
-  resources :orders
+  resources :orders do
+    collection do
+      get "chi-tiet-thong-tin-dat-phong.html" => "orders#invoice", as: :invoice
+    end
+  end
   resources :wish_lists do
     collection do
       get 'add_item'
