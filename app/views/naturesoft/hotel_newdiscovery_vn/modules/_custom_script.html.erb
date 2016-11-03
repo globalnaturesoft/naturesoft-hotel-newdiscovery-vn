@@ -145,13 +145,13 @@
             hotelListFilter();            
             e.preventDefault();
         });
-        $(document).on("change", "input,select", function(e) {
+        $(document).on("change", ".hotel_filter input, .hotel_filter select", function(e) {
             hotelListFilter();            
         });
-        $(document).on("keyup", "input", function(e) {
+        $(document).on("keyup", ".hotel_filter input", function(e) {
             hotelListFilter();            
         });
-        $(document).on("mouseup", ".hotel_filter", function(e) {
+        $(document).on("mouseup", ".hotel_filter .hotel_filter", function(e) {
             setTimeout("hotelListFilter();", 100);            
         });
         $(document).on("click", ".bt_filters", function(e) {
