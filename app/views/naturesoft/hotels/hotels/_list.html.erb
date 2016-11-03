@@ -19,7 +19,7 @@
                 <% end %>
                 <div class="img_list">
                     <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
-                        <!--<div class="ribbon popular"></div>-->
+                        <div class="ribbon popular"></div>
                         <% if item.hotel_images.count > 0 %><%= image_tag(item.get_main_image.image.large, alt: item.name) %><% else %><%= image_tag("/frontend/img/no-img.png", alt: item.name) %><% end %>
                         <div class="short_info"></div>
                     </a>
@@ -28,7 +28,9 @@
             <div class="clearfix visible-xs-block"></div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="tour_list_desc">
-                    <div class="score">Tuyệt vời<span>9.0</span></div>
+                    <% if item.reviews.count > 0 %>
+                    <div class="score"><span><%= item.avg_reviews %></span> <%= item.rating_reviews %></div>
+                    <% end %>
                     <div class="rating"><% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %></div>
                     <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id), title: item.name %></strong></h3>
                     <div class="text-justify"><p><%= item.address %></p></div>

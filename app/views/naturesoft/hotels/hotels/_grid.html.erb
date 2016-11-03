@@ -10,7 +10,9 @@
                             <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                         <% end %>
                         <div class="ribbon top_rated"></div>
-                        <div class="score"><span>7.5</span>Tốt</div>
+                        <% if item.reviews.count > 0 %>
+                        <div class="score"><span><%= item.avg_reviews %></span> <%= item.rating_reviews %></div>
+                        <% end %>
                         <div class="short_info hotel">
                             Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
                         </div>
