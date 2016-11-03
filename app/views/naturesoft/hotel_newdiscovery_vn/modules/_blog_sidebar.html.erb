@@ -12,12 +12,7 @@
 <!-- End Search -->
 <hr>
 <div class="widget" id="cat_blog">
-    <h4>Chuyên mục</h4>
-    <ul>
-        <% Naturesoft::Articles::Category.get_all_categories.each do |item| %>
-            <li><%= link_to(item.name, listing_path(cat_id: item.id)) %></li>
-        <% end %>
-    </ul>
+    <%= position("hotel_newdiscovery_vn::categories-blog-sidebar") %>
 </div>
 <!-- End widget -->
 

@@ -16,5 +16,6 @@ Naturesoft::Nsmodule.class_eval do
     "social-footer" => nil,
     "copyright-info" => nil,
     "hotline-module" => nil,
+    "categories-blog-sidebar" => nil,
   }
 end
