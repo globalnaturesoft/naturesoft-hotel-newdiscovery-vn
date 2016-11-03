@@ -38,17 +38,6 @@
 <div class="container margin_60">
     <div class="row">
         <div class="col-md-8" id="single_tour_desc">
-            <div id="single_tour_feat">
-                <ul>
-                    <li><i class="icon_set_2_icon-116"></i>TV truyền hình cáp</li>
-                    <li><i class="icon_set_1_icon-86"></i>Wifi miễn phí</li>
-                    <li><i class="icon_set_2_icon-110"></i>Hồ bơi</li>
-                    <li><i class="icon_set_1_icon-59"></i>Miễn phí ăn sáng</li>
-                    <li><i class="icon_set_1_icon-22"></i>Chăm sóc thú cưng</li>
-                    <li><i class="icon_set_3_restaurant-10"></i>Tiệc ngoài trời</li>
-                    <li><i class="icon_set_1_icon-27"></i>Bãi đổ xe</li>
-                </ul>
-            </div>
             <p class="visible-sm visible-xs"><a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a></p>
             <!-- Map button for tablets/mobiles -->
             <% if @detail.get_main_image.present? %>
@@ -407,6 +396,19 @@
                                 <option value="">Chọn loại phòng cần đặt</option>
                                 <% @detail.rooms.each do |item| %>
                                 <option value="<%= item.id %>"><%= item.name %></option>
+                                <% end %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label>Số phòng (*)</label>
+                            <select class="form-control required" name="order[number]" id="order_number">
+                                <option value="">Chọn số lượng phòng</option>
+                                <% (0..19).each_with_index do |item,index| %>
+                                <option value="<%= index+1 %>"><%= index+1 %></option>
                                 <% end %>
                             </select>
                         </div>

@@ -118,9 +118,8 @@ $('input.date-pick').datepicker('setDate', 'today');
 				// add infobox
 				var html = '<div class="marker_infowindow">' +
 					'<img src="/frontend/img/thumb_map_1.jpg" alt="Image">' +
-					'<h3>Hotel Mariott</h3>' +
-					'<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard.</span>' +
-					'<br /><a href="single_hotel.html" class="btn_1">Details</a></div>';
+					'<h3><%= @detail.name %></h3>' +
+					'<span><%= @detail.address %></span>';
 					
 				var infowindow = new google.maps.InfoWindow({
 					content: html
