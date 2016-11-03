@@ -319,7 +319,11 @@
                     <% end %>
                 </div>
                 <div class="col-md-9 review-list" hotel-id="<%= @detail.id %>" data-url="<%= naturesoft_hotels.hotel_reviews_list_path(@detail.id) %>">
-                    <div id="score_detail"><span>7.5</span>Tốt <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small></div>
+                    <% if @detail.reviews.count > 0 %>
+                    <div id="score_detail">
+                        <span><%= @detail.avg_reviews %></span><%= @detail.rating_reviews %>
+                        <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small>
+                    </div>
                     <% @detail.reviews.get_active.each do |item| %>
                     <div class="review_strip_single">
                         <img src="/frontend/img/avatar3.jpg" alt="Image" class="img-circle">
@@ -335,6 +339,11 @@
                     <!-- End review strip -->
                     <% end %>
                     <%= link_to "Xem thêm ("+@detail.reviews.get_active.count.to_s+")", "", class: "btn_1 green" %>
+                    <% else %>
+                    <div id="score_detail">
+                        <small>Hiện tại chưa có đánh giá nào dành cho khách sạn này.</small>
+                    </div>
+                    <% end %>
                 </div>
             </div>
         </div>
