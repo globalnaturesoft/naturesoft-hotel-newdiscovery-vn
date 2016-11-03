@@ -18,7 +18,7 @@
 				name: 'Address',
 				location_latitude: 10.761742, 
 				location_longitude: 106.665154,
-				map_image_url: '/frontend/img/thumb_map_1.jpg',
+				map_image_url: '/frontend/img/thumb_map_1.png',
 				name_point: 'ĐỊA CHỈ CHI NHÁNH',
 				description_point: '114 Ngô Quyền, Phường 5, Quận 10<br>TP. Hồ Chí Minh, VIỆT NAM<br><br>(+84) 83 85 333 18 - (+84) 83 85 333 21',
 				url_point: ''

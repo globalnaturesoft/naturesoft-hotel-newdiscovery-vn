@@ -196,6 +196,7 @@
                     <% end %>
                     <% @detail.rooms.each do |item| %>
                     <h4><strong><%= item.name %></strong></h4>
+                    <h5><span><%= format_number(item.price) %> VNĐ</span> / <%= item.time_line %></h5>
                     <div class="text-justify"><%= item.description.html_safe if !item.description.empty? %></div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
