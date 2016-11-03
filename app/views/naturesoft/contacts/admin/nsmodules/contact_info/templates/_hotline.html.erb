@@ -3,6 +3,7 @@
 <% if contact_info.present? %>
     <a href="tel:<%= contact_info.hotline_1 %>" class="phone"><%= contact_info.hotline_1 %></a>
     <a href="tel:<%= contact_info.hotline_2 %>" class="phone"><%= contact_info.hotline_2 %></a>
-    <small>Thứ 2 - Thứ 6 9:00am - 7:30pm</small><br>
-    <small>Thứ 7 - Chủ nhật 9:00am - 7:00pm</small>
+    <% contact_info.get_working_times.each do |item| %>
+        <small><%= item %></small><br>
+    <% end %>
 <% end %>
