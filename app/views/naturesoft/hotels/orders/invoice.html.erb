@@ -70,13 +70,13 @@
     			</div>
     			<div class="col-xs-6 text-right">
     				<address>
-                        <strong>Thông tin đặt phòng:</strong><br>
+         <strong>Thông tin đặt phòng:</strong><br>
     					Loại phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).room.name %><br>
     					Ngày nhận phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkin.strftime("%d/%m/%Y") %><br>
-                        Ngày trả phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkout.strftime("%d/%m/%Y") %><br>
-                        Số lượng: phòng<br>
-                        Số người lớn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).adult %><br>
-                        Số trẻ em: <%= Naturesoft::Hotels::Order.find(params[:order_id]).child %><br>
+									Ngày trả phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkout.strftime("%d/%m/%Y") %><br>
+									Số lượng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).number %> phòng<br>
+									Số người lớn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).adult %><br>
+									Số trẻ em: <%= Naturesoft::Hotels::Order.find(params[:order_id]).child %><br>
     				</address>
     			</div>
     		</div>
