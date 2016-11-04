@@ -1,8 +1,8 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/home_bg_1.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= !@current_menu.nil? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>FQA</h1>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
         </div>
     </div>
 </section>
@@ -12,7 +12,7 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li>FAQ</li>
+            <li><%= @current_menu.name %></li>
         </ul>
     </div>
 </div>
@@ -24,11 +24,9 @@
             <div class="theiaStickySidebar">
                 <div class="box_style_cat" id="faq_box">
                     <ul id="cat_nav">
-                        <li><a href="#book_guide"><i class="icon_set_1_icon-95"></i>Hướng dẫn đặt phòng</a></li>
-                        <li><a href="#question"><i class="icon_set_1_icon-95"></i>Câu hỏi thường gặp</a></li>
-                        <li><a href="#customer"><i class="icon_set_1_icon-95"></i>Chăm sóc khách hàng</a></li>
-                        <li><a href="#hotel"><i class="icon_set_1_icon-95"></i>Tiêu chuẩn khách sạn</a></li>
-                        <li><a href="#ecommerce"><i class="icon_set_1_icon-95"></i>Quy chế sàn giao dịch TMĐT</a></li>
+                        <% @category.children.each_with_index do |item,i| %>
+                        <li><a href="#<%= i %>"><i class="icon_set_1_icon-95"></i><%= item.name %></a></li>
+                        <% end %>
                     </ul>
                 </div>
             </div>
@@ -36,133 +34,27 @@
         </aside>
         <!--End aside -->
         <div class="col-lg-9 col-md-9" id="faq">
-            <h3 class="nomargin_top">Hướng dẫn đặt phòng</h3>
-
-            <div class="panel-group" id="book_guide">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#book_guide" href="#collapseOne_book_guide">Hướng dẫn đặt phòng khách sạn<i class="indicator icon-minus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne_book_guide" class="panel-collapse collapse in">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            <% @category.children.each_with_index do |item,index1| %>
+                <% if item.articles.count != 0 %><h3 class="nomargin_top"><%= item.name %></h3><% end %>
+    
+                <div class="panel-group" id="<%= index1 %>">
+                    <% item.articles.each_with_index do |item_1,index2| %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= index1 %><%= index2 %>" href="#collapseOne_<%= index1 %><%= index2 %>"><%= item_1.title %><i class="indicator icon-plus pull-right"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne_<%= index1 %><%= index2 %>" class="panel-collapse collapse">
+                                <div class="panel-body text-justify">
+                                    <%= item_1.content.html_safe %>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <% end %>
                 </div>
-            </div>
-            <!-- End panel-group -->
-            
-            <h3 class="nomargin_top">Câu hỏi thường gặp</h3>
-
-            <div class="panel-group" id="question">
-                <% (0..5).each do |item| %>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#question" href="#collapseOne_question">Tiêu đề câu hỏi<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne_question" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Nội dung câu trả lời
-                        </div>
-                    </div>
-                </div>
-                <% end %>
-            </div>
-            <!-- End panel-group -->
-            
-            <h3 class="nomargin_top">Chăm sóc khách hàng</h3>
-
-            <div class="panel-group" id="customer">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#customer" href="#collapseOne_customer">Điều khoản & Điều kiện<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne_customer" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#customer" href="#collapseTwo_customer">Chính sách quyền riêng tư<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo_customer" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#customer" href="#collapseThree_customer">Bảo mật và thông tin khách hàng<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree_customer" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#customer" href="#collapseSix_customer">Cơ chế giải quyết tranh chấp phát sinh trong quá trình giao dịch<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseSix_customer" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End panel-group -->
-            
-            <h3 class="nomargin_top">Tiêu chuẩn khách sạn</h3>
-
-            <div class="panel-group" id="hotel">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#hotel" href="#collapseThree_hotel">Tiêu chuẩn khách sạn<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree_hotel" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End panel-group -->
-            
-            <h3 class="nomargin_top">Quy chế sàn giao dịch TMĐT</h3>
-
-            <div class="panel-group" id="ecommerce">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#ecommerce" href="#collapseFive_ecommerce">Quy chế sàn giao dịch TMĐT<i class="indicator icon-plus pull-right"></i></a>
-                        </h4>
-                    </div>
-                    <div id="collapseFive_ecommerce" class="panel-collapse collapse">
-                        <div class="panel-body text-justify">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End panel-group -->
+                <!-- End panel-group -->
+            <% end %>
 
         </div>
         <!-- End col lg-9 -->
