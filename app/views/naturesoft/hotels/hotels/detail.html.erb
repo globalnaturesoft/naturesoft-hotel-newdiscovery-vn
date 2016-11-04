@@ -309,7 +309,7 @@
                     <% end %>
                 </div>
                 <div class="col-md-9 review-list" hotel-id="<%= @detail.id %>" data-url="<%= naturesoft_hotels.hotel_reviews_list_path(@detail.id) %>">
-                    <% if @detail.reviews.count > 0 %>
+                    <% if @detail.reviews.get_active.count > 0 %>
                     <div id="score_detail">
                         <span><%= @detail.avg_reviews %></span><%= @detail.rating_reviews %>
                         <small>(Trên tổng <%= @detail.reviews.get_active.count %> lượt đánh giá)</small>

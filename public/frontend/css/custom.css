@@ -161,3 +161,6 @@ a.tooltip-user {
     z-index: 10;
     top: 0px;
 }
+.main_title p {
+  font-family: "Open Sans",Arial,sans-serif;
+}
