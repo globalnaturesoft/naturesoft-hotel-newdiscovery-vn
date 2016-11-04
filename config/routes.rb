@@ -5,7 +5,7 @@ end
 Naturesoft::Articles::Engine.routes.draw do
   get "blog-du-lich.html" => "articles#listing", as: :listing
   get "blog-du-lich/:id-:title" => "articles#detail", as: :blog_detail
-  get "faq.html/:faq_id" => "articles#faq", as: :faq
+  get "cau-hoi-thuong-gap.html" => "articles#faq", as: :faq
 end
 Naturesoft::Contacts::Engine.routes.draw do
   get "lien-he.html" => "contacts#contact", as: :contacts
