@@ -356,7 +356,7 @@
             </p>
             <div class="box_style_1 margin_30 expose">
                 <h3 class="inner">Đặt phòng</h3>
-                <%= form_for @order, html: {class: "validate ajax_form_alert"} do |f| %>
+                <%= form_for @order, html: {class: "order_validate ajax_form_alert"} do |f| %>
                 <% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
                 <%= f.hidden_field :hotel_id, value: @detail.id %>
                 <div class="row">
