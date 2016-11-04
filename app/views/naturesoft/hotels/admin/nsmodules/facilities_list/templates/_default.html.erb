@@ -7,7 +7,7 @@
         <ul>
             <% facilities.each_with_index do |item,index| %>
                 <% if index%3==0 %>
-                    <li><a href="<%= "" %>"><i class="icon_set_1_icon-4"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels.count %>)</span></a></li>
+                    <li><a href="<%= "" %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels.count %>)</span></a></li>
                 <% end %>
             <% end %>
         </ul>
