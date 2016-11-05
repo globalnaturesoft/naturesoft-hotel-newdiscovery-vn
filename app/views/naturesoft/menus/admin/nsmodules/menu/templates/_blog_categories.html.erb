@@ -1,6 +1,6 @@
 <h4><%= parent_menu.name %></h4>
 <ul>
-  <% parent_menu.children.where(status: "active").each do |child| %>
+  <% parent_menu.children.where(status: "active").order("custom_order").each do |child| %>
     <li><%= link_to(child.name, child.url) %></li>
     <% end %>
 </ul>
