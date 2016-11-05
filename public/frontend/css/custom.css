@@ -28,10 +28,13 @@ label.error {
 .review_validate input.error, textarea.error, select.error {
   border: solid 1px #e34f4f;
 }
-.validate input.error, select.error {
+.validate input.error, select.error, textarea.error {
   border: solid 1px #e34f4f;
 }
-.event_order_validate input.error, select.error {
+.order_validate input.error, select.error, textarea.error {
+  border: solid 1px #e34f4f;
+}
+.event_order_validate input.error, select.error, textarea.error {
   border: solid 1px #e34f4f;
 }
 #search_results {

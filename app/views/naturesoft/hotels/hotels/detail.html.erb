@@ -74,19 +74,19 @@
                     <h4><strong>Tiện nghi - Dịch vụ khách sạn</strong></h4>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
+                            <ul class="list_icons">
                                 <% @detail.facilities.each_with_index do |item,index| %>
                                 <% if index%2==0 %>
-                                <li><%= item.name %></li>
+                                <li><i class="<%= item.code %>"></i><%= item.name %></li>
                                 <% end %>
                                 <% end %>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
+                            <ul class="list_icons">
                                 <% @detail.facilities.each_with_index do |item,index| %>
                                 <% if index%2==1 %>
-                                <li><%= item.name %></li>
+                                <li><i class="<%= item.code %>"></i><%= item.name %></li>
                                 <% end %>
                                 <% end %>
                             </ul>
@@ -99,10 +99,10 @@
             <!-- End row  -->
 
             <hr>
-
+            <% if @detail.events.get_active.count > 0 %>
             <div class="row">
                 <div class="col-md-3">
-                    <h3><strong>Loại phòng</strong></h3>
+                    <h3><strong>Khuyến mãi</strong></h3>
                 </div>
                 <div class="col-md-9">
                     <% @detail.events.each do |item| %>
@@ -181,27 +181,38 @@
                         </div>
                     </div>
                     <%= render "/modules/hotel_event_order", item: item %>
-                    <hr>
                     <% end %>
+                </div>
+                <!-- End col-md-9  -->
+            </div>
+            <!-- End row  -->
+
+            <hr>
+            <% end %>
+            <div class="row">
+                <div class="col-md-3">
+                    <h3><strong>Loại phòng</strong></h3>
+                </div>
+                <div class="col-md-9">
                     <% @detail.rooms.each do |item| %>
                     <h4><strong><%= item.name %></strong></h4>
                     <h5><span><%= format_number(item.price) %> VNĐ</span> / <%= item.time_line %></h5>
                     <div class="text-justify"><%= item.description.html_safe if !item.description.empty? %></div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
+                            <ul class="list_icons">
                                 <% item.services.each_with_index do |service,index| %>
                                 <% if index%2==0 %>
-                                <li><%= service.name %></li>
+                                <li><i class="<%= service.code %>"></i><%= service.name %></li>
                                 <% end %>
                                 <% end %>
                             </ul>
                         </div>
                         <div class="col-md-6 col-sm-6">
-                            <ul class="list_ok">
+                            <ul class="list_icons">
                                 <% item.services.each_with_index do |service,index| %>
                                 <% if index%2==1 %>
-                                <li><%= service.name %></li>
+                                <li><i class="<%= service.code %>"></i><%= service.name %></li>
                                 <% end %>
                                 <% end %>
                             </ul>
@@ -345,7 +356,7 @@
             </p>
             <div class="box_style_1 margin_30 expose">
                 <h3 class="inner">Đặt phòng</h3>
-                <%= form_for @order, html: {class: "validate ajax_form_alert"} do |f| %>
+                <%= form_for @order, html: {class: "order_validate ajax_form_alert"} do |f| %>
                 <% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
                 <%= f.hidden_field :hotel_id, value: @detail.id %>
                 <div class="row">
