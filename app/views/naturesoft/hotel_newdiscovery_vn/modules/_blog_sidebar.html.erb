@@ -1,6 +1,6 @@
 <div class="widget">
     <div class="input-group">
-        <%= form_tag(listing_path, method: "get", class: "input-group") do %>
+        <%= form_tag("", method: "get", class: "input-group") do %>
             <input type="text" name="key" value="<%= params[:key] if params[:key].present? %>" class="form-control" placeholder="Tìm kiếm...">
             <span class="input-group-btn">
             <button class="btn btn-default" type="submit" style="margin-left:0;"><i class="icon-search"></i></button>
