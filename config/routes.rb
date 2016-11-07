@@ -8,8 +8,8 @@ Naturesoft::Articles::Engine.routes.draw do
   get "cau-hoi-thuong-gap.html" => "articles#faq", as: :faq
 end
 Naturesoft::Contacts::Engine.routes.draw do
-  get "lien-he.html" => "contacts#contact", as: :contacts
-  post "lien-he.html" => "contacts#send_message"
+  get "trang-lien-he.html" => "contacts#contact", as: :contacts
+  post "trang-lien-he.html" => "contacts#send_message"
 end
 Naturesoft::Core::Engine.routes.draw do
   get "dang-nhap.html" => "users#login", as: :login
