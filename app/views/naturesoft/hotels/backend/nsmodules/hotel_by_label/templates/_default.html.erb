@@ -1,0 +1,48 @@
+<div class="main_title">
+    <h2><%= nsmodule.name.html_safe %></h2>
+    <p><%= options["description"] %></p>
+</div>
+
+<div class="row">
+    
+    <% hotels.each do |item| %>
+    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="tour_container">
+            <div class="img_container">
+                <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
+                    <% if item.hotel_images.count > 0 %>
+                        <%= image_tag(item.get_main_image.image.larger, size: "800x533", alt: "", class: "img-responsive") %>
+                    <% else %>
+                        <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
+                    <% end %>
+                    <div class="ribbon top_rated"></div>
+                    <div class="short_info hotel">
+                        Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
+                    </div>
+                </a>
+            </div>
+            <div class="tour_title">
+                <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %></strong></h3>
+                <div class="rating">
+                    <i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star-empty"></i><small>(75)</small>
+                </div>
+                <div class="rating">
+                    <% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %>
+                </div>
+                <!-- end rating -->
+                <div class="wishlist">
+                    <a class="tooltip_flip tooltip-effect-1" href="javascript:void(0);">+<span class="tooltip-content-flip"><span class="tooltip-back">Yêu thích khách sạn</span></span></a>
+                </div>
+                <!-- End wish list-->
+            </div>
+        </div>
+        <!-- End box tour -->
+    </div>
+    <!-- End col-md-4 -->
+    <% end %>
+
+</div>
+<!-- End row -->
+<p class="text-center add_bottom_30">
+    <%= link_to '<i class="icon-eye-7"></i>XEM THÊM (144) '.html_safe, "", class: "btn_1 medium" %>
+</p>
