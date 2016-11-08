@@ -4,7 +4,7 @@ Naturesoft::Nsmodule.class_eval do
     "quick-register-top-line" => nil,
     "main-menu" => nil,
     "home-slider" => nil,
-    "top-favourite" => nil,
+    "top-hotel-by-label" => nil,
     "top-areas" => nil,
     "facilities-list" => nil,
     "home-banner" => nil,
