@@ -15,8 +15,8 @@
                         <% end %>
                     </li>
                     <% else %>
-                    <li><%= link_to "Đăng nhập", naturesoft.new_user_session_path, id: "login_link" %></li>
-                    <li><%= link_to "Đăng ký", naturesoft.new_user_registration_path, id: "access_link" %></li>
+                    <li><%= link_to "Đăng nhập", naturesoft.login_path, id: "login_link" %></li>
+                    <li><%= link_to "Đăng ký", naturesoft.register_path, id: "access_link" %></li>
                     <% end %>
                     <li><a href="#" id="register_link" data-toggle="modal" data-target="#quickRegister">Đặt phòng nhanh</a></li>
                 </ul>

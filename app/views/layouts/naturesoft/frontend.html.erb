@@ -62,6 +62,11 @@
     <!-- Radio and check inputs -->
     <%= stylesheet_link_tag "/frontend/css/skins/square/grey.css" %>
     <% end %>
+    <% if params[:controller] == 'naturesoft/areas/areas' && params[:action] == 'listing' %>
+    <!-- REVOLUTION SLIDER CSS -->
+    <%= stylesheet_link_tag "/frontend/rs-plugin/css/settings.css" %>
+    <%= stylesheet_link_tag "/frontend/css/extralayers.css" %>
+    <% end %>
   
     <!-- Google web fonts -->
     <%= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Montserrat:400,700" %>

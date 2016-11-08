@@ -168,6 +168,12 @@ $(document).ready(function(){
 	});
 </script>
 <% end %>
+<% if params[:controller] == 'naturesoft/areas/areas' && params[:action] == 'listing' %>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<%= javascript_include_tag "/frontend/rs-plugin/js/jquery.themepunch.tools.min.js" %>
+<%= javascript_include_tag "/frontend/rs-plugin/js/jquery.themepunch.revolution.min.js" %>
+<%= javascript_include_tag "/frontend/js/revolution_func.js" %>
+<% end %>
 <% if params[:controller] == 'naturesoft/articles/articles' && params[:action] == 'faq' %>
 <!-- Specific scripts -->
 <!-- Fixed sidebar -->

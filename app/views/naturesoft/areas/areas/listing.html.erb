@@ -1,0 +1,51 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1>Khách Sạn Theo Địa Điểm</h1>
+            <p>Mô tả</p>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li>Khách Sạn Theo Địa Điểm</li>
+        </ul>
+    </div>
+</div>
+<!-- End Position -->
+
+<div class="container margin_60">
+
+    <div class="main_title">
+        <h2>Danh sách địa điểm</h2>
+        <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+    </div>
+
+    <div class="row">
+        <% @main_areas.each do |item| %>
+        <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+            <div class="tour_container">
+                <div class="img_container">
+                    <div class="ribbon top_rated"></div>
+                    <a href="<%= "" %>">
+                        <img src="/frontend/img/tour_box_1.jpg" class="img-responsive" alt="Image">
+                        <div class="short_info">
+                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(50)</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="tour_title">
+                    <h3><strong><%= link_to item.name, "" %></strong></h3>
+                </div>
+            </div>
+            <!-- End box tour -->
+        </div>
+        <!-- End col-md-4 -->
+        <% end %>
+    </div>
+</div>
+<!-- End container -->
