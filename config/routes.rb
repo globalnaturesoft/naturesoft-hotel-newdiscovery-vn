@@ -12,8 +12,11 @@ Naturesoft::Contacts::Engine.routes.draw do
   post "trang-lien-he.html" => "contacts#send_message"
 end
 Naturesoft::Core::Engine.routes.draw do
-  get "dang-nhap.html" => "users#login", as: :login
-  get "dang-ky.html" => "users#register", as: :register
+  devise_scope :user do
+    get "dang-nhap.html" => "/naturesoft/users/sessions#new", as: :login
+    get "dang-ky.html" => "/naturesoft/users/registrations#new", as: :register
+  end
+  
   get "quen-mat-khau.html" => "users#forgot_password", as: :forgot_password
   get "cap-nhat-mat-khau-moi.html" => "users#reset_password", as: :reset_password
   get "thanh-vien/ho-so.html" => "users#admin_area", as: :admin_area
