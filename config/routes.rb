@@ -11,6 +11,9 @@ Naturesoft::Contacts::Engine.routes.draw do
   get "trang-lien-he.html" => "contacts#contact", as: :contacts
   post "trang-lien-he.html" => "contacts#send_message"
 end
+Naturesoft::Galleries::Engine.routes.draw do
+  get "thu-vien.html" => "galleries#list", as: :list
+end
 Naturesoft::Core::Engine.routes.draw do
   get "dang-nhap.html" => "users#login", as: :login
   get "dang-ky.html" => "users#register", as: :register
