@@ -39,7 +39,7 @@ Naturesoft::Hotels::Engine.routes.draw do
   get "danh-sach-khach-san/dang-luoi.html" => "hotels#hotels_grid", as: :hotels_grid
   get "danh-sach-khach-san/dang-danh-sach.html" => "hotels#hotels_list", as: :hotels_list
   get "khach-san/:hotel_id-:title.html" => "hotels#detail", as: :hotel_detail
-  get "khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
+  get "trang-khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
   get "dang-ky-nhanh.html" => "quick_orders#quick_booking", as: :quick_bookings
   post "dang-ky-nhanh.html" => "quick_orders#quick_booking"
   get "danh-gia-khach-san-:id.html" => "hotels#reviews_list", as: :hotel_reviews_list
