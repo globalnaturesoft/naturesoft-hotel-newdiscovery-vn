@@ -14,6 +14,9 @@ Naturesoft::Contacts::Engine.routes.draw do
   get "trang-lien-he.html" => "contacts#contact", as: :contacts
   post "trang-lien-he.html" => "contacts#send_message"
 end
+Naturesoft::Galleries::Engine.routes.draw do
+  get "thu-vien.html" => "galleries#list", as: :list
+end
 Naturesoft::Core::Engine.routes.draw do
   devise_scope :user do
     get "dang-nhap.html" => "/naturesoft/users/sessions#new", as: :login
