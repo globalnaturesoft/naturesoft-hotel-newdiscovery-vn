@@ -9,7 +9,7 @@
                         <% else %>
                             <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                         <% end %>
-                        <div class="ribbon top_rated"></div>
+                        <div class="ribbon popular"></div>
                         <% if item.reviews.count > 0 %>
                         <div class="score"><span><%= item.avg_reviews %></span> <%= item.rating_reviews %></div>
                         <% end %>
@@ -19,7 +19,7 @@
                     </a>
                 </div>
                 <div class="hotel_title">
-                    <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %></strong></h3>
+                    <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), title: item.name %></strong></h3>
                     <div class="text-justify"><%= item.address %></div>
                     <div class="rating">
                         <% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %>
