@@ -59,7 +59,7 @@
                             </div>
                         <% end %>
                         <div class="img_list">
-                            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id) %>">
+                            <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
                                 <!--<div class="ribbon popular"></div>-->
                                 <% if item.hotel_images.count > 0 %><%= image_tag(item.get_main_image.image.large, alt: item.name) %><% else %><%= image_tag("/frontend/img/no-img.png", alt: item.name) %><% end %>
                                 <div class="short_info"></div>
@@ -71,7 +71,7 @@
                         <div class="tour_list_desc">
                             <div class="score">Tuyệt vời<span>9.0</span></div>
                             <div class="rating"><% (1..item.star).each do |item| %><i class="icon-star voted"></i><% end %></div>
-                            <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id), title: item.name %></strong></h3>
+                            <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), title: item.name %></strong></h3>
                             <div class="text-justify"><p><%= item.address %></p></div>
                             <ul class="list_ok">
                                 <% item.facilities.limit(4).each do |item| %>
@@ -84,7 +84,7 @@
                         <div class="price_list">
                             <div>
                                 <%= format_number(item.from_per_night) %> VNĐ<small>*Giá/Đêm</small>
-                                <p><%= link_to "Chi tiết", naturesoft_hotels.hotel_detail_path(hotel_id: item.id), class: "btn_1" %></p>
+                                <p><%= link_to "Chi tiết", naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), class: "btn_1" %></p>
                             </div>
                         </div>
                     </div>
