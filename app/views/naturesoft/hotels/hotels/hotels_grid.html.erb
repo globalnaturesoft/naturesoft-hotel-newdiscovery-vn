@@ -38,19 +38,20 @@
             <!--End tools -->
             
             <div class="hotel-list-container">
-                
+                <% if @hotels.count > 0 %>
                 <% if params[:style] == "list" %>
                     <%= render "list", hotels: @hotels %>
                 <% else %>
                     <%= render "grid", hotels: @hotels %>
                 <% end %>
-                
                 <hr />
-                
                 <div class="text-center">
                     <%= will_paginate @hotels, previous_label: 'Trang trước', next_label: 'Trang sau', renderer: BootstrapPagination::Rails %>
                 </div>
                 <!-- end pagination-->
+                <% else %>
+                <p>Không tìm thấy khách sạn phù hợp.</p>
+                <% end %>
             </div>
             
         </div>

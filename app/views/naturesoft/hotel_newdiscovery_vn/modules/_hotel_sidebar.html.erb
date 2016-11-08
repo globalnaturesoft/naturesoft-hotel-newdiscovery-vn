@@ -1,9 +1,13 @@
 <div id="search_results">
     <%= @hotels.count %> khách sạn được tìm thấy.<br>
     Lọc theo:<br>
-    - Khu vực:<br>
-    - Tên khách sạn:<br>
-    - Loại:
+    <% if params[:keyword].present? %>
+    - Tên khách sạn: <%= params[:keyword] %><br>
+    <% end %>
+    <% if params[:area_id].present? %>
+    - Khu vực: <%= Naturesoft::Areas::Area.find(params[:area_id]).name %><br>
+    <% end %>
+    - Loại: 
     
 </div>
 <div id="filters_col">
