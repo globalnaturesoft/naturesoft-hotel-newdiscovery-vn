@@ -36,7 +36,7 @@
 						</div>
 						<div class="col-md-6 col-sm-5">
 							<h3 class="hotel_booking">
-								<strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel.id) %></strong>
+								<strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %></strong>
 								<span><%= item.adult %> người lớn - <%= item.child %> trẻ em.</span>
 							</h3>
 						</div>
