@@ -8,8 +8,8 @@ Naturesoft::Articles::Engine.routes.draw do
   get "faq.html" => "articles#faq", as: :faq
 end
 Naturesoft::Contacts::Engine.routes.draw do
-  get "lien-he-chung-toi.html" => "contacts#contact", as: :contacts
-  post "lien-he.html" => "contacts#send_message"
+  get "trang-lien-he.html" => "contacts#contact", as: :contacts
+  post "trang-lien-he.html" => "contacts#send_message"
 end
 Naturesoft::Core::Engine.routes.draw do
   get "dang-nhap.html" => "users#login", as: :login
@@ -38,7 +38,7 @@ Naturesoft::Hotels::Engine.routes.draw do
   end
   get "danh-sach-khach-san/dang-luoi.html" => "hotels#hotels_grid", as: :hotels_grid
   get "danh-sach-khach-san/dang-danh-sach.html" => "hotels#hotels_list", as: :hotels_list
-  get "danh-sach-khach-san/chi-tiet.html" => "hotels#detail", as: :hotel_detail
+  get "khach-san/:hotel_id-:title.html" => "hotels#detail", as: :hotel_detail
   get "khuyen-mai.html" => "events#hotel_listing", as: :events_hotel_listing
   get "dang-ky-nhanh.html" => "quick_orders#quick_booking", as: :quick_bookings
   post "dang-ky-nhanh.html" => "quick_orders#quick_booking"

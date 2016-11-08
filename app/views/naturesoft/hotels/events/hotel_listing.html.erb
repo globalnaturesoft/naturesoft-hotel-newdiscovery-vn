@@ -58,7 +58,7 @@
 								</div>
 							<% end %>
 							<div class="img_list">
-								<a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id) %>">
+								<a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
 									<% if item.hotel.hotel_images.count > 0 %>
 									<div class="ribbon popular"></div><%= image_tag(item.hotel.get_main_image.image.larger, size: "800x533", alt: "") %>
 									<% else %>
@@ -73,7 +73,7 @@
 							<div class="tour_list_desc">
 								<span class="label label-danger"><%= item.title %></span>
 								<div class="rating"><% (1..item.hotel.star).each do |star| %><i class="icon-star voted"></i><% end %></div>
-								<h3><strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id), title: item.hotel.name %></strong></h3>
+								<h3><strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), title: item.hotel.name %></strong></h3>
 								<div class="text-justify"><p><%= item.hotel.address %></p></div>
 								<ul class="add_info">
 									<li>
@@ -140,7 +140,7 @@
 							<div class="price_list">
 								<div>
 									<%= format_number(item.price) %> VNĐ<small>*Giá/Đêm</small>
-									<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.hotel_id), class: "btn_1" %></p>
+									<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), class: "btn_1" %></p>
 								</div>
 							</div>
 						</div>
