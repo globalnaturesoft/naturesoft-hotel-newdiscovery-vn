@@ -7,6 +7,9 @@ Naturesoft::Articles::Engine.routes.draw do
   get "blog-du-lich/:id-:title" => "articles#detail", as: :blog_detail
   get "cau-hoi-thuong-gap.html" => "articles#faq", as: :faq
 end
+Naturesoft::Areas::Engine.routes.draw do
+  get "khach-san-theo-dia-diem.html" => "areas#listing", as: :areas_listing
+end
 Naturesoft::Contacts::Engine.routes.draw do
   get "trang-lien-he.html" => "contacts#contact", as: :contacts
   post "trang-lien-he.html" => "contacts#send_message"
