@@ -19,20 +19,20 @@
 <!-- End Position -->
 
 <div class="container margin_60">
-    <% @galleries.each do |item| %>
+    <% @galleries.order("custom_order ASC").each do |item| %>
     <div class="main_title">
         <h2><%= item.name %></h2>
         <p>
-            Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.
+            <%= item.description %>
         </p>
     </div>
     <hr>
     <div class="row magnific-gallery add_bottom_60 ">
-        <% item.images.each do |img| %>
+        <% item.images.order("custom_order ASC").each do |img| %>
             <div class="col-md-3 col-sm-3">
                 <div class="img_wrapper_gallery">
                     <div class="img_container_gallery">
-                        <a href="<%= img.image.thumb %>" title="<%= img.name %>"><img src="<%= img.image.thumb %>" alt="Image" class="img-responsive">
+                        <a href="<%= img.image %>" title="<%= img.name %>"><img src="<%= img.image.thumb %>" alt="Image" class="img-responsive">
                             <i class="icon-resize-full-2"></i>
                         </a>
                     </div>
