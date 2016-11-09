@@ -101,7 +101,7 @@
                         <li><strong>Số chứng nhận kinh doanh:  </strong><%= @contact_info.certificate_of_business_registration_no %></li>
                         <li><strong>Cấp ngày:  </strong><%= @contact_info.date_of_issue %></li>
                         <li><strong>Nơi cấp:  </strong><%= @contact_info.place_of_issue %></li>
-                        <li><strong>Tel:  </strong><%= @contact_info.phone %> - <%= @contact_info.phone_2 %></li>
+                        <li><strong>Tel:  </strong><a href="tel:<%= @contact_info.phone %>"><%= @contact_info.phone %></a> - <a href="tel:<%= @contact_info.phone_2 %>"><%= @contact_info.phone_2 %></a></li>
                         <li><strong>Fax:  </strong><%= @contact_info.fax %></li>
                         <li><a href="mailto:<%= @contact_info.email %>"><%= @contact_info.email %></a></li>
                         <li><a href="mailto:<%= @contact_info.email_2 %>"><%= @contact_info.email_2 %></a></li>
