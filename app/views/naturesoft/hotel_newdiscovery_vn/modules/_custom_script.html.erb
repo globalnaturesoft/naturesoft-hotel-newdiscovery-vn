@@ -195,6 +195,12 @@
                         
                         // close modal
                         $('.modal').modal('hide');
+                        
+                        // clear input
+                        form.find("input").val("");
+                        form.find("select").val("");
+                        form.find("#adults").val("1");
+                        form.find("#children").val("0");
                     }
                 });
             }
