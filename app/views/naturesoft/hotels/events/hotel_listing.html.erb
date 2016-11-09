@@ -73,7 +73,7 @@
 							<div class="tour_list_desc">
 								<span class="label label-danger"><%= item.title %></span>
 								<div class="rating"><% (1..item.hotel.star).each do |star| %><i class="icon-star voted"></i><% end %></div>
-								<h3><strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), title: item.hotel.name %></strong></h3>
+								<h3><strong><%= link_to item.hotel.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.hotel.name)), title: item.hotel.name %></strong></h3>
 								<div class="text-justify"><p><%= item.hotel.address %></p></div>
 								<ul class="add_info">
 									<li>
