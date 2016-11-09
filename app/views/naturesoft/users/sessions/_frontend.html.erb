@@ -18,7 +18,7 @@
                             <input type="password" name="user[password]" class="form-control required" placeholder="Nhập mật khẩu tại đây...">
                         </div>
                         <p class="small">
-                            <%= link_to "Quên mật khẩu ?", naturesoft.forgot_password_path %>
+                            <%= link_to "Quên mật khẩu ?", new_password_path(resource_name) %>
                         </p>
                         <button type="submit" class="btn_full">Đăng nhập</button>
                     <% end %>
