@@ -30,11 +30,14 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="tour_container">
                 <div class="img_container">
-                    <div class="ribbon top_rated"></div>
                     <a href="<%= "" %>">
-                        <img src="/frontend/img/tour_box_1.jpg" class="img-responsive" alt="Image">
+                        <% if item.image.present? %>
+                        <%= image_tag(item.image, size: "800x533", alt: "", class: "img-responsive") %>
+                        <% else %>
+                        <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
+                        <% end %>
                         <div class="short_info">
-                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(50)</span>
+                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có 50 khách sạn)</span>
                         </div>
                     </a>
                 </div>

@@ -9,8 +9,15 @@
             <div class="tour_container">
                 <div class="img_container">
                     <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
-                        <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
+                    <% if item.image.present? %>
+                    <%= image_tag(item.image, alt: "", class: "img-responsive") %>
+                    <% else %>
+                    <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
+                    <% end %>
                     </a>
+                    <div class="short_info">
+                        <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có 50 khách sạn)</span>
+                    </div>
                     <div class="ribbon popular"></div>
                 </div>
                 <div class="tour_title">
