@@ -354,7 +354,7 @@
             <p class="hidden-sm hidden-xs">
                 <a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">Xem trên bản đồ</a>
             </p>
-            <div class="box_style_1 margin_30 expose">
+            <div class="box_style_1 margin_30 expose expose-order">
                 <h3 class="inner">Đặt phòng</h3>
                 <%= form_for @order, html: {class: "order_validate ajax_form_alert"} do |f| %>
                 <% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
