@@ -1,9 +1,15 @@
-<!--<li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-<li><%= link_to "Về Chúng Tôi", naturesoft_hotel_newdiscovery_vn.about_us_path %></li>
-<li><%= link_to "Khách Sạn", naturesoft_hotels.hotels_grid_path %></li>
-<li><%= link_to "Khuyến Mãi", naturesoft_hotels.events_hotel_listing_path %></li>
-<li><%= link_to "Blog Du Lịch", naturesoft_articles.listing_path %></li>
-<li><%= link_to "Liên Hệ", naturesoft_contacts.contacts_path %></li>-->
 <% menus.order("custom_order").each do |item| %>
     <li><%= link_to item.name, item.url %></li>
 <% end %>
+<% if current_user.present? %>
+<li><%= link_to current_user.display_name, naturesoft.admin_area_path, class: "quick-option-mobile" %></li>
+<li>
+<%= form_for current_user, :url => naturesoft.destroy_user_session_path, method: "DELETE" do |f| %>
+    <%= link_to "Đăng xuất", "#signpout", method: :delete, redirect_to: naturesoft.login_path, "onclick" => "$(this).parents('form').submit()", class: "quick-option-mobile" %>
+<% end %>
+</li>
+<% else %>
+<li><%= link_to "Đăng nhập", naturesoft.login_path, class: "quick-option-mobile" %></li>
+<li><%= link_to "Đăng ký", naturesoft.register_path, class: "quick-option-mobile" %></li>
+<% end %>
+<li><a href="#" class="quick-option-mobile" data-toggle="modal" data-target="#quickRegister">Đặt phòng nhanh</a></li>
