@@ -25,7 +25,7 @@
             <div class="img_container">
                 <div class="ribbon top_rated"></div>
                 <a href="<%= naturesoft_galleries.gallery_detail_path(gallery_id: item.id, title: url_friendly(item.name)) %>">
-                    <%= image_tag(item.get_main_image.image, size: "800x533", alt: "", class: "img-responsive") %>
+                    <%= image_tag(item.get_main_image.image.thumb, alt: "", class: "img-responsive") %>
                     <div class="short_info">
                         <i class="icon_set_1_icon-32"></i>Thư viện ảnh<span class="price">(<%= item.images.count %> ảnh)</span>
                     </div>
