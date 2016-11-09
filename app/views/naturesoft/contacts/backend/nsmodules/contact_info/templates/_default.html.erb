@@ -20,7 +20,7 @@
         <li><strong>Nơi cấp:  </strong><%= contact_info.place_of_issue %></li>
     <% end %>
     <% if contact_info.phone.present? or contact_info.phone_2.present? %>
-        <li><strong>Điện thoại:  </strong><%= contact_info.phone %> - <%= contact_info.phone_2 %></li>
+        <li><strong>Điện thoại:  </strong><a href="tel:<%= contact_info.phone %>"><%= contact_info.phone %></a> - <a href="tel:<%= contact_info.phone_2 %>"><%= contact_info.phone_2 %></a></li>
     <% end %>
     <% if contact_info.fax.present? %>
         <li><strong>Fax:  </strong><%= contact_info.fax %></li>
