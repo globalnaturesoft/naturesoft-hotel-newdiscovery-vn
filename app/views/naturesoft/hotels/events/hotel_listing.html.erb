@@ -58,7 +58,7 @@
 								</div>
 							<% end %>
 							<div class="img_list">
-								<a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
+								<a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.hotel.name)) %>">
 									<% if item.hotel.hotel_images.count > 0 %>
 									<div class="ribbon popular"></div><%= image_tag(item.hotel.get_main_image.image.larger, size: "800x533", alt: "") %>
 									<% else %>
