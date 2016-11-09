@@ -32,7 +32,7 @@
                 <div class="img_container">
                     <a href="<%= "" %>">
                         <% if item.image.present? %>
-                        <%= image_tag(item.image.thumb, size: "800x533", alt: "", class: "img-responsive") %>
+                        <%= image_tag(item.image, size: "800x533", alt: "", class: "img-responsive") %>
                         <% else %>
                         <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
                         <% end %>
