@@ -201,26 +201,12 @@
                         form.find("select").val("");
                         form.find("#adults").val("1");
                         form.find("#children").val("0");
-                        
-                        // hide expose effect
-                        $('#overlay').fadeOut();
-                        $('.expose-order').css("z-index", "1");
                     }
                 });
             }
             
         });
         
-        // hide booking form
-        $('.expose-order').click(function() {
-            $('#overlay').fadeIn();
-            $('.expose-order').css("z-index", "2");
-        });
-        // show booking form
-        $('#overlay').click(function() {
-            $('#overlay').fadeOut();
-            $('.expose-order').css("z-index", "1");
-        });
         
     });
 </script>
