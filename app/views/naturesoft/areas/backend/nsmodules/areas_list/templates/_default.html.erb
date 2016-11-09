@@ -10,7 +10,7 @@
                 <div class="img_container">
                     <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
                     <% if item.image.present? %>
-                    <%= image_tag(item.image.thumb, alt: "", class: "img-responsive") %>
+                    <%= image_tag(item.image, alt: "", class: "img-responsive") %>
                     <% else %>
                     <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
                     <% end %>
