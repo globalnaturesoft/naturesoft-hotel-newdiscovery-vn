@@ -1,0 +1,44 @@
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= !@current_menu.nil? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
+    <div class="parallax-content-1">
+        <div class="animated fadeInDown">
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
+        </div>
+    </div>
+</section>
+<!-- End Section -->
+
+<div id="position">
+    <div class="container">
+        <ul>
+            <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
+            <li><%= @current_menu.name %></li>
+        </ul>
+    </div>
+</div>
+<!-- End Position -->
+
+<div class="container margin_60">
+    <% @galleries.each do |item| %>
+    <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+        <div class="tour_container">
+            <div class="img_container">
+                <div class="ribbon top_rated"></div>
+                <a href="<%= naturesoft_galleries.gallery_detail_path(gallery_id: item.id, title: url_friendly(item.name)) %>">
+                    <%= image_tag(item.get_main_image.image.thumb, alt: "", class: "img-responsive") %>
+                    <div class="short_info">
+                        <i class="icon_set_1_icon-32"></i>Thư viện ảnh<span class="price">(<%= item.images.count %> ảnh)</span>
+                    </div>
+                </a>
+            </div>
+            <div class="tour_title">
+                <h3><strong><%= link_to item.name, naturesoft_galleries.gallery_detail_path(gallery_id: item.id, title: url_friendly(item.name)), title: item.name %></strong></h3>
+            </div>
+        </div>
+        <!-- End box tour -->
+    </div>
+    <!-- End col-md-4 -->
+    <% end %>
+
+</div>
+<!-- End container -->

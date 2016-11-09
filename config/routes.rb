@@ -3,19 +3,20 @@ Naturesoft::HotelNewdiscoveryVn::Engine.routes.draw do
   get "ve-chung-toi.html" => "home#about_us", as: :about_us
 end
 Naturesoft::Articles::Engine.routes.draw do
-  get "bai-viet/blog-du-lich.html" => "articles#listing", as: :listing
-  get "bai-viet/blog-du-lich/:id-:title" => "articles#detail", as: :blog_detail
+  get "bai-viet/blog-du-lich.html" => "articles#listing", as: :blog_listing
+  get "bai-viet/blog-du-lich/:blog_id-:title" => "articles#detail", as: :blog_detail
   get "faq.html" => "articles#faq", as: :faq
 end
 Naturesoft::Areas::Engine.routes.draw do
-  get "khach-san-theo-dia-diem.html" => "areas#listing", as: :areas_listing
+  get "khach-san-theo-dia-diem.html" => "areas#listing", as: :area_listing
 end
 Naturesoft::Contacts::Engine.routes.draw do
   get "trang-lien-he.html" => "contacts#contact", as: :contacts
   post "trang-lien-he.html" => "contacts#send_message"
 end
 Naturesoft::Galleries::Engine.routes.draw do
-  get "thu-vien.html" => "galleries#list", as: :list
+  get "thu-vien.html" => "galleries#listing", as: :gallery_listing
+  get "thu-vien/:gallery_id-:title.html" => "galleries#detail", as: :gallery_detail
 end
 Naturesoft::Core::Engine.routes.draw do
   devise_scope :user do

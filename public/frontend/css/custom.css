@@ -1,3 +1,6 @@
+ul li a.quick-option-mobile {
+  display: none;
+}
 .price_list, .price_list .normal_price_list {
   font-size: 14px;
 }
@@ -197,3 +200,8 @@ a.tooltip-user {
     display: block;
 }
 /*End CSS Gallery Page*/
+@media only screen and (max-width: 767px) {
+  ul li a.quick-option-mobile {
+    display: block;
+  }
+}
