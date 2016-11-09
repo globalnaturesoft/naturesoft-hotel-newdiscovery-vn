@@ -1,8 +1,8 @@
-<section class="parallax-window" data-parallax="scroll" data-image-src="<%= !@current_menu.nil? ? @current_menu.image.default : nil %>" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="<%= @gallery.get_main_image.image %>" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1><%= @current_menu.name %></h1>
-            <p><%= @current_menu.description %></p>
+            <h1><%= @gallery.name %></h1>
+            <p><%= @gallery.description %></p>
         </div>
     </div>
 </section>
@@ -12,23 +12,21 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li><%= @current_menu.name %></li>
+            <li><%= link_to "Thư viện ảnh", "" %></li>
+            <li><%= @gallery.name %></li>
         </ul>
     </div>
 </div>
 <!-- End Position -->
 
 <div class="container margin_60">
-    <% @galleries.order("custom_order ASC").each do |item| %>
     <div class="main_title">
-        <h2><%= item.name %></h2>
-        <p>
-            <%= item.description %>
-        </p>
+        <h2><%= @gallery.name %></h2>
+        <p><%= @gallery.description %></p>
     </div>
     <hr>
     <div class="row magnific-gallery add_bottom_60 ">
-        <% item.images.order("custom_order ASC").each do |img| %>
+        <% @gallery.images.order("custom_order ASC").each do |img| %>
             <div class="col-md-3 col-sm-3">
                 <div class="img_wrapper_gallery">
                     <div class="img_container_gallery">
@@ -41,7 +39,5 @@
         <% end %>
     </div>
     <!-- End row -->
-    <% end %>
-
 </div>
 <!-- End container -->

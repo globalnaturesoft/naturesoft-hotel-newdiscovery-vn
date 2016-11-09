@@ -28,7 +28,7 @@
                 <% else %>
                     <% @articles.each do |item| %>
                         <div class="post">
-                            <%= link_to image_tag(item.image_url.lager, alt: "786x310", class: "img-responsive"), naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)) %>
+                            <%= link_to image_tag(item.image_url.lager, alt: "786x310", class: "img-responsive"), naturesoft_articles.blog_detail_path(blog_id: item.id, title: url_friendly(item.title)) %>
                             <div class="post_info clearfix">
                                 <div class="post-left">
                                     <ul>
@@ -53,7 +53,7 @@
                             <div class="text-justify">
                                 <p><%= truncate(strip_tags(item.content.html_safe), length: 360, omission: ' [...]') %></p>
                             </div>
-                            <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
+                            <%= link_to "Đọc tiếp", naturesoft_articles.blog_detail_path(blog_id: item.id, title: url_friendly(item.title)), class: "btn_1" %>
                         </div>
                         <!-- end post -->
         
