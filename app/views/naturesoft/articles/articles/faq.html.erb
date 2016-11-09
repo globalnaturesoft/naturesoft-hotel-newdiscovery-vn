@@ -24,8 +24,8 @@
             <div class="theiaStickySidebar">
                 <div class="box_style_cat" id="faq_box">
                     <ul id="cat_nav">
-                        <% @category.children.each_with_index do |item,i| %>
-                        <li><a href="#<%= i %>"><i class="icon_set_1_icon-95"></i><%= item.name %></a></li>
+                        <% @category.children.each do |item| %>
+                        <li><a href="#tab_<%= item.id %>"><i class="icon_set_1_icon-95"></i><%= item.name %></a></li>
                         <% end %>
                     </ul>
                 </div>
@@ -34,20 +34,20 @@
         </aside>
         <!--End aside -->
         <div class="col-lg-9 col-md-9" id="faq">
-            <% @category.children.each_with_index do |item,index1| %>
+            <% @category.children.each do |item| %>
                 <% if item.articles.count != 0 %><h3 class="nomargin_top"><%= item.name %></h3><% end %>
     
-                <div class="panel-group" id="<%= index1 %>">
-                    <% item.articles.each_with_index do |item_1,index2| %>
+                <div class="panel-group" id="tab_<%= item.id %>">
+                    <% item.articles.each_with_index do |article,i| %>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= index1 %><%= index2 %>" href="#collapseOne_<%= index1 %><%= index2 %>"><%= item_1.title %><i class="indicator icon-plus pull-right"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= i %>" href="#collapseOne_<%= i %>"><%= article.title %><i class="indicator icon-plus pull-right"></i></a>
                                 </h4>
                             </div>
-                            <div id="collapseOne_<%= index1 %><%= index2 %>" class="panel-collapse collapse">
+                            <div id="collapseOne_<%= i %>" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
-                                    <%= item_1.content.html_safe %>
+                                    <%= article.content.html_safe %>
                                 </div>
                             </div>
                         </div>
