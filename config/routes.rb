@@ -12,7 +12,7 @@ Naturesoft::Areas::Engine.routes.draw do
 end
 Naturesoft::Contacts::Engine.routes.draw do
   get "trang-lien-he.html" => "contacts#contact", as: :contacts
-  post "trang-lien-he.html" => "contacts#send_message"
+  post "lien-he.html" => "contacts#send_message"
 end
 Naturesoft::Galleries::Engine.routes.draw do
   get "thu-vien.html" => "galleries#listing", as: :gallery_listing

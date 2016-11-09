@@ -11,28 +11,28 @@ en:
       inactive: "Tài khoản của bạn chưa được kích hoạt."
       invalid: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
       locked: "Tài khoản của bạn đã bị khóa."
-      last_attempt: "You have one more attempt before your account is locked."
+      last_attempt: "Lần đăng nhập cuối cùng trước khi tài khoản của bạn bị khóa."
       not_found_in_database: "%{authentication_keys} hoặc mật khẩu không hợp lệ."
       timeout: "Phiên của bạn đã hết hạn. Hãy đăng nhập lại để tiếp tục."
       unauthenticated: "Bạn cần đăng nhập hoặc đăng ký trước khi tiếp tục."
       unconfirmed: "Bạn phải xác nhận địa chỉ email của bạn trước khi tiếp tục."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Hướng dẫn xác nhận tài khoản"
       reset_password_instructions:
         subject: "Hướng dẫn đặt lại mật khẩu"
       unlock_instructions:
-        subject: "Hướng dẫn mở khóa"
+        subject: "Hướng dẫn mở khóa tài khoản"
       password_change:
         subject: "Mật khẩu đã được thay đổi"
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      failure: "Không thể xác thực tài khoản của bạn từ %{kind} bởi vì \"%{reason}\"."
       success: "Xác thực thành công từ tài khoản %{kind}"
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Mật khẩu của bạn đã được thay đổi thành công. You are now signed in"
+      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn làm thế nào để thiết lập lại mật khẩu của bạn trong một vài phút."
+      send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại, bạn sẽ nhận được một liên kết để khôi phục lại mật khẩu trong hộp thư của bạn trong một vài phút."
+      updated: "Mật khẩu của bạn đã được thay đổi thành công. Bạn đang đăng nhập"
       updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
     registrations:
       destroyed: "Tạm biệt! Tài khoản của bạn đã được hủy thành công. Chúng tôi hi vọng sẽ sớm gặp lại bạn."
@@ -55,9 +55,10 @@ en:
       already_confirmed: "đã được xác nhận, vui lòng thử đăng nhập"
       confirmation_period_expired: "cần phải được xác nhận trong %{period}, vui lòng gửi một yêu cầu khác"
       expired: "đã hết hạn, hãy gửi một yêu cầu khác"
-      not_found: "không tìm thấy"
+      not_found: "không tồn tại"
       not_locked: "không bị khóa"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
       taken: "đã được đăng ký."
+      too_short: "quá ngắn (ít nhất %{count} ký tự)"

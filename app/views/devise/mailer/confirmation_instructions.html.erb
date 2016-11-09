@@ -1,5 +1,5 @@
-<p>Welcome <%= @email %>!</p>
+<p>Chào mừng <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Còn một chút nữa để tài khoản của bạn có thể hoạt động.</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Vui lòng <%= link_to 'CLICK VÀO ĐÂY', confirmation_url(@resource, confirmation_token: @token) %> để kích hoạt tài khoản của bạn.</p>
