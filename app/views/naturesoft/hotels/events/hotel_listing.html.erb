@@ -140,7 +140,7 @@
 							<div class="price_list">
 								<div>
 									<%= format_number(item.price) %> VNĐ<small>*Giá/Đêm</small>
-									<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)), class: "btn_1" %></p>
+									<p><%= link_to "Thông tin khách sạn", naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.hotel.name)), class: "btn_1" %></p>
 								</div>
 							</div>
 						</div>
