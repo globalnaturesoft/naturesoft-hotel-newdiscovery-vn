@@ -366,7 +366,12 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-user"></i> Họ (*)</label>
-                            <%= f.text_field :first_name, class: "form-control required", value: (current_user.first_name if current_user.present?), placeholder: "Nhập họ tại đây..." %>
+                            <%= f.text_field :first_name,
+                                class: "form-control required",
+                                keep: (current_user.first_name if current_user.present?),
+                                value: (current_user.first_name if current_user.present?),
+                                placeholder: "Nhập họ tại đây..."
+                            %>
                         </div>
                     </div>
                 </div>
@@ -374,7 +379,12 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-user"></i> Tên (*)</label>
-                            <%= f.text_field :last_name, class: "form-control required", value: (current_user.last_name if current_user.present?), placeholder: "Nhập tên tại đây..." %>
+                            <%= f.text_field :last_name,
+                                class: "form-control required",
+                                keep: (current_user.last_name if current_user.present?),
+                                value: (current_user.last_name if current_user.present?),
+                                placeholder: "Nhập tên tại đây..."
+                            %>
                         </div>
                     </div>
                 </div>
@@ -382,7 +392,12 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-email"></i> Email (*)</label>
-                            <%= f.text_field :email, class: "form-control required", value: (current_user.email if current_user.present?), placeholder: "Nhập email tại đây..." %>
+                            <%= f.text_field :email,
+                                class: "form-control required",
+                                keep: (current_user.email if current_user.present?),
+                                value: (current_user.email if current_user.present?),
+                                placeholder: "Nhập email tại đây..."
+                            %>
                         </div>
                     </div>
                 </div>
@@ -390,7 +405,12 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                             <label><i class="icon-mobile-1"></i> Di động (*)</label>
-                            <%= f.text_field :phone, class: "form-control required", value: (current_user.phone if current_user.present?), placeholder: "Nhập số di động tại đây..." %>
+                            <%= f.text_field :phone,
+                                class: "form-control required",
+                                keep: (current_user.phone if current_user.present?),
+                                value: (current_user.phone if current_user.present?),
+                                placeholder: "Nhập số di động tại đây..."
+                            %>
                         </div>
                     </div>
                 </div>
@@ -470,7 +490,7 @@
                     </div>
                 </div>
                 <br>
-                <input type="button" value="Đặt phòng" class="btn_full submit">
+                <input type="button" keep="Đặt phòng" value="Đặt phòng" class="btn_full submit">
                 <% end %>
             
                 <% if current_user.present? %>

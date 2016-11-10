@@ -109,6 +109,7 @@
             
             if(form.valid()) {
                 form.find("input[type=submit]").attr('disabled','disabled');
+                form.find("input[type=submit]").addClass('disabled');
                 form.find("input[type=submit]").after('<i class="icon-spin3 animate-spin"></i>');
                 $.ajax({
                    type: "POST",
@@ -128,6 +129,7 @@
                         form.find("input[type=phone]").val("");
                         form.find("textarea").val("");
                         form.find("input[type=submit]").removeAttr('disabled');
+                        form.find("input[type=submit]").removeClass('disabled');
                         $('#quickRegister').modal("hide");
                    }
                  });
@@ -198,7 +200,14 @@
                         $('.modal').modal('hide');
                         
                         // clear input
-                        form.find("input").val("");
+                        form.find("input, textarea").each(function() {
+                            var valz = $(this).attr("keep");                            
+                            if(typeof(valz) != 'undefined' && valz.trim() != "") {
+                                $(this).val(valz);
+                            } else {
+                                $(this).val("");
+                            }
+                        });
                         form.find("select").val("");
                         form.find("#adults").val("1");
                         form.find("#children").val("0");
