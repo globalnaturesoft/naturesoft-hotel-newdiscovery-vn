@@ -36,3 +36,4 @@ en:
   hotel_ordered_success: "Bạn đã đặt phòng khách sạn thành công. Chúng tôi sẽ liên hệ sớm với bạn."
   review_success: "Cám ơn bạn đã viết đánh giá. Chúng tôi sẽ duyệt và đưa lên trong thời gian sớm nhất."
   user_profile_updated: "Hồ sơ thành viên đã được cập nhật."
+  current_password_is_invalid: "Mật khẩu hiện tại chưa đúng. Vui lòng thử lại."

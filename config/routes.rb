@@ -30,8 +30,9 @@ Naturesoft::Core::Engine.routes.draw do
   post "thanh-vien/ho-so.html" => "users#admin_area"
   get "thanh-vien/lich-su.html" => "users#order_history", as: :order_history
   get "thanh-vien/yeu-thich.html" => "users#wish_list", as: :wish_list
-  get "thanh-vien/cai-dat.html" => "users#settings", as: :settings
+  get "thanh-vien/cai-dat.html" => "users#settings", as: :settings  
   post "thanh-vien/cai-dat.html" => "users#settings"
+  post "thanh-vien/update-newsletter.html" => "users#update_newsletter", as: :update_newsletter
 end
 Naturesoft::Hotels::Engine.routes.draw do
   resources :reviews

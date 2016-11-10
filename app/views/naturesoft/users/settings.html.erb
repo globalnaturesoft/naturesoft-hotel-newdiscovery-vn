@@ -22,37 +22,42 @@
     <div id="tabs" class="tabs">
         <%= render '/modules/nav_tabs_admin_area' %>
         <div class="content">
-    
-            <%= form_for(:user, url: settings_path, html: {class: "validate", multipart: true}) do |f| %>
+            
+            
                 <section id="section-4" class="content-current">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 add_bottom_30">
-                            <h4>Thay đổi mật khẩu</h4>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Mật khẩu cũ</label>
-                                    <input class="form-control" name="user[current_password]" id="current_password" type="password">
+                    <%= render "naturesoft/hotel_newdiscovery_vn/modules/flash_messages" %>
+                    
+                    <%= form_for(:user, url: settings_path, html: {class: "validate", multipart: true}) do |f| %>
+                        <h4>Thay đổi mật khẩu</h4>
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Mật khẩu cũ</label>
+                                        <input class="form-control required" name="user[current_password]" id="current_password" type="password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Mật khẩu mới</label>
-                                    <input class="form-control" name="user[password]" id="password" type="password">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Mật khẩu mới</label>
+                                        <input class="form-control" name="user[password]" id="password" type="password">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Nhập lại mật khẩu mới</label>
-                                    <input class="form-control" name="user[password_confirmation]" id="password_confirmation" type="password">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Nhập lại mật khẩu mới</label>
+                                        <input class="form-control" name="user[password_confirmation]" id="password_confirmation" type="password">
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                    </div>
+                        <button type="submit" class="btn_1 green">Thay đổi mật khẩu</button>
+                    <% end %>
+                    
+                    <br /><br /><br />
                     <!-- End row -->
-        
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 add_bottom_30">
-                            <h4>Cài đặt nhận tin mới</h4>
+                    
+                    <h4>Cài đặt nhận tin mới</h4>
+                    <%= form_for(:user, url: update_newsletter_path, html: {class: "validate", multipart: true}) do |f| %>
+                        <div class="row">                        
                             <div class="col-md-6 col-sm-6">
                                 <table class="table table-striped options_cart">
                                     <tbody>
@@ -63,8 +68,9 @@
                                             <td>Nhận tin mới của khách sạn yêu thích</td>
                                             <td>
                                                 <!--< form_for(:user, url: settings_path, html: {class: "newsletter_enabled"}) do |f| %>-->
+                                                <input type="hidden" name="user[newsletter_enabled]" value="false">
                                                 <label class="switch-light switch-ios pull-right">
-                                                    <input type="checkbox" name="option_2" id="option_2">
+                                                    <input <%= "checked" if current_user.newsletter_enabled %> type="checkbox" value="true" name="user[newsletter_enabled]" id="option_2">
                                                     <span>
                                                         <span>Không</span>
                                                         <span>Có</span>
@@ -77,17 +83,13 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                        <button type="submit" class="btn_1 green">Lưu thay đổi</button>
+                    <% end %>
                     <!-- End row -->
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 pull-right text-right">
-                            <button type="submit" class="btn_1 green">Cập nhật đăng ký</button>
-                        </div>
-                    </div>
+                    
                 </section>
                 <!-- End section 4 -->
-            <% end %>
+            
         </div>
         <!-- End content -->
     </div>
