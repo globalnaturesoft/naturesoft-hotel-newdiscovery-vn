@@ -9,6 +9,7 @@ Naturesoft::Nsmodule.class_eval do
     "facilities-list" => nil,
     "home-banner" => nil,
     "four-guide-boxes" => nil,
+    "video-module" => nil,
     "booking-guide" => nil,
     "footer-box-col-1" => nil,
     "footer-box-col-2" => nil,
