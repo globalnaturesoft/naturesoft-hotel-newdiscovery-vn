@@ -11,7 +11,7 @@
     <div class="container">
 		<ul>
 			<li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li><%= @current_menu.name %></li>
+            <li><%= @current_menu.name if @current_menu.present? %></li>
 		</ul>
     </div>
 </div><!-- Position -->
