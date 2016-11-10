@@ -8,7 +8,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
+                    <a href="<%= menus.url + "?area_id=" + item.id.to_s %>">
                     <% if item.image.present? %>
                     <%= image_tag(item.image, alt: "", class: "img-responsive") %>
                     <% else %>
@@ -16,12 +16,12 @@
                     <% end %>
                     </a>
                     <div class="short_info">
-                        <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có 50 khách sạn)</span>
+                        <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= item.hotels.count %> khách sạn)</span>
                     </div>
                     <div class="ribbon popular"></div>
                 </div>
                 <div class="tour_title">
-                    <h3><strong><%= link_to item.name, naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %></strong></h3>
+                    <h3><strong><%= link_to item.name, menus.url + "?area_id=" + item.id.to_s %></strong></h3>
                 </div>
             </div>
             <!-- End box tour -->
