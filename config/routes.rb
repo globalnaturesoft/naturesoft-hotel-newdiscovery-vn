@@ -23,7 +23,7 @@ Naturesoft::Core::Engine.routes.draw do
     get "dang-nhap.html" => "/naturesoft/users/sessions#new", as: :login
     get "dang-ky.html" => "/naturesoft/users/registrations#new", as: :register
   end
-  
+  get "xac-thuc-email.html" => "users#confirmable_email", as: :confirmable_email
   get "quen-mat-khau.html" => "users#forgot_password", as: :forgot_password
   get "cap-nhat-mat-khau-moi.html" => "users#reset_password", as: :reset_password
   get "thanh-vien/ho-so.html" => "users#admin_area", as: :admin_area
