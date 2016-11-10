@@ -85,7 +85,7 @@
             <h6>Loại</h6>
             <ul>
                 <% Naturesoft::Hotels::HotelType.order("name asc").each do |item| %>
-                <li><label><input<% if params[:hotel_type_ids].present? %><%= " checked" if params[:hotel_type_ids].include?(item.id.to_s) %><% end %> type="checkbox" name="hotel_type_ids[]" value="<%= item.id %>"><%= item.name %></label></li>
+                <li><label><input<%= " checked" if (params[:hotel_type_ids].present? and params[:hotel_type_ids].include?(item.id.to_s)) or params[:hotel_type_id] == item.id.to_s %> type="checkbox" name="hotel_type_ids[]" value="<%= item.id %>"><%= item.name %></label></li>
                 <% end %>
             </ul>
         </div>
