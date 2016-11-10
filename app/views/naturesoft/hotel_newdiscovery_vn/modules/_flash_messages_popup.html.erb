@@ -1,12 +1,15 @@
 <% colors = {"notice" => "info", "alert" => "danger"} %>                    
 <% flash.each do |key, value| %>
 <script>
-    $(document).ready(function() {        
-        swal({
-            title: '',
-            text: '<%= value %>',
-            confirmButtonText: "<%= t('ok') %>",
-        });
+    $(document).ready(function() {
+        if (!$(".site-alert-box").length) {
+            swal({
+                title: '',
+                text: '<%= value %>',
+                confirmButtonText: "<%= t('ok') %>",
+                allowOutsideClick: true,
+            });
+        }
     });
 </script>
 <% end %>
