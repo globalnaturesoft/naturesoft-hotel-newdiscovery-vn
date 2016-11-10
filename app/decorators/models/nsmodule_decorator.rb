@@ -17,5 +17,6 @@ Naturesoft::Nsmodule.class_eval do
     "copyright-info" => nil,
     "hotline-module" => nil,
     "categories-blog-sidebar" => nil,
+    "quick-search-box" => nil,
   }
 end
