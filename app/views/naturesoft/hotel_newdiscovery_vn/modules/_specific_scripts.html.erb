@@ -216,19 +216,23 @@ $(document).ready(function(){
 	$(".newsletter_validate").validate();
 	$(".review_validate").validate();
 	$(".order_validate").validate();
-	$(".validate").validate({
-		rules: {
-			"user[password]": {
-				required: true,
-				minlength: 5
-			},
-			"user[password_confirmation]": {
-				required: true,
-				minlength: 5,
-				equalTo: "#password"
+	$(".validate").each(function() {
+		form = $(this);
+		form.validate({
+			rules: {
+				"user[password]": {
+					required: true,
+					minlength: 5
+				},
+				"user[password_confirmation]": {
+					required: true,
+					minlength: 5,
+					equalTo: "#password"
+				}
 			}
-		}
+		});
 	});
+		
 </script>
 <script src="/frontend/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/frontend/dist/sweetalert.css">

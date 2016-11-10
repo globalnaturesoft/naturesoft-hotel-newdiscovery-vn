@@ -24,7 +24,7 @@ en:
       unlock_instructions:
         subject: "Hướng dẫn mở khóa tài khoản"
       password_change:
-        subject: "Mật khẩu đã được thay đổi"
+        subject: "Mật khẩu đã được thay đổi thành công"
     omniauth_callbacks:
       failure: "Không thể xác thực tài khoản của bạn từ %{kind} bởi vì \"%{reason}\"."
       success: "Xác thực thành công từ tài khoản %{kind}"
