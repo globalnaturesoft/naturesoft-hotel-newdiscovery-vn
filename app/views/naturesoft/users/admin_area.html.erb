@@ -54,13 +54,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Họ & đệm</label>
-                        <%= f.text_field :first_name, class: "form-control required" %>
+                        <%= f.text_field :first_name, class: "form-control required", placeholder: "Cập nhật họ & tên đệm.....", value: (current_user.first_name if current_user.first_name.present?) %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Tên</label>
-                        <%= f.text_field :last_name, class: "form-control required" %>
+                        <%= f.text_field :last_name, class: "form-control required", placeholder: "Cập nhật tên.....", value: (current_user.last_name if current_user.last_name.present?) %>
                     </div>
                 </div>
             </div>
@@ -70,13 +70,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Số điện thoại</label>
-                        <%= f.text_field :phone, class: "form-control required" %>
+                        <%= f.text_field :phone, class: "form-control required", placeholder: "Cập nhật số điện thoại.....", value: (current_user.phone if current_user.phone.present?) %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Ngày sinh <small>(dd/mm/yyyy)</small></label>
-                        <%= f.text_field :birthdate, class: "form-control required" %>
+                        <%= f.text_field :birthdate, class: "form-control required", placeholder: "Cập nhật ngày sinh.....", value: (current_user.birthdate if current_user.birthdate.present?) %>
                     </div>
                 </div>
             </div>
@@ -90,13 +90,13 @@
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Địa chỉ</label>
-                        <%= f.text_field :address, class: "form-control required" %>
+                        <%= f.text_field :address, class: "form-control required", placeholder: "Cập nhật địa chỉ.....", value: (current_user.address if current_user.address.present?) %>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
                     <div class="form-group">
                         <label>Mã bưu chính (Zip Code)</label>
-                        <%= f.text_field :zip, class: "form-control required" %>
+                        <%= f.text_field :zip, class: "form-control", placeholder: "Cập nhật mã Zip.....", value: (current_user.zip if current_user.zip.present?) %>
                     </div>
                 </div>
             </div>

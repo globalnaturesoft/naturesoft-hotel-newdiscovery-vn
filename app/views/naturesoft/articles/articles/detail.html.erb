@@ -12,7 +12,10 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li><%= link_to "Blog du lịch", "" %></li>
+            <% menu = Naturesoft::Menus::Menu.get_by_type(["articles::listing"]).first %>
+            <% if menu.present? %>
+                <li><%= link_to menu.name, menu.url %></li>
+            <% end %>
             <li><%= "Chi tiết" %></li>
         </ul>
     </div>

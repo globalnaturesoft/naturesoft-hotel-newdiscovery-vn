@@ -22,7 +22,10 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li><%= link_to "Danh sách khách sạn", "" %></li>
+            <% menu = Naturesoft::Menus::Menu.get_by_type(["hotels::hotels_list", "hotels::hotels_grid"]).first %>
+            <% if menu.present? %>
+                <li><%= link_to menu.name, menu.url %></li>
+            <% end %>
             <li><%= @detail.name %></li>
         </ul>
     </div>
