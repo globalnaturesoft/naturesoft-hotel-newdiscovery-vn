@@ -106,10 +106,10 @@
         $("#review_hotel").submit(function(e) {
             var form = $(this);
             var url = form.attr("action"); // the script where you handle the form input.
-            form.find("input[type=submit]").attr('disabled','disabled');
-            form.find("input[type=submit]").after('<i class="icon-spin3 animate-spin"></i>');
             
             if(form.valid()) {
+                form.find("input[type=submit]").attr('disabled','disabled');
+                form.find("input[type=submit]").after('<i class="icon-spin3 animate-spin"></i>');
                 $.ajax({
                    type: "POST",
                    url: url,
