@@ -38,14 +38,14 @@
                 <% if item.articles.count != 0 %><h3 class="nomargin_top"><%= item.name %></h3><% end %>
     
                 <div class="panel-group" id="tab_<%= item.id %>">
-                    <% item.articles.each_with_index do |article,i| %>
+                    <% item.articles.each_with_index do |article,index| %>
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#<%= i %>" href="#collapseOne_<%= i %>"><%= article.title %><i class="indicator icon-plus pull-right"></i></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#art_<%= item.id %>_<%= index %>" href="#collapseOne_art_<%= item.id %>_<%= index %>"><%= article.title %><i class="indicator icon-plus pull-right"></i></a>
                                 </h4>
                             </div>
-                            <div id="collapseOne_<%= i %>" class="panel-collapse collapse">
+                            <div id="collapseOne_art_<%= item.id %>_<%= index %>" class="panel-collapse collapse">
                                 <div class="panel-body text-justify">
                                     <%= article.content.html_safe %>
                                 </div>
