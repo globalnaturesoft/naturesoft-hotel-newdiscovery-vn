@@ -1,0 +1,22 @@
+Xin chào, <%= @order.email %>
+<p>Chúng tôi vừa nhận được yêu cầu đặt phòng của bạn vào lúc <%= @order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %> (GMT+07:00).</p>
+<p>Thông tin đặt phòng:</p>
+<p>
+    Tên bạn: <%= @order.first_name %> <%= @order.last_name %><br/>
+    Email: <%= @order.email %><br/>
+    Số di động: <%= @order.phone %><br/>
+    Số máy bàn: <%= @order.tel %><br/>
+    Khách sạn: <%= @order.hotel.name %><br/>
+    Loại phòng: <%= @order.room.name %><br/>
+    Số lượng phòng: <%= @order.number %><br/>
+    Số người lớn: <%= @order. %><br/>
+    Số trẻ em: <%= @order. %><br/>
+    Ngày nhận phòng: <%= @order.checkin %><br/>
+    Ngày trả phòng: <%= @order.checkout %><br/>
+    Ngày gửi yêu cầu: <%= @order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %>
+    Ghi chú thêm: <%= @order.note %>
+</p>
+<p>Yêu cầu đang được xử lý. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
+<p>Cám ơn bạn đã tin tưởng sử dụng dịch vụ của chúng tôi,</p>
+<p>-------------</p>
+<p>* CTY TNHH MTV DU LỊCH KHÁM PHÁ MỚI *</p>
