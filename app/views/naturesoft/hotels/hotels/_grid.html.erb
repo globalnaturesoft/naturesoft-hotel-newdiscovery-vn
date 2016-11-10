@@ -10,7 +10,7 @@
                             <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                         <% end %>
                         <div class="ribbon popular"></div>
-                        <% if item.reviews.count > 0 %>
+                        <% if item.reviews.get_active.count > 0 %>
                         <div class="score"><span><%= item.avg_reviews %></span> <%= item.rating_reviews %></div>
                         <% end %>
                         <div class="short_info hotel">
