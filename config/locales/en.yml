@@ -37,3 +37,5 @@ en:
   review_success: "Cám ơn bạn đã viết đánh giá. Chúng tôi sẽ duyệt và đưa lên trong thời gian sớm nhất."
   user_profile_updated: "Hồ sơ thành viên đã được cập nhật."
   current_password_is_invalid: "Mật khẩu hiện tại chưa đúng. Vui lòng thử lại."
+  added_wishlist_success: "Đã thêm khách sạn vào yêu thích"
+  removed_wishlist: "Đã hủy khách sạn yêu thích khỏi danh sách"
