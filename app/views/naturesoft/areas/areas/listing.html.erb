@@ -1,8 +1,11 @@
+
+<% menu = Naturesoft::Menus::Menu.where(id: params["hotel_list_id"]).first %>
+
 <section class="parallax-window" data-parallax="scroll" data-image-src="/frontend/img/hotels_bg.jpg" data-natural-width="1400" data-natural-height="470">
     <div class="parallax-content-1">
         <div class="animated fadeInDown">
-            <h1>Khách Sạn Theo Địa Điểm</h1>
-            <p>Mô tả</p>
+            <h1><%= @current_menu.name %></h1>
+            <p><%= @current_menu.description %></p>
         </div>
     </div>
 </section>
@@ -12,7 +15,7 @@
     <div class="container">
         <ul>
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
-            <li>Khách Sạn Theo Địa Điểm</li>
+            <li><%= @current_menu.name if @current_menu.present? %></li>
         </ul>
     </div>
 </div>
@@ -22,7 +25,7 @@
 
     <div class="main_title">
         <h2>Danh sách địa điểm</h2>
-        <p>Quisque at tortor a libero posuere laoreet vitae sed arcu. Curabitur consequat.</p>
+        <p></p>
     </div>
 
     <div class="row">
@@ -30,19 +33,19 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="<%= "" %>">
+                    <a href="<%= menu.url + '?area_id=' + item.id.to_s %>">
                         <% if item.image.present? %>
                         <%= image_tag(item.image, size: "800x533", alt: "", class: "img-responsive") %>
                         <% else %>
                         <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
                         <% end %>
                         <div class="short_info">
-                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có 50 khách sạn)</span>
+                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= item.hotels.count %> khách sạn)</span>
                         </div>
                     </a>
                 </div>
                 <div class="tour_title">
-                    <h3><strong><%= link_to item.name, "" %></strong></h3>
+                    <h3><strong><%= link_to item.name, menu.url + '?area_id=' + item.id.to_s %></strong></h3>
                 </div>
             </div>
             <!-- End box tour -->
