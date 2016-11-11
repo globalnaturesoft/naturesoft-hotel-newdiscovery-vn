@@ -1,5 +1,5 @@
 <p>Chào mừng <%= @email %>!</p>
 
-<p>Còn một chút nữa để tài khoản của bạn có thể hoạt động.</p>
+<p>Bạn sắp sửa hoàn tất! Chúng tôi chỉ cần xác minh tài khoản của bạn trước khi bạn có thể bắt đầu sử dụng tài khoản đó.</p>
 
-<p>Vui lòng <%= link_to 'CLICK VÀO ĐÂY', confirmation_url(@resource, confirmation_token: @token) %> để kích hoạt tài khoản của bạn.</p>
+<p>Vui lòng chọn <%= link_to 'XÁC MINH', confirmation_url(@resource, confirmation_token: @token) %> để kích hoạt tài khoản của bạn.</p>
