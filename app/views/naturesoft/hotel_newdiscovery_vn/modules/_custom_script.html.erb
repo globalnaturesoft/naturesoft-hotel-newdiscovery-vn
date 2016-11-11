@@ -124,10 +124,16 @@
                          text: data.text,
                          type: data.status
                          });
-                        form.find("input[type=email]").val("");
-                        form.find("input[type=text]").val("");
-                        form.find("input[type=phone]").val("");
-                        form.find("textarea").val("");
+                        // clear input
+                        form.find("input, textarea").each(function() {
+                            var valz = $(this).attr("keep");                            
+                            if(typeof(valz) != 'undefined' && valz.trim() != "") {
+                                $(this).val(valz);
+                            } else {
+                                $(this).val("");
+                            }
+                        });
+                        form.find("select").val("");
                         form.find("input[type=submit]").removeAttr('disabled');
                         form.find("input[type=submit]").removeClass('disabled');
                         $('#quickRegister').modal("hide");
