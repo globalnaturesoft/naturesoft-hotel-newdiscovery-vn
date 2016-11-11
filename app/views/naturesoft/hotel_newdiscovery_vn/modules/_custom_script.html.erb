@@ -125,7 +125,7 @@
                          type: data.status
                          });
                         // clear input
-                        form.find("input, textarea").each(function() {
+                        form.find("input[type='text'], textarea").each(function() {
                             var valz = $(this).attr("keep");                            
                             if(typeof(valz) != 'undefined' && valz.trim() != "") {
                                 $(this).val(valz);
@@ -206,7 +206,7 @@
                         $('.modal').modal('hide');
                         
                         // clear input
-                        form.find("input, textarea").each(function() {
+                        form.find("input[type='text'], textarea").each(function() {
                             var valz = $(this).attr("keep");                            
                             if(typeof(valz) != 'undefined' && valz.trim() != "") {
                                 $(this).val(valz);
