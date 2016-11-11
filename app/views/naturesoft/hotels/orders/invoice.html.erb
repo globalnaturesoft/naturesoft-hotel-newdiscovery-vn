@@ -65,7 +65,7 @@
     					Tên khách hàng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).first_name + " " + Naturesoft::Hotels::Order.find(params[:order_id]).last_name %><br>
     					Email: <%= Naturesoft::Hotels::Order.find(params[:order_id]).email %><br>
     					Số di động: <%= Naturesoft::Hotels::Order.find(params[:order_id]).phone %><br>
-    					Số bàn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).email %><br>
+    					Số bàn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).tel %><br>
     				</address>
     			</div>
     			<div class="col-xs-6 text-right">
