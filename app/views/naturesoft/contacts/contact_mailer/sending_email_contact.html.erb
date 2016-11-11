@@ -1,8 +1,15 @@
-Xin chào, <br />
-Bạn vừa nhận được một tin nhắn liên hệ có nội dung:
+Xin chào <%= @msg.to_contact.email %>
+<p>Một tin nhắn liên hệ đã được gửi đến bạn.</p>
+<p>Thông tin liên hệ:</p>
 <p>
-    - Họ & tên: <%= @msg.contact.first_name %> <%= @msg.contact.last_name %><br>
-    - Điện thoại: <%= @msg.contact.phone %><br>
-    - Email: <%= @msg.contact.email %><br>
-    - <b>Nội dung tin nhắn:</b> <br><%= @msg.display_message %>
+    Tên khách hàng: <%= @msg.contact.first_name %> <%= @msg.contact.last_name %><br>
+    Điện thoại: <%= @msg.contact.phone %><br>
+    Email: <%= @msg.contact.email %><br>
+    Nội dung nhắn gửi: <br/>
+    <%= @msg.display_message %>
+</p>
+<p>Vui lòng xử lý và liên hệ với khách hàng này để xác nhận thông tin.</p>
+<p>Cảm ơn,</p>
+<p>-------------<br/>
+* HỆ THỐNG ĐẶT PHÒNG - CTY KHÁM PHÁ MỚI *
 </p>
