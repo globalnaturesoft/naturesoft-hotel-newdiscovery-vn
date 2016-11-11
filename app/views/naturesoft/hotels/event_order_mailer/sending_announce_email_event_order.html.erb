@@ -8,9 +8,11 @@ Xin chào <%= @email_to %>
     Tên khuyến mãi/sự kiện: <%= @event_order.event_name %><br/>
     Giá khuyến mai/sự kiện: <%= @event_order.event_price %><br/>
     Số lượng phòng: <%= @event_order.number %><br/>
-    Ngày nhận phòng: <%= @event_order.checkin %><br/>
-    Ngày trả phòng: <%= @event_order.checkout %><br/>
+    Ngày nhận phòng: <%= @event_order.checkin.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %><br/>
+    Ngày trả phòng: <%= @event_order.checkout.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %><br/>
     Ngày gửi yêu cầu: <%= @event_order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %>
 </p>
 <p>Vui lòng liên hệ với họ để xác nhận thông tin đặt phòng.</p>
-<p>Cám ơn,</p>
+<p>Cảm ơn,</p>
+<p>-------------</p>
+<p>* HỆ THỐNG ĐẶT PHÒNG - CTY KHÁM PHÁ MỚI *</p>

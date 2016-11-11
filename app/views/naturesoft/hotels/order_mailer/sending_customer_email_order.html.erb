@@ -9,11 +9,11 @@ Xin chào, <%= @order.email %>
     Khách sạn: <%= @order.hotel.name %><br/>
     Loại phòng: <%= @order.room.name %><br/>
     Số lượng phòng: <%= @order.number %><br/>
-    Số người lớn: <%= @order. %><br/>
-    Số trẻ em: <%= @order. %><br/>
-    Ngày nhận phòng: <%= @order.checkin %><br/>
-    Ngày trả phòng: <%= @order.checkout %><br/>
-    Ngày gửi yêu cầu: <%= @order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %>
+    Số người lớn: <%= @order.adult %><br/>
+    Số trẻ em: <%= @order.child %><br/>
+    Ngày nhận phòng: <%= @order.checkin.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %><br/>
+    Ngày trả phòng: <%= @order.checkout.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %><br/>
+    Ngày gửi yêu cầu: <%= @order.created_at.in_time_zone("Asia/Bangkok").strftime("%d/%m/%Y %H:%M") %><br/>
     Ghi chú thêm: <%= @order.note %>
 </p>
 <p>Yêu cầu đang được xử lý. Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
