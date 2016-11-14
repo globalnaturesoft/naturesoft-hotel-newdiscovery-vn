@@ -11,7 +11,7 @@
             <div class="img_container">
                 <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
                     <%= image_tag("/frontend/img/hotel_1.jpg", size: "800x533", alt: "", class: "img-responsive") %>
-                    <div class="ribbon top_rated"></div>
+                    <div class="ribbon_3 favorite"><span>Yêu thích</span></div>
                     <div class="short_info hotel">
                         Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
                     </div>
