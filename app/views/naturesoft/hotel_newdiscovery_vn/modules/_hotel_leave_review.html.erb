@@ -39,7 +39,7 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<%= f.text_field :email,
-								class: "form-control required",
+								class: "form-control required email",
 								value: current_user.email,
 								keep: (current_user.email if current_user.present?),
 								placeholder: "Nhập email tại đây (*)..."
