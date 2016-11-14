@@ -40,7 +40,7 @@
                         <%= image_tag("/frontend/img/no-img.png", alt: "", class: "img-responsive") %>
                         <% end %>
                         <div class="short_info">
-                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= item.hotels.count %> khách sạn)</span>
+                            <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= Naturesoft::Hotels::Hotel.count_hotels_by_area(item).count %> khách sạn)</span>
                         </div>
                     </a>
                 </div>
