@@ -15,9 +15,7 @@
                     <% else %>
                         <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                     <% end %>
-                    <% if item.get_display_label.present? and item.get_display_label.icon.present? %>
-                        <div class="ribbon popular" style="background: url('<%= item.get_display_label.icon_url %>')"></div>
-                    <% end %>
+                    <div class="ribbon_3 favorite"><span>Yêu thích</span></div>
                     <div class="short_info hotel">
                         Giá/Đêm<span class="price"><%= format_number(item.from_per_night) %> VNĐ</span>
                     </div>
