@@ -14,7 +14,7 @@
             <li><%= link_to "Trang Chủ", naturesoft_hotel_newdiscovery_vn.root_path %></li>
             <% menu = Naturesoft::Menus::Menu.get_by_type(["galleries::galleries_list"]).first %>
             <% if menu.present? %>
-                <li><%= link_to menu.name, menu.url %></li>
+                <li class="active_menu" rel="<%= menu.id %>"><%= link_to menu.name, menu.url %></li>
             <% end %>
             <li><%= @gallery.name %></li>
         </ul>

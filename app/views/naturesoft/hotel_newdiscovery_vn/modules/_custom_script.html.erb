@@ -223,6 +223,10 @@
             
         });
         
+        // active menu
+        if($(".active_menu").length) {
+            $("#main_menu_" + $(".active_menu").attr("rel")).addClass("active");
+        }
         
     });
 </script>
