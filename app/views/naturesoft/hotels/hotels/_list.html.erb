@@ -19,7 +19,7 @@
                 <% end %>
                 <div class="img_list">
                     <a href="<%= naturesoft_hotels.hotel_detail_path(hotel_id: item.id, title: url_friendly(item.name)) %>">
-                        <%= item.get_display_label.present? ? "<div class=\"ribbon_3 favorite\"><span>#{ item.get_display_label.name }</span></div>".html_safe : "" %>
+                        <%= item.get_display_label.present? ? "<div class=\"ribbon_3 #{item.get_display_label.html_class}\"><span>#{ item.get_display_label.name }</span></div>".html_safe : "" %>
                         <% if item.hotel_images.count > 0 %><%= image_tag(item.get_main_image.image.large, alt: item.name) %><% else %><%= image_tag("/frontend/img/no-img.png", alt: item.name) %><% end %>
                         <div class="short_info"></div>
                     </a>
