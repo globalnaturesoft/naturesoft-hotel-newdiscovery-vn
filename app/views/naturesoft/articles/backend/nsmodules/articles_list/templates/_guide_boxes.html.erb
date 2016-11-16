@@ -1,7 +1,16 @@
-<% category.articles.limit(options["number_of_articles"]).each do |article| %>
-    <div class="col-md-3 col-sm-6 text-center">
-        <p><%= link_to image_tag(article.image_url.medial, alt: "", class: "img-responsive"), "" %></p>
-        <h4><%= article.title %><span></span></h4>
-        <%= article.intro_text %>
-    </div>
-<% end %>
+<div class="col-md-3 col-sm-6 text-center">
+    <p><%= link_to image_tag("/frontend/img/linked_tour-1.jpg", class: "img-responsive", alt: "cungmuadulich.net"), "http://cungmuadulich.net/", target: "_blank" %></p>
+    <h4>Cùng mua du lịch</h4>
+</div>
+<div class="col-md-3 col-sm-6 text-center">
+    <p><%= link_to image_tag("/frontend/img/linked_book.jpg", class: "img-responsive", alt: ""), "", target: "_blank" %></p>
+    <h4>Đặt phòng khách sạn</h4>
+</div>
+<div class="col-md-3 col-sm-6 text-center">
+    <p><%= link_to image_tag("/frontend/img/linked_car.jpg", class: "img-responsive", alt: "thuexemiennam.com"), "http://thuexemiennam.com/", target: "_blank" %></p>
+    <h4>Thuê xe miền nam</h4>
+</div>
+<div class="col-md-3 col-sm-6 text-center">
+    <p><%= link_to image_tag("/frontend/img/linked_tour-2.jpg", class: "img-responsive", alt: "newdiscovery.vn"), "http://newdiscovery.vn/", target: "_blank" %></p>
+    <h4>Du lịch khám phá mới</h4>
+</div>
