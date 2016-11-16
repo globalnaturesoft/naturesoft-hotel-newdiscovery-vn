@@ -5,7 +5,7 @@
                         </div>
                         <% @reviews.each do |item| %>
                         <div class="review_strip_single">
-                            <img src="/frontend/img/avatar3.jpg" alt="Image" class="img-circle">
+                            <img width="68" src="<%= user_image_src(item.user.image.profile) if item.user.present? %>" alt="Image" class="img-circle">
                             <small>- <%= item.created_at.strftime("%d/%m/%Y") %> -</small>
                             <h4><%= item.first_name+" "+item.last_name %></h4>
                             <p class="text-justify"><%= item.content %></p>
