@@ -18,7 +18,7 @@
                         <!-- End review strip -->
                         <% end %>
                         <% if @hotel.get_reviews.count > @reviews.count %>
-                            <%= link_to "Xem thêm (" + (@hotel.get_reviews.count - @reviews.count).to_s + " đánh giá)", "", class: "btn_1 green more_reviews_button" %>
+                            <%= link_to "Xem thêm (" + [(@hotel.get_reviews.count - @reviews.count), @reviews.count].min.to_s + " đánh giá)", "", class: "btn_1 green more_reviews_button" %>
                         <% end %>
                     <% else %>
                         <div id="score_detail">
