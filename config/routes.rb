@@ -1,6 +1,7 @@
 Naturesoft::HotelNewdiscoveryVn::Engine.routes.draw do
   root to: "home#index"
   get "ve-chung-toi.html" => "home#about_us", as: :about_us
+  match "/404", :to => "errors#not_found", :via => :all
 end
 Naturesoft::Articles::Engine.routes.draw do
   get "bai-viet/blog-du-lich.html" => "articles#listing", as: :blog_listing

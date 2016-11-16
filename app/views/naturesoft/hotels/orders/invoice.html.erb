@@ -62,21 +62,21 @@
     			<div class="col-xs-6">
     				<address>
     				<strong>Thông tin khách hàng:</strong><br>
-    					Tên khách hàng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).first_name + " " + Naturesoft::Hotels::Order.find(params[:order_id]).last_name %><br>
-    					Email: <%= Naturesoft::Hotels::Order.find(params[:order_id]).email %><br>
-    					Số di động: <%= Naturesoft::Hotels::Order.find(params[:order_id]).phone %><br>
-    					Số bàn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).tel %><br>
+    					Tên khách hàng: <%= @order.first_name + " " + @order.last_name %><br>
+    					Email: <%= @order.email %><br>
+    					Số di động: <%= @order.phone %><br>
+    					Số bàn: <%= @order.tel %><br>
     				</address>
     			</div>
     			<div class="col-xs-6 text-right">
     				<address>
          <strong>Thông tin đặt phòng:</strong><br>
-    					Loại phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).room.name %><br>
-    					Ngày nhận phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkin.strftime("%d/%m/%Y") %><br>
-									Ngày trả phòng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).checkout.strftime("%d/%m/%Y") %><br>
-									Số lượng: <%= Naturesoft::Hotels::Order.find(params[:order_id]).number %> phòng<br>
-									Số người lớn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).adult %><br>
-									Số trẻ em: <%= Naturesoft::Hotels::Order.find(params[:order_id]).child %><br>
+    					Loại phòng: <%= @order.room.name %><br>
+    					Ngày nhận phòng: <%= @order.checkin.strftime("%d/%m/%Y") %><br>
+									Ngày trả phòng: <%= @order.checkout.strftime("%d/%m/%Y") %><br>
+									Số lượng: <%= @order.number %> phòng<br>
+									Số người lớn: <%= @order.adult %><br>
+									Số trẻ em: <%= @order.child %><br>
     				</address>
     			</div>
     		</div>
@@ -84,14 +84,14 @@
     			<div class="col-xs-6">
     				<address>
                         <strong>Thông tin khách sạn:</strong><br>
-    					Tên khách sạn: <%= Naturesoft::Hotels::Order.find(params[:order_id]).hotel.name %><br>
-    					Địa chỉ: <%= Naturesoft::Hotels::Order.find(params[:order_id]).hotel.address %><br>
+    					Tên khách sạn: <%= @order.hotel.name %><br>
+    					Địa chỉ: <%= @order.hotel.address %><br>
     				</address>
     			</div>
                 <div class="col-xs-6 text-right">
     				<address>
                         <strong>Lời nhắn:</strong><br>
-    					<%= Naturesoft::Hotels::Order.find(params[:order_id]).note %><br>
+    					<%= @order.note %><br>
     				</address>
     			</div>
     		</div>

@@ -1,5 +1,5 @@
 <% menus.order("custom_order").each do |item| %>
-    <li><%= link_to item.name, item.url %></li>
+    <li id="main_menu_<%= item.id %>" class="<%= 'active' if @current_menu.present? and @current_menu.id == item.id %>"><%= link_to item.name, item.url %></li>
 <% end %>
 <% if current_user.present? %>
 <li><%= link_to current_user.display_name, naturesoft.admin_area_path, class: "quick-option-mobile" %></li>

@@ -208,3 +208,51 @@ a.tooltip-user {
 #quickRegister #message-review {
   display: none;
 }
+.font-top-line {
+  font-size: 12px;
+}
+.dropdown.dropdown-search, .dropdown.dropdown-cart {
+  font-size: 18px!important;
+}
+.ribbon_3 {
+  left: 0px;
+  top: 0px;
+}
+.ribbon_3 span {
+  width: 112px;
+  top: 17px;
+  left: -28px;
+}
+.ribbon_3.top-area span {
+    background: linear-gradient(#1cbbb4 0,#1cbbb4 100%);
+}
+.ribbon_3.favorite span {
+    background: linear-gradient(#e04f67 0,#e04f67 100%);
+}
+.ribbon_3.gallery span {
+    background: linear-gradient(#ff7302 0,#ff7302 100%);
+}
+#login_link:before {
+  content: "\e9d1";
+}
+#access_link:before, #login_link:before, #register_link:before, #wishlist_link:before {
+    font-style: normal;
+    font-weight: 400;
+    font-family: "fontello";
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#register_link:before {
+    content: "\ea38";
+}
+a#access_link, a#wishlist_link, a#login_link, a#register_link {
+    position: relative;
+    display: inline-block;
+    padding-left: 16px;
+}
+.main-menu ul li.active a {
+  color: #ea4335;
+  font-weight: bold;
+}

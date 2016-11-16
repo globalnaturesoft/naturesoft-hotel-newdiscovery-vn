@@ -16,9 +16,9 @@
                     <% end %>
                     </a>
                     <div class="short_info">
-                        <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= item.hotels.count %> khách sạn)</span>
+                        <i class="icon_set_1_icon-6"></i>Khách Sạn<span class="price">(Có <%= Naturesoft::Hotels::Hotel.count_hotels_by_area(item).count %> khách sạn)</span>
                     </div>
-                    <div class="ribbon popular"></div>
+                    <div class="ribbon_3 top-area"><span>Top điểm đến</span></div>
                 </div>
                 <div class="tour_title">
                     <h3><strong><%= link_to item.name, menus.url + "?area_id=" + item.id.to_s %></strong></h3>
