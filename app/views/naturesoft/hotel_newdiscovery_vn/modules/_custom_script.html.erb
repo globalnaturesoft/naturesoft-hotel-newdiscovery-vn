@@ -1,5 +1,28 @@
 <script type="text/javascript">
     
+    function showReviewsList(box) {
+        var hotel_id = box.attr("hotel-id");
+        var url = box.attr("data-url");
+        var page = box.attr("data-page");
+        
+        if(typeof(page) == 'undefined') {
+            page = 1;
+        }
+        
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                page: page
+            },
+            success: function(data)
+            {
+                box.html(data);
+                box.attr("data-page", page+1);
+            }
+        });
+    }
+    
     function getQueryParams(qs) {
         qs = qs.split('+').join(' ');
     
@@ -227,6 +250,17 @@
         if($(".active_menu").length) {
             $("#main_menu_" + $(".active_menu").attr("rel")).addClass("active");
         }
+        
+        // Hotel review list
+        $(".hotel-reviews-list").each(function () {
+            showReviewsList($(this));
+        });
+        // More review button
+        $(document).on("click", ".more_reviews_button", function(e) {
+            showReviewsList($(this).parents(".reviews-list-outer").find(".hotel-reviews-list"));
+            $(this).html("Đang tải đánh giá...");
+            e.preventDefault();
+        })
         
     });
 </script>
