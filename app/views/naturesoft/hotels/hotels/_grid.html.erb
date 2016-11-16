@@ -9,7 +9,7 @@
                         <% else %>
                             <%= image_tag("/frontend/img/no-img.png", size: "800x533", alt: "", class: "img-responsive") %>
                         <% end %>
-                        <%= item.get_display_label.present? ? "<div class=\"ribbon_3 favorite\"><span>#{ item.get_display_label.name }</span></div>".html_safe : "" %>
+                        <%= item.get_display_label.present? ? "<div class=\"ribbon_3 #{item.get_display_label.html_class}\"><span>#{ item.get_display_label.name }</span></div>".html_safe : "" %>
                         <% if item.reviews.get_active.count > 0 %>
                         <div class="score"><span><%= item.avg_reviews %></span> <%= item.rating_reviews %></div>
                         <% end %>

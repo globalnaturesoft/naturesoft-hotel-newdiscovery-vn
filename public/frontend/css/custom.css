@@ -229,6 +229,12 @@ a.tooltip-user {
 .ribbon_3.favorite span {
     background: linear-gradient(#e04f67 0,#e04f67 100%);
 }
+.ribbon_3.new span {
+    background: linear-gradient(#9BC90D 0,#79A70A 100%);
+}
+.ribbon_3.hot span {
+    background: linear-gradient(#ff9900 0,#ff8100 100%);
+}
 .ribbon_3.gallery span {
     background: linear-gradient(#ff7302 0,#ff7302 100%);
 }
