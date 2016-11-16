@@ -10,7 +10,7 @@
 				<%= form_for Naturesoft::Hotels::EventOrder.new, html: {class: "event_order_validate ajax_form_alert"} do |f| %>
 					<% if current_user.present? %><%= f.hidden_field :user_id, value: current_user.id %><% end %>
 					<%= f.hidden_field :hotel_id, value: @detail.id %>
-                    <%= f.hidden_field :event_id, value: item.id %>
+                    <%= f.hidden_field :event_id, value: "" %>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
