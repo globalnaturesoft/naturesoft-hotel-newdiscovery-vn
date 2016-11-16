@@ -5,7 +5,7 @@
                         </div>
                         <% @reviews.each do |item| %>
                         <div class="review_strip_single">
-                            <img src="/frontend/img/avatar3.jpg" alt="Image" class="img-circle">
+                            <img width="68" src="<%= user_image_src(item.user.image.profile) if item.user.present? %>" alt="Image" class="img-circle">
                             <small>- <%= item.created_at.strftime("%d/%m/%Y") %> -</small>
                             <h4><%= item.first_name+" "+item.last_name %></h4>
                             <p class="text-justify"><%= item.content %></p>
@@ -18,7 +18,7 @@
                         <!-- End review strip -->
                         <% end %>
                         <% if @hotel.get_reviews.count > @reviews.count %>
-                            <%= link_to "Xem thêm (" + (@hotel.get_reviews.count - @reviews.count).to_s + " đánh giá)", "", class: "btn_1 green more_reviews_button" %>
+                            <%= link_to "Xem thêm (" + [(@hotel.get_reviews.count - @reviews.count), @reviews.count].min.to_s + " đánh giá)", "", class: "btn_1 green more_reviews_button" %>
                         <% end %>
                     <% else %>
                         <div id="score_detail">

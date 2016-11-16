@@ -30,17 +30,17 @@ en:
       success: "Xác thực thành công từ tài khoản %{kind}"
     passwords:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn làm thế nào để thiết lập lại mật khẩu của bạn trong một vài phút."
+      send_instructions: "Bạn sẽ nhận được một email với hướng dẫn làm thế nào để thiết lập lại mật khẩu của bạn trong một vài phút. Vui lòng kiểm tra cả inbox và spam."
       send_paranoid_instructions: "Nếu địa chỉ email của bạn tồn tại, bạn sẽ nhận được một liên kết để khôi phục lại mật khẩu trong hộp thư của bạn trong một vài phút."
       updated: "Mật khẩu của bạn đã được thay đổi thành công. Bạn đang đăng nhập"
       updated_not_active: "Mật khẩu của bạn đã được thay đổi thành công."
     registrations:
       destroyed: "Tạm biệt! Tài khoản của bạn đã được hủy thành công. Chúng tôi hi vọng sẽ sớm gặp lại bạn."
       signed_up: "Chào bạn! Tài khoản của bạn đã đăng ký thành công."
-      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn bởi vì tài khoản của bạn chưa được kích hoạt."
+      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn bởi vì tài khoản của bạn chưa được kích hoạt. Vui lòng kiểm tra cả inbox và spam."
       signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập cho bạn bởi vì tài khoản của bạn đang bị khóa."
       signed_up_but_unconfirmed: "Một thông điệp chứa liên kết xác nhận đã được gửi đến địa chỉ email của bạn. Vui lòng thực hiện theo liên kết để kích hoạt tài khoản của bạn."
-      update_needs_confirmation: "Tài khoản của bạn đã cập nhật thành công, nhưng chúng tôi cần phải xác minh địa chỉ email mới của bạn. Hãy kiểm tra email của bạn và làm theo các liên kết xác nhận để xác nhận địa chỉ email mới của bạn."
+      update_needs_confirmation: "Tài khoản của bạn đã cập nhật thành công, nhưng chúng tôi cần phải xác minh địa chỉ email mới của bạn. Hãy kiểm tra email của bạn và làm theo các liên kết xác nhận để xác nhận địa chỉ email mới của bạn. Vui lòng kiểm tra cả inbox và spam."
       updated: "Tài khoản của bạn đã được cập nhật thành công."
     sessions:
       signed_in: "Đăng nhập thành công."
