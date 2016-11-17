@@ -265,3 +265,59 @@ a#access_link, a#wishlist_link, a#login_link, a#register_link {
   color: #ea4335;
   font-weight: bold;
 }
+/*----- related on the hotel detail -----*/
+.shop-item {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.shop-item, .shop-item .image-box, .shop-item .inner-box {
+    position: relative;
+}
+.shop-item .inner-box {
+    display: block;
+    -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+    background: #fff;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.shop-item .image-box .image img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.shop-item:hover .image-box .item-options {
+    opacity: 1;
+    visibility: visible;
+}
+.shop-item .image-box .item-options {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+.shop-item .product_description {
+    position: relative;
+    padding: 25px 20px 20px;
+}
+.shop-item h3 a {
+    color: #555;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.shop-item .product_description .price {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e04f67;
+    line-height: 20px;
+}
+.shop-item .product_description .price .offer {
+    color: #999;
+    padding-right: 5px;
+    text-decoration: line-through;
+}

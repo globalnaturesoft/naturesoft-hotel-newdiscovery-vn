@@ -19,5 +19,6 @@ Naturesoft::Nsmodule.class_eval do
     "hotline-module" => nil,
     "categories-blog-sidebar" => nil,
     "quick-search-box" => nil,
+    "related-hotels" => nil,
   }
 end
