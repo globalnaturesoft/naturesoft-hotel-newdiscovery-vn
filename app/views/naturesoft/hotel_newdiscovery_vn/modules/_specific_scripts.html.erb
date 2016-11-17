@@ -208,7 +208,11 @@ $(document).ready(function(){
 <%= javascript_include_tag "/frontend/js/jquery.validate.js" %>
 <% if params[:controller] == 'naturesoft/contacts/contacts' && params[:action] == 'contact' %>
 <script>
-	$(".contact_validate").validate();
+	$(".contact_validate").validate({
+		rules: {
+			"contact[phone]": {minlength:9}
+		}
+	});
 </script>
 <% end %>
 <script>
