@@ -3,7 +3,7 @@
     <% if params[:keyword].present? || params[:area_id].present? %>
     Lọc theo:<br>
     <% if params[:keyword].present? %>
-    - Tên khách sạn: <%= params[:keyword] %><br>
+    - Từ khóa: <%= params[:keyword] %><br>
     <% end %>
     <% if params[:area_id].present? %>
     - Khu vực: <%= Naturesoft::Areas::Area.find(params[:area_id]).name %><br>
