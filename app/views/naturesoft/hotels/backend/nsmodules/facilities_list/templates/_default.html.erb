@@ -7,7 +7,7 @@
         <ul>
             <% facilities.each_with_index do |item,index| %>
                 <% if index%3==0 %>
-                    <li><a href="<%= menus.url %>?facility_ids=<%= item.id %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
+                    <li><a href="<%= menus.url({facility_ids: item.id, facility_alias: url_friendly(item.name)}) %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
                 <% end %>
             <% end %>
         </ul>
@@ -16,7 +16,7 @@
         <ul>
             <% facilities.each_with_index do |item,index| %>
                 <% if index%3==2 %>
-                    <li><a href="<%= menus.url %>?facility_ids=<%= item.id %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
+                    <li><a href="<%= menus.url({facility_ids: item.id, facility_alias: url_friendly(item.name)}) %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
                 <% end %>
             <% end %>
         </ul>
@@ -25,7 +25,7 @@
         <ul>
             <% facilities.each_with_index do |item,index| %>
                 <% if index%3==1 %>
-                    <li><a href="<%= menus.url %>?facility_ids=<%= item.id %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
+                    <li><a href="<%= menus.url({facility_ids: item.id, facility_alias: url_friendly(item.name)}) %>"><i class="<%= item.code %>"></i><%= item.name %><span class="other_tours_price">(<%= item.hotels_count %>)</span></a></li>
                 <% end %>
             <% end %>
         </ul>
