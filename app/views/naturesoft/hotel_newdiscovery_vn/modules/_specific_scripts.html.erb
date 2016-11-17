@@ -117,7 +117,7 @@ $('input.date-pick').datepicker('setDate', 'today');
 				
 				// add infobox
 				var html = '<div class="marker_infowindow">' +
-					'<img src="/frontend/img/thumb_map_1.jpg" alt="Image">' +
+					'<img src="<%= image_src(@detail.get_main_image.image.large) %>" width="260px" alt="Image">' +
 					'<h3><%= @detail.name %></h3>' +
 					'<span><%= @detail.address %></span>';
 					
@@ -127,7 +127,7 @@ $('input.date-pick').datepicker('setDate', 'today');
 				marker.addListener('click', function() {
 				  infowindow.open(map, marker);
 				});
-				google.maps.event.addListenerOnce(map, 'idle', function(){
+				google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
 					infowindow.open(map, marker);
 				});
 			}
