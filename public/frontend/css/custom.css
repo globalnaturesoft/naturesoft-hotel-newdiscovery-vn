@@ -70,8 +70,11 @@ p a img.img-responsive {
   width: 100%;
 }
 .marker_infowindow {
-  text-align: center;
-  width: 380px;
+    text-align: center;
+    width: 280px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 #logo_home h1 a, header.sticky #logo_home h1 a, header#plain #logo_home h1 a, header#colored #logo_home h1 a {
     width: 160px;
