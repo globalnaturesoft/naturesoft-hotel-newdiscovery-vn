@@ -8,7 +8,7 @@
         <div class="col-md-4 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
             <div class="tour_container">
                 <div class="img_container">
-                    <a href="<%= menus.url + "?area_id=" + item.id.to_s %>">
+                    <a href="<%= menus.url({area_id: item.id, area_alias: url_friendly(item.name)}) %>">
                     <% if item.image.present? %>
                     <%= image_tag(item.image.big, alt: "", class: "img-responsive") %>
                     <% else %>
