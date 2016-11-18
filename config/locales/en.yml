@@ -40,3 +40,7 @@ en:
   added_wishlist_success: "Đã thêm khách sạn vào yêu thích"
   removed_wishlist: "Đã hủy khách sạn yêu thích khỏi danh sách"
   subject_send_email_contact: "[Liên hệ] Bạn nhận được tin nhắn liên hệ từ "
+  
+  favorite: "Thẻ YÊU THÍCH - màu hồng"
+  new: "Thẻ MỚI - màu xanh"
+  hot: "Thẻ HOT - màu cam"
